@@ -1,0 +1,11 @@
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\BankaSimulasyon.exe.config
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\BankaSimulasyon.exe
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\BankaSimulasyon.pdb
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.csproj.AssemblyReference.cache
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.HomePage.resources
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.LoginPage.resources
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Properties.Resources.resources
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.csproj.GenerateResource.cache
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.csproj.CoreCompileInputs.cache
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.exe
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.pdb
