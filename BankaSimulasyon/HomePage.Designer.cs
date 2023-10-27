@@ -29,172 +29,189 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.LblAdSoyad = new System.Windows.Forms.Label();
-            this.LblHesap = new System.Windows.Forms.Label();
-            this.LblTc = new System.Windows.Forms.Label();
-            this.LblTel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnGonder = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TxtTutar = new System.Windows.Forms.TextBox();
-            this.MskHesapNo = new System.Windows.Forms.MaskedTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.BtnTransfer = new System.Windows.Forms.Button();
+            this.BtnFatura = new System.Windows.Forms.Button();
+            this.BtnCekim = new System.Windows.Forms.Button();
+            this.BtnHesap = new System.Windows.Forms.Button();
+            this.PanelLogo = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PanelTitleBar = new System.Windows.Forms.Panel();
+            this.LblTitle = new System.Windows.Forms.Label();
+            this.PanelDesktopPanel = new System.Windows.Forms.Panel();
+            this.panelMenu.SuspendLayout();
+            this.PanelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PanelTitleBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // panelMenu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ad Soyad:";
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(54)))), ((int)(((byte)(90)))));
+            this.panelMenu.Controls.Add(this.BtnTransfer);
+            this.panelMenu.Controls.Add(this.BtnFatura);
+            this.panelMenu.Controls.Add(this.BtnCekim);
+            this.panelMenu.Controls.Add(this.BtnHesap);
+            this.panelMenu.Controls.Add(this.PanelLogo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(225, 611);
+            this.panelMenu.TabIndex = 0;
             // 
-            // label2
+            // BtnTransfer
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Hesap No:";
+            this.BtnTransfer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTransfer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnTransfer.FlatAppearance.BorderSize = 0;
+            this.BtnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTransfer.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnTransfer.Image = global::BankaSimulasyon.Properties.Resources.transferbeyaz;
+            this.BtnTransfer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTransfer.Location = new System.Drawing.Point(0, 370);
+            this.BtnTransfer.Name = "BtnTransfer";
+            this.BtnTransfer.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnTransfer.Size = new System.Drawing.Size(225, 90);
+            this.BtnTransfer.TabIndex = 31;
+            this.BtnTransfer.Text = "  Para Transferi";
+            this.BtnTransfer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTransfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnTransfer.UseVisualStyleBackColor = true;
+            this.BtnTransfer.Click += new System.EventHandler(this.BtnTransfer_Click);
             // 
-            // label3
+            // BtnFatura
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "TC Kimlik:";
+            this.BtnFatura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFatura.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnFatura.FlatAppearance.BorderSize = 0;
+            this.BtnFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFatura.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnFatura.Image = global::BankaSimulasyon.Properties.Resources.faturabeyaz;
+            this.BtnFatura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFatura.Location = new System.Drawing.Point(0, 280);
+            this.BtnFatura.Name = "BtnFatura";
+            this.BtnFatura.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnFatura.Size = new System.Drawing.Size(225, 90);
+            this.BtnFatura.TabIndex = 30;
+            this.BtnFatura.Text = "  Faturalar";
+            this.BtnFatura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFatura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnFatura.UseVisualStyleBackColor = true;
+            this.BtnFatura.Click += new System.EventHandler(this.BtnFatura_Click);
             // 
-            // label4
+            // BtnCekim
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 179);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Telefon:";
+            this.BtnCekim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCekim.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnCekim.FlatAppearance.BorderSize = 0;
+            this.BtnCekim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCekim.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnCekim.Image = global::BankaSimulasyon.Properties.Resources.paracekmebeyaz;
+            this.BtnCekim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCekim.Location = new System.Drawing.Point(0, 190);
+            this.BtnCekim.Name = "BtnCekim";
+            this.BtnCekim.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnCekim.Size = new System.Drawing.Size(225, 90);
+            this.BtnCekim.TabIndex = 29;
+            this.BtnCekim.Text = "  Para \r\nÇekme-Yatırma";
+            this.BtnCekim.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCekim.UseVisualStyleBackColor = true;
+            this.BtnCekim.Click += new System.EventHandler(this.BtnCekim_Click);
             // 
-            // LblAdSoyad
+            // BtnHesap
             // 
-            this.LblAdSoyad.AutoSize = true;
-            this.LblAdSoyad.Location = new System.Drawing.Point(111, 46);
-            this.LblAdSoyad.Name = "LblAdSoyad";
-            this.LblAdSoyad.Size = new System.Drawing.Size(39, 19);
-            this.LblAdSoyad.TabIndex = 4;
-            this.LblAdSoyad.Text = "Null";
+            this.BtnHesap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnHesap.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnHesap.FlatAppearance.BorderSize = 0;
+            this.BtnHesap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnHesap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnHesap.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnHesap.Image = global::BankaSimulasyon.Properties.Resources.hesappbeyaz;
+            this.BtnHesap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnHesap.Location = new System.Drawing.Point(0, 100);
+            this.BtnHesap.Name = "BtnHesap";
+            this.BtnHesap.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnHesap.Size = new System.Drawing.Size(225, 90);
+            this.BtnHesap.TabIndex = 28;
+            this.BtnHesap.Text = "  Hesap Dökümü";
+            this.BtnHesap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnHesap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnHesap.UseVisualStyleBackColor = true;
+            this.BtnHesap.Click += new System.EventHandler(this.BtnHesap_Click);
             // 
-            // LblHesap
+            // PanelLogo
             // 
-            this.LblHesap.AutoSize = true;
-            this.LblHesap.Location = new System.Drawing.Point(111, 94);
-            this.LblHesap.Name = "LblHesap";
-            this.LblHesap.Size = new System.Drawing.Size(39, 19);
-            this.LblHesap.TabIndex = 5;
-            this.LblHesap.Text = "Null";
+            this.PanelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.PanelLogo.Controls.Add(this.label5);
+            this.PanelLogo.Controls.Add(this.pictureBox1);
+            this.PanelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelLogo.Location = new System.Drawing.Point(0, 0);
+            this.PanelLogo.Name = "PanelLogo";
+            this.PanelLogo.Size = new System.Drawing.Size(225, 100);
+            this.PanelLogo.TabIndex = 27;
             // 
-            // LblTc
+            // label5
             // 
-            this.LblTc.AutoSize = true;
-            this.LblTc.Location = new System.Drawing.Point(111, 139);
-            this.LblTc.Name = "LblTc";
-            this.LblTc.Size = new System.Drawing.Size(39, 19);
-            this.LblTc.TabIndex = 6;
-            this.LblTc.Text = "Null";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Doubleplus", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(89, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 58);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "AURORA\r\nBANK";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LblTel
+            // pictureBox1
             // 
-            this.LblTel.AutoSize = true;
-            this.LblTel.Location = new System.Drawing.Point(111, 179);
-            this.LblTel.Name = "LblTel";
-            this.LblTel.Size = new System.Drawing.Size(39, 19);
-            this.LblTel.TabIndex = 7;
-            this.LblTel.Text = "Null";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
-            // groupBox1
+            // PanelTitleBar
             // 
-            this.groupBox1.Controls.Add(this.BtnGonder);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.TxtTutar);
-            this.groupBox1.Controls.Add(this.MskHesapNo);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 269);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 212);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Havale";
+            this.PanelTitleBar.BackColor = System.Drawing.Color.SlateGray;
+            this.PanelTitleBar.Controls.Add(this.LblTitle);
+            this.PanelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelTitleBar.Location = new System.Drawing.Point(225, 0);
+            this.PanelTitleBar.Name = "PanelTitleBar";
+            this.PanelTitleBar.Size = new System.Drawing.Size(859, 100);
+            this.PanelTitleBar.TabIndex = 27;
             // 
-            // BtnGonder
+            // LblTitle
             // 
-            this.BtnGonder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnGonder.ForeColor = System.Drawing.Color.White;
-            this.BtnGonder.Location = new System.Drawing.Point(118, 122);
-            this.BtnGonder.Name = "BtnGonder";
-            this.BtnGonder.Size = new System.Drawing.Size(168, 38);
-            this.BtnGonder.TabIndex = 6;
-            this.BtnGonder.Text = "Gönder";
-            this.BtnGonder.UseVisualStyleBackColor = true;
-            this.BtnGonder.Click += new System.EventHandler(this.BtnGonder_Click);
+            this.LblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblTitle.AutoSize = true;
+            this.LblTitle.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTitle.Location = new System.Drawing.Point(319, 35);
+            this.LblTitle.Name = "LblTitle";
+            this.LblTitle.Size = new System.Drawing.Size(216, 32);
+            this.LblTitle.TabIndex = 9;
+            this.LblTitle.Text = "Hesap Dökümü";
+            this.LblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
+            // PanelDesktopPanel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(58, 79);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 19);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Tutar:";
-            // 
-            // TxtTutar
-            // 
-            this.TxtTutar.Location = new System.Drawing.Point(118, 76);
-            this.TxtTutar.Name = "TxtTutar";
-            this.TxtTutar.Size = new System.Drawing.Size(168, 26);
-            this.TxtTutar.TabIndex = 4;
-            // 
-            // MskHesapNo
-            // 
-            this.MskHesapNo.Location = new System.Drawing.Point(118, 31);
-            this.MskHesapNo.Mask = "0000000";
-            this.MskHesapNo.Name = "MskHesapNo";
-            this.MskHesapNo.Size = new System.Drawing.Size(168, 26);
-            this.MskHesapNo.TabIndex = 3;
-            this.MskHesapNo.ValidatingType = typeof(int);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(22, 34);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 19);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Hesap No:";
+            this.PanelDesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelDesktopPanel.Location = new System.Drawing.Point(225, 100);
+            this.PanelDesktopPanel.Name = "PanelDesktopPanel";
+            this.PanelDesktopPanel.Size = new System.Drawing.Size(859, 511);
+            this.PanelDesktopPanel.TabIndex = 28;
             // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(54)))), ((int)(((byte)(90)))));
-            this.ClientSize = new System.Drawing.Size(434, 493);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.LblTel);
-            this.Controls.Add(this.LblTc);
-            this.Controls.Add(this.LblHesap);
-            this.Controls.Add(this.LblAdSoyad);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1084, 611);
+            this.Controls.Add(this.PanelDesktopPanel);
+            this.Controls.Add(this.PanelTitleBar);
+            this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -204,28 +221,28 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Anasayfa";
             this.Load += new System.EventHandler(this.HomePage_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.PanelLogo.ResumeLayout(false);
+            this.PanelLogo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.PanelTitleBar.ResumeLayout(false);
+            this.PanelTitleBar.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label LblAdSoyad;
-        private System.Windows.Forms.Label LblHesap;
-        private System.Windows.Forms.Label LblTc;
-        private System.Windows.Forms.Label LblTel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox MskHesapNo;
-        private System.Windows.Forms.Button BtnGonder;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox TxtTutar;
+        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Panel PanelLogo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button BtnHesap;
+        private System.Windows.Forms.Button BtnTransfer;
+        private System.Windows.Forms.Button BtnFatura;
+        private System.Windows.Forms.Button BtnCekim;
+        private System.Windows.Forms.Panel PanelTitleBar;
+        private System.Windows.Forms.Label LblTitle;
+        private System.Windows.Forms.Panel PanelDesktopPanel;
     }
 }

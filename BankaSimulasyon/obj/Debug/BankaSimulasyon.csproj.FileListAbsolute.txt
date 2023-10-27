@@ -16,3 +16,7 @@ D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\DataAc
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\EntityLayer.pdb
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\LogicLayer.pdb
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.csproj.CopyComplete
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Forms.AccountStatementForm.resources
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Forms.BillsForm.resources
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Forms.DpstWthdrwlPrcsForm.resources
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Forms.TransferForm.resources
