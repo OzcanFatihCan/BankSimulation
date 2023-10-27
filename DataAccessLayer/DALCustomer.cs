@@ -65,5 +65,23 @@ namespace DataAccessLayer
                 throw;
             }
         }
+        public static List<EntityCustomer> AccountNumber()
+        {
+            List<EntityCustomer> AccountLog = new List<EntityCustomer>();
+            SqlCommand komut3 = new SqlCommand("SELECT HESAPNO FROM MUSTERILER", SQLConn.conn);
+            if (komut3.Connection.State != ConnectionState.Open)
+            {
+                komut3.Connection.Open();
+            }
+            SqlDataReader dr2 = komut3.ExecuteReader();
+            while (dr2.Read())
+            {
+                EntityCustomer e = new EntityCustomer();
+                e.Hesapno = dr2["HESAPNO"].ToString();
+                AccountLog.Add(e);
+            }
+            dr2.Close();
+            return AccountLog;
+        }
     }
 }

@@ -42,5 +42,9 @@ namespace LogicLayer
                 return -1;
             }
         }
+        public static List<EntityCustomer> LLAccountNumber()
+        {
+            return DALCustomer.AccountNumber();
+        }
     }
 }

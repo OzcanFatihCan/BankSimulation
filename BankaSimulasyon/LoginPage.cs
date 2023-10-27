@@ -67,9 +67,20 @@ namespace BankaSimulasyon
 
         private void BtnHesapNo_Click(object sender, EventArgs e)
         {
+            List<EntityCustomer> AccountNumber = LogicCustomer.LLAccountNumber();
             Random rnd = new Random();
-            int sayi = rnd.Next(1000000, 10000000);
-            TxtRgsHesap.Text = sayi.ToString();
+            int yeniSayi = 0;
+            List<int> mevcutSayilar = AccountNumber.Select(customer => int.Parse(customer.Hesapno)).ToList();
+            while (true)
+            {
+                yeniSayi = rnd.Next(1000000, 10000000);
+
+                if (!mevcutSayilar.Contains(yeniSayi))
+                {
+                    TxtRgsHesap.Text = yeniSayi.ToString();
+                    break;
+                }
+            }
         }
 
         private void BtnKayitOl_Click(object sender, EventArgs e)
@@ -93,8 +104,7 @@ namespace BankaSimulasyon
             else
             {
                 MessageBox.Show("Hatalı giriş yaptınız. Lütfen kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-           
+            }          
         }
     }
 }
