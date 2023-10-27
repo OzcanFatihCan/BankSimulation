@@ -35,7 +35,7 @@ namespace BankaSimulasyon
             Baglanti.Close();
         }
         private void HomePage_Load(object sender, EventArgs e)
-        {
+        {                           
             LblHesap.Text = hesap;
             bilgiGetir();
         }

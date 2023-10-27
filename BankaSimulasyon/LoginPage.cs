@@ -18,36 +18,46 @@ namespace BankaSimulasyon
             InitializeComponent();
         }
 
-        private void BtnKayitOl_Click(object sender, EventArgs e)
-        {
-            Baglanti.Open();
-            SqlCommand komut = new SqlCommand("INSERT INTO MUSTERILER (AD,SOYAD,TC,TELEFON,HESAPNO,SIFRE) VALUES (@P1,@P2,@P3,@P4,@P5,@P6)",Baglanti);
-            komut.Parameters.AddWithValue("@P1",TxtRgsAd.Text);
-            komut.Parameters.AddWithValue("@P2", TxtRgsSoyad.Text);
-            komut.Parameters.AddWithValue("@P3", MskRgsTc.Text);
-            komut.Parameters.AddWithValue("@P4", MskRgsTelefon.Text);
-            komut.Parameters.AddWithValue("@P5", MskRgsHesap.Text);
-            komut.Parameters.AddWithValue("@P6", TxtRgsSifre.Text);
-            komut.ExecuteNonQuery();
-            Baglanti.Close();
-            MessageBox.Show("Müşteri Bilgileri sisteme kaydedildi","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+      
+     
 
+       
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pctOrta.Left += 20;
+            if (pctOrta.Left == 400)
+            {
+                timer1.Stop();               
+            }
         }
 
-        private void BtnHesapNo_Click(object sender, EventArgs e)
+        private void timer2_Tick(object sender, EventArgs e)
         {
-            Random rnd=new Random();
-            int sayi = rnd.Next(1000000,10000000);
-            MskRgsHesap.Text=sayi.ToString();
+            pctOrta.Left -= 20;
+            if (pctOrta.Left == 0)
+            {
+                timer2.Stop();
+            }
+        }
+
+        private void LnkKayıtOl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void LnkGirisYap_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            timer2.Start();
         }
 
         private void BtnLoginGiris_Click(object sender, EventArgs e)
         {
             Baglanti.Open();
-            SqlCommand komut = new SqlCommand("SELECT * FROM MUSTERILER WHERE HESAPNO=@P1 AND SIFRE=@P2",Baglanti);
+            SqlCommand komut = new SqlCommand("SELECT * FROM MUSTERILER WHERE HESAPNO=@P1 AND SIFRE=@P2", Baglanti);
             komut.Parameters.AddWithValue("@P1", MskLoginHesap.Text);
             komut.Parameters.AddWithValue("@P2", TxtLoginSifre.Text);
-            SqlDataReader dr=komut.ExecuteReader();
+            SqlDataReader dr = komut.ExecuteReader();
             if (dr.Read())
             {
                 HomePage frm = new HomePage();
@@ -59,6 +69,28 @@ namespace BankaSimulasyon
                 MessageBox.Show("Hatalı müşteri bilgisi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Baglanti.Close();
+        }
+
+        private void BtnHesapNo_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int sayi = rnd.Next(1000000, 10000000);
+            MskRgsHesap.Text = sayi.ToString();
+        }
+
+        private void BtnKayitOl_Click(object sender, EventArgs e)
+        {
+            Baglanti.Open();
+            SqlCommand komut = new SqlCommand("INSERT INTO MUSTERILER (AD,SOYAD,TC,TELEFON,HESAPNO,SIFRE) VALUES (@P1,@P2,@P3,@P4,@P5,@P6)", Baglanti);
+            komut.Parameters.AddWithValue("@P1", TxtRgsAd.Text);
+            komut.Parameters.AddWithValue("@P2", TxtRgsSoyad.Text);
+            komut.Parameters.AddWithValue("@P3", MskRgsTc.Text);
+            komut.Parameters.AddWithValue("@P4", MskRgsTelefon.Text);
+            komut.Parameters.AddWithValue("@P5", MskRgsHesap.Text);
+            komut.Parameters.AddWithValue("@P6", TxtRgsSifre.Text);
+            komut.ExecuteNonQuery();
+            Baglanti.Close();
+            MessageBox.Show("Müşteri Bilgileri sisteme kaydedildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
