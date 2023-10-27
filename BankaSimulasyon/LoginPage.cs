@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EntityLayer;
+using LogicLayer;
+
 namespace BankaSimulasyon
 {
     public partial class LoginPage : Form
@@ -53,22 +56,18 @@ namespace BankaSimulasyon
 
         private void BtnLoginGiris_Click(object sender, EventArgs e)
         {
-            Baglanti.Open();
-            SqlCommand komut = new SqlCommand("SELECT * FROM MUSTERILER WHERE HESAPNO=@P1 AND SIFRE=@P2", Baglanti);
-            komut.Parameters.AddWithValue("@P1", MskLoginHesap.Text);
-            komut.Parameters.AddWithValue("@P2", TxtLoginSifre.Text);
-            SqlDataReader dr = komut.ExecuteReader();
-            if (dr.Read())
+            List<EntityCustomer> CustomerLogin = LogicCustomer.LLCustomerLogin(MskLoginHesap.Text, TxtLoginSifre.Text);
+            if (CustomerLogin != null && CustomerLogin.Count > 0)
             {
                 HomePage frm = new HomePage();
                 frm.hesap = MskLoginHesap.Text;
                 frm.Show();
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Hatalı müşteri bilgisi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            Baglanti.Close();
+                MessageBox.Show("Hatalı kullanıcı girişi yaptınız. Bilgilerinizi kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }         
         }
 
         private void BtnHesapNo_Click(object sender, EventArgs e)

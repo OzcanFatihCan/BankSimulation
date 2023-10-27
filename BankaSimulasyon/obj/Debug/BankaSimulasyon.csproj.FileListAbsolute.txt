@@ -9,3 +9,10 @@ D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaS
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.csproj.CoreCompileInputs.cache
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.exe
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.pdb
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\DataAccessLayer.dll
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\EntityLayer.dll
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\LogicLayer.dll
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\DataAccessLayer.pdb
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\EntityLayer.pdb
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\bin\Debug\LogicLayer.pdb
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.csproj.CopyComplete
