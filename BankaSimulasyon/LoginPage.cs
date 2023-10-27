@@ -21,11 +21,6 @@ namespace BankaSimulasyon
             InitializeComponent();
         }
 
-      
-     
-
-       
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             pctOrta.Left += 20;
@@ -56,11 +51,11 @@ namespace BankaSimulasyon
 
         private void BtnLoginGiris_Click(object sender, EventArgs e)
         {
-            List<EntityCustomer> CustomerLogin = LogicCustomer.LLCustomerLogin(MskLoginHesap.Text, TxtLoginSifre.Text);
+            List<EntityCustomer> CustomerLogin = LogicCustomer.LLCustomerLogin(TxtLoginHesap.Text, TxtLoginSifre.Text);
             if (CustomerLogin != null && CustomerLogin.Count > 0)
             {
                 HomePage frm = new HomePage();
-                frm.hesap = MskLoginHesap.Text;
+                frm.hesap = TxtLoginHesap.Text;
                 frm.Show();
                 this.Hide();
             }
@@ -74,22 +69,32 @@ namespace BankaSimulasyon
         {
             Random rnd = new Random();
             int sayi = rnd.Next(1000000, 10000000);
-            MskRgsHesap.Text = sayi.ToString();
+            TxtRgsHesap.Text = sayi.ToString();
         }
 
         private void BtnKayitOl_Click(object sender, EventArgs e)
         {
-            Baglanti.Open();
-            SqlCommand komut = new SqlCommand("INSERT INTO MUSTERILER (AD,SOYAD,TC,TELEFON,HESAPNO,SIFRE) VALUES (@P1,@P2,@P3,@P4,@P5,@P6)", Baglanti);
-            komut.Parameters.AddWithValue("@P1", TxtRgsAd.Text);
-            komut.Parameters.AddWithValue("@P2", TxtRgsSoyad.Text);
-            komut.Parameters.AddWithValue("@P3", MskRgsTc.Text);
-            komut.Parameters.AddWithValue("@P4", MskRgsTelefon.Text);
-            komut.Parameters.AddWithValue("@P5", MskRgsHesap.Text);
-            komut.Parameters.AddWithValue("@P6", TxtRgsSifre.Text);
-            komut.ExecuteNonQuery();
-            Baglanti.Close();
-            MessageBox.Show("Müşteri Bilgileri sisteme kaydedildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            EntityCustomer ent = new EntityCustomer();
+            ent.Ad = TxtRgsAd.Text;
+            ent.Soyad = TxtRgsSoyad.Text;
+            ent.Sifre = TxtRgsSifre.Text;
+            ent.Tc = TxtRgsTc.Text;
+            ent.Hesapno = TxtRgsHesap.Text;
+            ent.Telefon = MskRgsTelefon.Text;
+            int result=LogicCustomer.LLCustomerRegister(ent);
+            if (result > 0)
+            {
+                MessageBox.Show("Kayıt başarıyla gerçekleştirildi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (result == 0)
+            {
+                MessageBox.Show("Kayıt sırasında hata oluştu", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Hatalı giriş yaptınız. Lütfen kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

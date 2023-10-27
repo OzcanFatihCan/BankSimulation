@@ -47,12 +47,9 @@
             this.TxtRgsSifre = new System.Windows.Forms.TextBox();
             this.TxtRgsSoyad = new System.Windows.Forms.TextBox();
             this.TxtRgsAd = new System.Windows.Forms.TextBox();
-            this.MskRgsHesap = new System.Windows.Forms.MaskedTextBox();
             this.MskRgsTelefon = new System.Windows.Forms.MaskedTextBox();
-            this.MskRgsTc = new System.Windows.Forms.MaskedTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.MskLoginHesap = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtLoginSifre = new System.Windows.Forms.TextBox();
@@ -60,6 +57,9 @@
             this.LnkKayıtOl = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pctOrta = new System.Windows.Forms.PictureBox();
+            this.TxtLoginHesap = new System.Windows.Forms.TextBox();
+            this.TxtRgsTc = new System.Windows.Forms.TextBox();
+            this.TxtRgsHesap = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -93,6 +93,8 @@
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(54)))), ((int)(((byte)(90)))));
             this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelLeft.Controls.Add(this.TxtRgsHesap);
+            this.panelLeft.Controls.Add(this.TxtRgsTc);
             this.panelLeft.Controls.Add(this.pictureBox2);
             this.panelLeft.Controls.Add(this.BtnHesapNo);
             this.panelLeft.Controls.Add(this.LnkGirisYap);
@@ -106,9 +108,7 @@
             this.panelLeft.Controls.Add(this.TxtRgsSifre);
             this.panelLeft.Controls.Add(this.TxtRgsSoyad);
             this.panelLeft.Controls.Add(this.TxtRgsAd);
-            this.panelLeft.Controls.Add(this.MskRgsHesap);
             this.panelLeft.Controls.Add(this.MskRgsTelefon);
-            this.panelLeft.Controls.Add(this.MskRgsTc);
             this.panelLeft.Location = new System.Drawing.Point(23, 15);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(350, 430);
@@ -139,6 +139,7 @@
             // 
             this.LnkGirisYap.AutoSize = true;
             this.LnkGirisYap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(54)))), ((int)(((byte)(90)))));
+            this.LnkGirisYap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LnkGirisYap.DisabledLinkColor = System.Drawing.Color.White;
             this.LnkGirisYap.LinkColor = System.Drawing.Color.White;
             this.LnkGirisYap.Location = new System.Drawing.Point(137, 397);
@@ -151,6 +152,7 @@
             // 
             // BtnKayitOl
             // 
+            this.BtnKayitOl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKayitOl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnKayitOl.Location = new System.Drawing.Point(90, 326);
             this.BtnKayitOl.Name = "BtnKayitOl";
@@ -219,7 +221,7 @@
             this.TxtRgsSifre.Location = new System.Drawing.Point(151, 280);
             this.TxtRgsSifre.Name = "TxtRgsSifre";
             this.TxtRgsSifre.Size = new System.Drawing.Size(168, 26);
-            this.TxtRgsSifre.TabIndex = 28;
+            this.TxtRgsSifre.TabIndex = 8;
             this.TxtRgsSifre.UseSystemPasswordChar = true;
             // 
             // TxtRgsSoyad
@@ -227,24 +229,14 @@
             this.TxtRgsSoyad.Location = new System.Drawing.Point(153, 122);
             this.TxtRgsSoyad.Name = "TxtRgsSoyad";
             this.TxtRgsSoyad.Size = new System.Drawing.Size(168, 26);
-            this.TxtRgsSoyad.TabIndex = 27;
+            this.TxtRgsSoyad.TabIndex = 4;
             // 
             // TxtRgsAd
             // 
             this.TxtRgsAd.Location = new System.Drawing.Point(23, 80);
             this.TxtRgsAd.Name = "TxtRgsAd";
             this.TxtRgsAd.Size = new System.Drawing.Size(168, 26);
-            this.TxtRgsAd.TabIndex = 26;
-            // 
-            // MskRgsHesap
-            // 
-            this.MskRgsHesap.Enabled = false;
-            this.MskRgsHesap.Location = new System.Drawing.Point(23, 239);
-            this.MskRgsHesap.Mask = "0000000";
-            this.MskRgsHesap.Name = "MskRgsHesap";
-            this.MskRgsHesap.Size = new System.Drawing.Size(168, 26);
-            this.MskRgsHesap.TabIndex = 25;
-            this.MskRgsHesap.ValidatingType = typeof(int);
+            this.TxtRgsAd.TabIndex = 3;
             // 
             // MskRgsTelefon
             // 
@@ -252,16 +244,7 @@
             this.MskRgsTelefon.Mask = "(999) 000-0000";
             this.MskRgsTelefon.Name = "MskRgsTelefon";
             this.MskRgsTelefon.Size = new System.Drawing.Size(168, 26);
-            this.MskRgsTelefon.TabIndex = 24;
-            // 
-            // MskRgsTc
-            // 
-            this.MskRgsTc.Location = new System.Drawing.Point(153, 201);
-            this.MskRgsTc.Mask = "00000000000";
-            this.MskRgsTc.Name = "MskRgsTc";
-            this.MskRgsTc.Size = new System.Drawing.Size(168, 26);
-            this.MskRgsTc.TabIndex = 23;
-            this.MskRgsTc.ValidatingType = typeof(int);
+            this.MskRgsTelefon.TabIndex = 5;
             // 
             // panel2
             // 
@@ -277,7 +260,7 @@
             // 
             this.panelRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(54)))), ((int)(((byte)(90)))));
             this.panelRight.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelRight.Controls.Add(this.MskLoginHesap);
+            this.panelRight.Controls.Add(this.TxtLoginHesap);
             this.panelRight.Controls.Add(this.label1);
             this.panelRight.Controls.Add(this.label2);
             this.panelRight.Controls.Add(this.TxtLoginSifre);
@@ -288,15 +271,6 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(350, 430);
             this.panelRight.TabIndex = 24;
-            // 
-            // MskLoginHesap
-            // 
-            this.MskLoginHesap.Location = new System.Drawing.Point(90, 161);
-            this.MskLoginHesap.Mask = "0000000";
-            this.MskLoginHesap.Name = "MskLoginHesap";
-            this.MskLoginHesap.Size = new System.Drawing.Size(168, 26);
-            this.MskLoginHesap.TabIndex = 2;
-            this.MskLoginHesap.ValidatingType = typeof(int);
             // 
             // label1
             // 
@@ -321,11 +295,12 @@
             this.TxtLoginSifre.Location = new System.Drawing.Point(90, 239);
             this.TxtLoginSifre.Name = "TxtLoginSifre";
             this.TxtLoginSifre.Size = new System.Drawing.Size(168, 26);
-            this.TxtLoginSifre.TabIndex = 3;
+            this.TxtLoginSifre.TabIndex = 2;
             this.TxtLoginSifre.UseSystemPasswordChar = true;
             // 
             // BtnLoginGiris
             // 
+            this.BtnLoginGiris.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLoginGiris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLoginGiris.Location = new System.Drawing.Point(90, 326);
             this.BtnLoginGiris.Name = "BtnLoginGiris";
@@ -339,6 +314,7 @@
             // 
             this.LnkKayıtOl.AutoSize = true;
             this.LnkKayıtOl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(54)))), ((int)(((byte)(90)))));
+            this.LnkKayıtOl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LnkKayıtOl.DisabledLinkColor = System.Drawing.Color.White;
             this.LnkKayıtOl.LinkColor = System.Drawing.Color.White;
             this.LnkKayıtOl.Location = new System.Drawing.Point(140, 395);
@@ -368,6 +344,28 @@
             this.pctOrta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctOrta.TabIndex = 27;
             this.pctOrta.TabStop = false;
+            // 
+            // TxtLoginHesap
+            // 
+            this.TxtLoginHesap.Location = new System.Drawing.Point(90, 162);
+            this.TxtLoginHesap.Name = "TxtLoginHesap";
+            this.TxtLoginHesap.Size = new System.Drawing.Size(168, 26);
+            this.TxtLoginHesap.TabIndex = 1;
+            // 
+            // TxtRgsTc
+            // 
+            this.TxtRgsTc.Location = new System.Drawing.Point(153, 202);
+            this.TxtRgsTc.Name = "TxtRgsTc";
+            this.TxtRgsTc.Size = new System.Drawing.Size(168, 26);
+            this.TxtRgsTc.TabIndex = 6;
+            // 
+            // TxtRgsHesap
+            // 
+            this.TxtRgsHesap.Enabled = false;
+            this.TxtRgsHesap.Location = new System.Drawing.Point(23, 239);
+            this.TxtRgsHesap.Name = "TxtRgsHesap";
+            this.TxtRgsHesap.Size = new System.Drawing.Size(168, 26);
+            this.TxtRgsHesap.TabIndex = 7;
             // 
             // LoginPage
             // 
@@ -419,12 +417,9 @@
         private System.Windows.Forms.TextBox TxtRgsSifre;
         private System.Windows.Forms.TextBox TxtRgsSoyad;
         private System.Windows.Forms.TextBox TxtRgsAd;
-        private System.Windows.Forms.MaskedTextBox MskRgsHesap;
         private System.Windows.Forms.MaskedTextBox MskRgsTelefon;
-        private System.Windows.Forms.MaskedTextBox MskRgsTc;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelRight;
-        private System.Windows.Forms.MaskedTextBox MskLoginHesap;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtLoginSifre;
@@ -432,6 +427,9 @@
         private System.Windows.Forms.LinkLabel LnkKayıtOl;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pctOrta;
+        private System.Windows.Forms.TextBox TxtLoginHesap;
+        private System.Windows.Forms.TextBox TxtRgsTc;
+        private System.Windows.Forms.TextBox TxtRgsHesap;
     }
 }
 
