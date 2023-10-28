@@ -76,12 +76,36 @@ namespace DataAccessLayer
             SqlDataReader dr2 = komut3.ExecuteReader();
             while (dr2.Read())
             {
-                EntityCustomer e = new EntityCustomer();
-                e.Hesapno = dr2["HESAPNO"].ToString();
-                AccountLog.Add(e);
+                EntityCustomer ent = new EntityCustomer();
+                ent.Hesapno = dr2["HESAPNO"].ToString();
+                AccountLog.Add(ent);
             }
             dr2.Close();
             return AccountLog;
+        }
+
+        public static List<EntityCustomer> CustumerInfo(string hesapNo)
+        {
+            List<EntityCustomer> InfoLog = new List<EntityCustomer>();
+            SqlCommand komut4 = new SqlCommand("SELECT * FROM MUSTERILER WHERE HESAPNO=@P1", SQLConn.conn);
+            if (komut4.Connection.State != ConnectionState.Open)
+            {
+                komut4.Connection.Open();
+            }
+            komut4.Parameters.AddWithValue("@P1", hesapNo);
+            SqlDataReader dr3=komut4.ExecuteReader();      
+            while (dr3.Read())
+            {
+                EntityCustomer ent = new EntityCustomer();
+                ent.Ad = dr3["AD"].ToString();
+                ent.Soyad = dr3["SOYAD"].ToString();
+                ent.Hesapno = dr3["HESAPNO"].ToString();
+                ent.Tc = dr3["TC"].ToString();
+                ent.Telefon = dr3["TELEFON"].ToString();
+                InfoLog.Add(ent);
+            }
+            dr3.Close();
+            return InfoLog;
         }
     }
 }

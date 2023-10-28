@@ -46,5 +46,17 @@ namespace LogicLayer
         {
             return DALCustomer.AccountNumber();
         }
+        public static List<EntityCustomer> LLCustomerInfo(string hesapNo)
+        {
+            if (hesapNo!="" &&
+                hesapNo.Length==7)
+            {
+                return DALCustomer.CustumerInfo(hesapNo);
+            }
+            else
+            {
+                return null; 
+            }
+        }
     }
 }

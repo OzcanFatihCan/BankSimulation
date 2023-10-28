@@ -54,7 +54,7 @@
             this.groupBox1.Controls.Add(this.MskHesapNo);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(345, 246);
+            this.groupBox1.Location = new System.Drawing.Point(142, 242);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -117,7 +117,7 @@
             // 
             this.LblTel.AutoSize = true;
             this.LblTel.ForeColor = System.Drawing.Color.Black;
-            this.LblTel.Location = new System.Drawing.Point(595, 208);
+            this.LblTel.Location = new System.Drawing.Point(392, 204);
             this.LblTel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LblTel.Name = "LblTel";
             this.LblTel.Size = new System.Drawing.Size(39, 19);
@@ -128,7 +128,7 @@
             // 
             this.LblTc.AutoSize = true;
             this.LblTc.ForeColor = System.Drawing.Color.Black;
-            this.LblTc.Location = new System.Drawing.Point(595, 149);
+            this.LblTc.Location = new System.Drawing.Point(392, 145);
             this.LblTc.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LblTc.Name = "LblTc";
             this.LblTc.Size = new System.Drawing.Size(39, 19);
@@ -139,7 +139,7 @@
             // 
             this.LblHesap.AutoSize = true;
             this.LblHesap.ForeColor = System.Drawing.Color.Black;
-            this.LblHesap.Location = new System.Drawing.Point(595, 83);
+            this.LblHesap.Location = new System.Drawing.Point(392, 79);
             this.LblHesap.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LblHesap.Name = "LblHesap";
             this.LblHesap.Size = new System.Drawing.Size(39, 19);
@@ -150,7 +150,7 @@
             // 
             this.LblAdSoyad.AutoSize = true;
             this.LblAdSoyad.ForeColor = System.Drawing.Color.Black;
-            this.LblAdSoyad.Location = new System.Drawing.Point(595, 13);
+            this.LblAdSoyad.Location = new System.Drawing.Point(392, 9);
             this.LblAdSoyad.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LblAdSoyad.Name = "LblAdSoyad";
             this.LblAdSoyad.Size = new System.Drawing.Size(39, 19);
@@ -161,7 +161,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(467, 208);
+            this.label4.Location = new System.Drawing.Point(264, 204);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 19);
@@ -172,7 +172,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(438, 149);
+            this.label3.Location = new System.Drawing.Point(235, 145);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 19);
@@ -183,7 +183,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(435, 83);
+            this.label2.Location = new System.Drawing.Point(232, 79);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
@@ -194,7 +194,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(437, 13);
+            this.label5.Location = new System.Drawing.Point(234, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 19);

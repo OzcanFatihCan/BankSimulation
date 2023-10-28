@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EntityLayer;
+using LogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -19,6 +21,26 @@ namespace BankaSimulasyon
         private Random random;
         private int tempIndex;
         private Form activeForm;
+        public string hesap;
+        public HomePage()
+        {
+            InitializeComponent();
+            random = new Random();
+            BtnClose.Visible = false;
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//ekranı yukarı atınca tam ekran olsun kodu
+        }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+            BringInfo();
+        }
+
         private Color SelectThemeColor()
         {
             int index = random.Next(ThemeColor.ColorList.Count);
@@ -44,6 +66,7 @@ namespace BankaSimulasyon
                     currentButton.ForeColor = Color.White;
                     currentButton.Font= new System.Drawing.Font("Arial", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
                     PanelTitleBar.BackColor = color;
+                    PanelInfoBar.BackColor = color;
                     PanelLogo.BackColor = ThemeColor.ChangeColorBrightness(color,-0.3);
                     ThemeColor.PrimaryColor = color;
                     ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
@@ -82,42 +105,23 @@ namespace BankaSimulasyon
             LblTitle.Text = childForm.Text;
         }
       
-        public HomePage()
-        {
-            InitializeComponent();
-            random = new Random();
-            BtnClose.Visible = false;
-            this.Text=string.Empty;
-            this.ControlBox = false;
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//ekranı yukarı atınca tam ekran olsun kodu
-        }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+       
 
-        public string hesap;
-
-        void bilgiGetir()
+        void BringInfo()
         {
-            /*
-            Baglanti.Open();
-            SqlCommand komut = new SqlCommand("SELECT * FROM MUSTERILER WHERE HESAPNO=@P1",Baglanti);
-            komut.Parameters.AddWithValue("@P1",hesap);
-            SqlDataReader dr=komut.ExecuteReader();
-            while (dr.Read())
+            List<EntityCustomer> CustomerInfo = LogicCustomer.LLCustomerInfo(hesap);
+            foreach (var item in CustomerInfo)
             {
-                LblAdSoyad.Text = dr["AD"] + " " + dr["SOYAD"];
-                LblTc.Text = dr["TC"].ToString();
-                LblTel.Text = dr["TELEFON"].ToString();
+                string adsoyad= item.Ad + " " + item.Soyad;
+                LblAdSoyad.Text = adsoyad;
+                LblHesapNo.Text = item.Hesapno;
+                LblTcNo.Text = item.Tc;
+                LblTelefon.Text = item.Telefon;
+                string title = string.Format("Hoşgeldiniz {0}", adsoyad);
+                LblTitle.Text = title;
             }
-            Baglanti.Close();*/
         }
-        private void HomePage_Load(object sender, EventArgs e)
-        {   /*                        
-            LblHesap.Text = hesap;
-            bilgiGetir();*/
-        }
+    
 
         private void BtnGonder_Click(object sender, EventArgs e)
         {
@@ -176,8 +180,9 @@ namespace BankaSimulasyon
         private void Reset()
         {
             DisableButton();
-            LblTitle.Text = "AURORA BANK";
-            PanelTitleBar.BackColor = Color.SlateGray;
+            BringInfo();
+            PanelTitleBar.BackColor = Color.FromArgb(42, 54, 90);
+            PanelInfoBar.BackColor = Color.FromArgb(42,54,90);
             PanelLogo.BackColor=Color.FromArgb(39, 39, 58);
             currentButton = null;
             BtnClose.Visible = false;
