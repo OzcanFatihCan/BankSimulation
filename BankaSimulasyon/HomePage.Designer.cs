@@ -38,12 +38,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelTitleBar = new System.Windows.Forms.Panel();
+            this.BtnAllClose = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
             this.LblTitle = new System.Windows.Forms.Label();
             this.PanelDesktopPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelTitleBar.SuspendLayout();
+            this.PanelDesktopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -175,32 +181,86 @@
             // PanelTitleBar
             // 
             this.PanelTitleBar.BackColor = System.Drawing.Color.SlateGray;
+            this.PanelTitleBar.Controls.Add(this.BtnAllClose);
+            this.PanelTitleBar.Controls.Add(this.BtnClose);
             this.PanelTitleBar.Controls.Add(this.LblTitle);
             this.PanelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitleBar.Location = new System.Drawing.Point(225, 0);
             this.PanelTitleBar.Name = "PanelTitleBar";
             this.PanelTitleBar.Size = new System.Drawing.Size(859, 100);
             this.PanelTitleBar.TabIndex = 27;
+            this.PanelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitleBar_MouseDown);
+            // 
+            // BtnAllClose
+            // 
+            this.BtnAllClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAllClose.FlatAppearance.BorderSize = 0;
+            this.BtnAllClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAllClose.Image = global::BankaSimulasyon.Properties.Resources.kapatbeyaz;
+            this.BtnAllClose.Location = new System.Drawing.Point(831, 3);
+            this.BtnAllClose.Name = "BtnAllClose";
+            this.BtnAllClose.Size = new System.Drawing.Size(23, 23);
+            this.BtnAllClose.TabIndex = 11;
+            this.BtnAllClose.UseVisualStyleBackColor = true;
+            this.BtnAllClose.Click += new System.EventHandler(this.BtnAllClose_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnClose.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClose.Image = global::BankaSimulasyon.Properties.Resources.kapatbeyaz;
+            this.BtnClose.Location = new System.Drawing.Point(0, 0);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(65, 100);
+            this.BtnClose.TabIndex = 10;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // LblTitle
             // 
             this.LblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblTitle.AutoSize = true;
             this.LblTitle.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTitle.Location = new System.Drawing.Point(319, 35);
+            this.LblTitle.Location = new System.Drawing.Point(309, 35);
             this.LblTitle.Name = "LblTitle";
-            this.LblTitle.Size = new System.Drawing.Size(216, 32);
+            this.LblTitle.Size = new System.Drawing.Size(219, 32);
             this.LblTitle.TabIndex = 9;
-            this.LblTitle.Text = "Hesap Dökümü";
+            this.LblTitle.Text = "AURORA BANK";
             this.LblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PanelDesktopPanel
             // 
+            this.PanelDesktopPanel.Controls.Add(this.label1);
+            this.PanelDesktopPanel.Controls.Add(this.pictureBox2);
             this.PanelDesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelDesktopPanel.Location = new System.Drawing.Point(225, 100);
             this.PanelDesktopPanel.Name = "PanelDesktopPanel";
             this.PanelDesktopPanel.Size = new System.Drawing.Size(859, 511);
             this.PanelDesktopPanel.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(293, 233);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(251, 37);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "AURORA BANK";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(379, 156);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(78, 74);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
             // 
             // HomePage
             // 
@@ -227,6 +287,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelTitleBar.ResumeLayout(false);
             this.PanelTitleBar.PerformLayout();
+            this.PanelDesktopPanel.ResumeLayout(false);
+            this.PanelDesktopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,5 +307,9 @@
         private System.Windows.Forms.Panel PanelTitleBar;
         private System.Windows.Forms.Label LblTitle;
         private System.Windows.Forms.Panel PanelDesktopPanel;
+        private System.Windows.Forms.Button BtnClose;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button BtnAllClose;
     }
 }

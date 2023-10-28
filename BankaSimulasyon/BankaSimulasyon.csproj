@@ -155,6 +155,8 @@
   <ItemGroup>
     <None Include="Resources\transferbeyaz.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\kapatbeyaz.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

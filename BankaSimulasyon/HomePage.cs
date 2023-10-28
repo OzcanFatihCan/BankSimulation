@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,6 +45,10 @@ namespace BankaSimulasyon
                     currentButton.Font= new System.Drawing.Font("Arial", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
                     PanelTitleBar.BackColor = color;
                     PanelLogo.BackColor = ThemeColor.ChangeColorBrightness(color,-0.3);
+                    ThemeColor.PrimaryColor = color;
+                    ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+                    BtnClose.Visible = true;
+
                 }
             }
            
@@ -81,7 +86,16 @@ namespace BankaSimulasyon
         {
             InitializeComponent();
             random = new Random();
+            BtnClose.Visible = false;
+            this.Text=string.Empty;
+            this.ControlBox = false;
+            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//ekranı yukarı atınca tam ekran olsun kodu
         }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         public string hesap;
 
         void bilgiGetir()
@@ -149,6 +163,47 @@ namespace BankaSimulasyon
         private void BtnTransfer_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.TransferForm(), sender);
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            if (activeForm!=null)
+            {
+                activeForm.Close();
+                Reset();
+            }
+        }
+        private void Reset()
+        {
+            DisableButton();
+            LblTitle.Text = "AURORA BANK";
+            PanelTitleBar.BackColor = Color.SlateGray;
+            PanelLogo.BackColor=Color.FromArgb(39, 39, 58);
+            currentButton = null;
+            BtnClose.Visible = false;
+        }
+
+        private void PanelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void BtnAllClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            //büyültme küçültme butonları da eklersek
+            /*
+             * maksimize
+              if (WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+               
+                minimize
+                 this.WindowState = FormWindowState.Minimized;
+             */
+
         }
     }
 }

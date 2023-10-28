@@ -34,6 +34,8 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.TxtRgsHesap = new System.Windows.Forms.TextBox();
+            this.TxtRgsTc = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BtnHesapNo = new System.Windows.Forms.Button();
             this.LnkGirisYap = new System.Windows.Forms.LinkLabel();
@@ -50,6 +52,7 @@
             this.MskRgsTelefon = new System.Windows.Forms.MaskedTextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.TxtLoginHesap = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtLoginSifre = new System.Windows.Forms.TextBox();
@@ -57,9 +60,6 @@
             this.LnkKayıtOl = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pctOrta = new System.Windows.Forms.PictureBox();
-            this.TxtLoginHesap = new System.Windows.Forms.TextBox();
-            this.TxtRgsTc = new System.Windows.Forms.TextBox();
-            this.TxtRgsHesap = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -113,6 +113,21 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(350, 430);
             this.panelLeft.TabIndex = 25;
+            // 
+            // TxtRgsHesap
+            // 
+            this.TxtRgsHesap.Enabled = false;
+            this.TxtRgsHesap.Location = new System.Drawing.Point(23, 239);
+            this.TxtRgsHesap.Name = "TxtRgsHesap";
+            this.TxtRgsHesap.Size = new System.Drawing.Size(168, 26);
+            this.TxtRgsHesap.TabIndex = 7;
+            // 
+            // TxtRgsTc
+            // 
+            this.TxtRgsTc.Location = new System.Drawing.Point(153, 202);
+            this.TxtRgsTc.Name = "TxtRgsTc";
+            this.TxtRgsTc.Size = new System.Drawing.Size(168, 26);
+            this.TxtRgsTc.TabIndex = 6;
             // 
             // pictureBox2
             // 
@@ -272,6 +287,13 @@
             this.panelRight.Size = new System.Drawing.Size(350, 430);
             this.panelRight.TabIndex = 24;
             // 
+            // TxtLoginHesap
+            // 
+            this.TxtLoginHesap.Location = new System.Drawing.Point(90, 162);
+            this.TxtLoginHesap.Name = "TxtLoginHesap";
+            this.TxtLoginHesap.Size = new System.Drawing.Size(168, 26);
+            this.TxtLoginHesap.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -344,28 +366,6 @@
             this.pctOrta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctOrta.TabIndex = 27;
             this.pctOrta.TabStop = false;
-            // 
-            // TxtLoginHesap
-            // 
-            this.TxtLoginHesap.Location = new System.Drawing.Point(90, 162);
-            this.TxtLoginHesap.Name = "TxtLoginHesap";
-            this.TxtLoginHesap.Size = new System.Drawing.Size(168, 26);
-            this.TxtLoginHesap.TabIndex = 1;
-            // 
-            // TxtRgsTc
-            // 
-            this.TxtRgsTc.Location = new System.Drawing.Point(153, 202);
-            this.TxtRgsTc.Name = "TxtRgsTc";
-            this.TxtRgsTc.Size = new System.Drawing.Size(168, 26);
-            this.TxtRgsTc.TabIndex = 6;
-            // 
-            // TxtRgsHesap
-            // 
-            this.TxtRgsHesap.Enabled = false;
-            this.TxtRgsHesap.Location = new System.Drawing.Point(23, 239);
-            this.TxtRgsHesap.Name = "TxtRgsHesap";
-            this.TxtRgsHesap.Size = new System.Drawing.Size(168, 26);
-            this.TxtRgsHesap.TabIndex = 7;
             // 
             // LoginPage
             // 
