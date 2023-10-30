@@ -48,6 +48,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BillsForm";
             this.Text = "Faturalar";
+            this.Load += new System.EventHandler(this.BillsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

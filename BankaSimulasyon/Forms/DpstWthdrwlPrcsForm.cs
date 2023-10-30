@@ -12,9 +12,16 @@ namespace BankaSimulasyon.Forms
 {
     public partial class DpstWthdrwlPrcsForm : Form
     {
-        public DpstWthdrwlPrcsForm()
+        private string hesapNo;
+        public DpstWthdrwlPrcsForm(string hesap)
         {
             InitializeComponent();
+            this.hesapNo = hesap;
+        }
+
+        private void DpstWthdrwlPrcsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

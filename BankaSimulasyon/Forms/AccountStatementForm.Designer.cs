@@ -59,6 +59,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AccountStatementForm";
             this.Text = "Hesap Dökümü";
+            this.Load += new System.EventHandler(this.AccountStatementForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

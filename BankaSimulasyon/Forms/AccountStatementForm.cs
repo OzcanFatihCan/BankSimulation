@@ -12,10 +12,12 @@ namespace BankaSimulasyon.Forms
 {
     public partial class AccountStatementForm : Form
     {
-        public AccountStatementForm()
+        private string hesapNo;
+        public AccountStatementForm(string hesap)
         {
             InitializeComponent();
             LoadTheme();
+            this.hesapNo = hesap;
         }
         private void LoadTheme()
         {
@@ -31,6 +33,11 @@ namespace BankaSimulasyon.Forms
             }
             label1.ForeColor = ThemeColor.SecondaryColor;
             label2.ForeColor = ThemeColor.PrimaryColor;
+        }
+
+        private void AccountStatementForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

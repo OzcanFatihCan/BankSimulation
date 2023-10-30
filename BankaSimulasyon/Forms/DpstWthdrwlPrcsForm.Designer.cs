@@ -48,6 +48,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DpstWthdrwlPrcsForm";
             this.Text = "Para Yatırma Çekme";
+            this.Load += new System.EventHandler(this.DpstWthdrwlPrcsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

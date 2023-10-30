@@ -12,9 +12,16 @@ namespace BankaSimulasyon.Forms
 {
     public partial class BillsForm : Form
     {
-        public BillsForm()
+        private string hesapNo;
+        public BillsForm(string hesap)
         {
             InitializeComponent();
+            this.hesapNo = hesap;
+        }
+
+        private void BillsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

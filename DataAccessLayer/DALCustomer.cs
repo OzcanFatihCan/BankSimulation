@@ -107,5 +107,26 @@ namespace DataAccessLayer
             dr3.Close();
             return InfoLog;
         }
+
+        public static List<EntityTransactionsTransfer> MoneyTransferHistory(string hesapno)
+        {
+            List<EntityTransactionsTransfer> HistoryLog= new List<EntityTransactionsTransfer>();
+            SqlCommand komut5 = new SqlCommand("SELECT AD,SOYAD,ALICI FROM HAREKETLER INNER JOIN MUSTERILER ON HAREKETLER.ALICI=MUSTERILER.HESAPNO WHERE GONDEREN=@P1", SQLConn.conn);
+            if (komut5.Connection.State != ConnectionState.Open)
+            {
+                komut5.Connection.Open();
+            }
+            komut5.Parameters.AddWithValue("@P1",hesapno);
+            SqlDataReader dr4=komut5.ExecuteReader();
+            while (dr4.Read())
+            {
+                EntityTransactionsTransfer ent=new EntityTransactionsTransfer();
+                ent.Aliciisim = dr4["AD"] + " " + dr4["SOYAD"];
+                ent.Alici = dr4["ALICI"].ToString();
+                HistoryLog.Add(ent);
+            }
+            dr4.Close();
+            return HistoryLog;
+        }
     }
 }

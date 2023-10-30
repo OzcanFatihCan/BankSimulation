@@ -94,7 +94,7 @@ namespace BankaSimulasyon
                 activeForm.Close();
             ActivateButton(btnSender);
             activeForm = childForm;
-            childForm.TopLevel = false;
+            childForm.TopLevel = false;           
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
             this.PanelDesktopPanel.Controls.Add(childForm);
@@ -104,8 +104,6 @@ namespace BankaSimulasyon
             LblTitle.Text = childForm.Text;
         }
       
-       
-
         void BringInfo()
         {
             List<EntityCustomer> CustomerInfo = LogicCustomer.LLCustomerInfo(hesap);
@@ -149,22 +147,22 @@ namespace BankaSimulasyon
 
         private void BtnHesap_Click(object sender, EventArgs e)
         {            
-            OpenChildForm(new Forms.AccountStatementForm(), sender);
+            OpenChildForm(new Forms.AccountStatementForm(hesap), sender);
         }
 
         private void BtnCekim_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.DpstWthdrwlPrcsForm(), sender);
+            OpenChildForm(new Forms.DpstWthdrwlPrcsForm(hesap), sender);
         }
 
         private void BtnFatura_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.BillsForm(), sender);
+            OpenChildForm(new Forms.BillsForm(hesap), sender);
         }
 
         private void BtnTransfer_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.TransferForm(), sender);
+            OpenChildForm(new Forms.TransferForm(hesap), sender);
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
