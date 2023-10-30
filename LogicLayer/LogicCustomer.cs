@@ -73,6 +73,12 @@ namespace LogicLayer
         }
         public static int LLTransferMoney(EntityTransfer ent)
         {
+            double bakiye=0.0;
+            List<EntityAccount> balance = LogicCustomer.LLBalanceCheck(ent.Gonderen);
+            foreach (var item in balance)
+            {
+                bakiye = item.Bakiye;
+            }
             if (ent.Gonderen!=""&&
                 ent.Alici!=""&&
                 !string.IsNullOrEmpty(ent.Tutar.ToString()))
@@ -80,7 +86,14 @@ namespace LogicLayer
                 if (ent.Gonderen.Length==7 &&
                     ent.Alici.Length==7)
                 {
-                    return DALCustomer.TransferMoney(ent);
+                    if (ent.Tutar<bakiye)
+                    {
+                        return DALCustomer.TransferMoney(ent);
+                    }
+                    else
+                    {
+                        return -3;
+                    }
                 }
                 else
                 {
@@ -90,6 +103,18 @@ namespace LogicLayer
             else
             {
                 return -1;
+            }
+        }
+
+        public static  List<EntityAccount> LLBalanceCheck(string hesapNo)
+        {
+            if (hesapNo!="")
+            {
+                return DALCustomer.BalanceCheck(hesapNo);
+            }
+            else
+            {
+                return null;
             }
         }
     }

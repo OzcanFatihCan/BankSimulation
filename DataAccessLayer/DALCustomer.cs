@@ -128,7 +128,7 @@ namespace DataAccessLayer
             dr4.Close();
             return HistoryLog;
         }
-
+      
         public static int TransferMoney(EntityTransfer ent)
         {
             try
@@ -170,7 +170,32 @@ namespace DataAccessLayer
             {
                 throw;
             }
-
+        }
+        public static List<EntityAccount> BalanceCheck(string hesapNo)
+        {
+            try
+            {
+                List<EntityAccount> BalanceLog = new List<EntityAccount>();
+                SqlCommand komut7 = new SqlCommand("SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO=@P1", SQLConn.conn);
+                if (komut7.Connection.State != ConnectionState.Open)
+                {
+                    komut7.Connection.Open();
+                }
+                komut7.Parameters.AddWithValue("@P1", hesapNo);
+                SqlDataReader dr5 = komut7.ExecuteReader();
+                while (dr5.Read())
+                {
+                    EntityAccount ent = new EntityAccount();
+                    ent.Bakiye = double.Parse(dr5["BAKIYE"].ToString());
+                    BalanceLog.Add(ent);
+                }
+                dr5.Close();
+                return BalanceLog;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

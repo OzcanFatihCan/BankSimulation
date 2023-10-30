@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityAccount.cs" />
     <Compile Include="EntityTransfer.cs" />
     <Compile Include="EntityCustomer.cs" />
     <Compile Include="EntityTransactionsTransfer.cs" />
