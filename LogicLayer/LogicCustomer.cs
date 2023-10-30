@@ -71,5 +71,26 @@ namespace LogicLayer
                 return null;
             }
         }
+        public static int LLTransferMoney(EntityTransfer ent)
+        {
+            if (ent.Gonderen!=""&&
+                ent.Alici!=""&&
+                !string.IsNullOrEmpty(ent.Tutar.ToString()))
+            {
+                if (ent.Gonderen.Length==7 &&
+                    ent.Alici.Length==7)
+                {
+                    return DALCustomer.TransferMoney(ent);
+                }
+                else
+                {
+                    return -2;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

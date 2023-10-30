@@ -128,5 +128,49 @@ namespace DataAccessLayer
             dr4.Close();
             return HistoryLog;
         }
+
+        public static int TransferMoney(EntityTransfer ent)
+        {
+            try
+            {
+                SqlCommand komut6 = new SqlCommand(
+                    "DECLARE @GonderenHesap char(7);" +
+                    "DECLARE @AliciHesap char(7);" +
+                    "DECLARE @TransferMiktari DECIMAL(18, 3);" +
+                    "SET @GonderenHesap = @P1;" +
+                    "SET @AliciHesap = @P2;" +
+                    "SET @TransferMiktari = @P3;" +
+                    "IF (SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO = @GonderenHesap) >= @TransferMiktari " +
+                    "BEGIN " +
+                    "BEGIN TRANSACTION;" +
+                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @TransferMiktari WHERE HESAPNO = @GonderenHesap;" +
+                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE + @TransferMiktari WHERE HESAPNO = @AliciHesap;" +
+                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
+                    "VALUES (@GonderenHesap, @AliciHesap, @TransferMiktari, 'Havale');" +
+                    "COMMIT;" +
+                    "PRINT 'Para transferi başarıyla tamamlandı.'; " +
+                    "END " +
+                    "ELSE " +
+                    "BEGIN " +
+                    "PRINT 'Yetersiz bakiye! Para transferi iptal edildi.'; " +
+                    "END", SQLConn.conn);
+
+                if (komut6.Connection.State != ConnectionState.Open)
+                {
+                    komut6.Connection.Open();
+                }
+
+                komut6.Parameters.AddWithValue("@P1", ent.Gonderen);
+                komut6.Parameters.AddWithValue("@P2", ent.Alici);
+                komut6.Parameters.AddWithValue("@P3", ent.Tutar);
+
+                return komut6.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
     }
 }

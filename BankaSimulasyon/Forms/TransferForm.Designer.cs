@@ -36,7 +36,7 @@
             this.rgsReceiverPage = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TxtRgsHesapNo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnRgsHavale = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtRgsTutar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,8 +49,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.TxtTutar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.rgsReceiverPage.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -89,7 +87,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.TxtRgsHesapNo);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.BtnRgsHavale);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.TxtRgsTutar);
             this.groupBox3.Controls.Add(this.label2);
@@ -111,17 +109,19 @@
             this.TxtRgsHesapNo.Size = new System.Drawing.Size(311, 26);
             this.TxtRgsHesapNo.TabIndex = 7;
             // 
-            // button1
+            // BtnRgsHavale
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(500, 31);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(280, 66);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Gönder";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnRgsHavale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRgsHavale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRgsHavale.ForeColor = System.Drawing.Color.White;
+            this.BtnRgsHavale.Location = new System.Drawing.Point(500, 31);
+            this.BtnRgsHavale.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.BtnRgsHavale.Name = "BtnRgsHavale";
+            this.BtnRgsHavale.Size = new System.Drawing.Size(280, 66);
+            this.BtnRgsHavale.TabIndex = 6;
+            this.BtnRgsHavale.Text = "Gönder";
+            this.BtnRgsHavale.UseVisualStyleBackColor = true;
+            this.BtnRgsHavale.Click += new System.EventHandler(this.BtnRgsHavale_Click);
             // 
             // label1
             // 
@@ -174,9 +174,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -278,18 +275,6 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Hesap No:";
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Alıcı Adı";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Alıcı Hesap Numarası";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
             // TransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -334,12 +319,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox TxtRgsHesapNo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnRgsHavale;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtRgsTutar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

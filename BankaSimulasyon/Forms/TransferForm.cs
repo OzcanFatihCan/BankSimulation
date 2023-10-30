@@ -29,22 +29,41 @@ namespace BankaSimulasyon.Forms
         void RegisterPayee()
         {
             List<EntityTransactionsTransfer> HistoryLog = LogicCustomer.LLMoneyTransferHistory(hesapNo);
-            // DataGridView'deki sütunları kullanarak verileri aktar
-            for (int i = 0; i < HistoryLog.Count; i++)
-            {
-                // Sıradaki veriyi al
-                EntityTransactionsTransfer data = HistoryLog[i];
-
-                // DataGridView'deki ilgili sütunlara veriyi yerleştir
-                dataGridView1.Rows[i].Cells["Column1"].Value = data.Aliciisim;
-                dataGridView1.Rows[i].Cells["Column2"].Value = data.Alici;
-            }
-           
+            dataGridView1.DataSource= HistoryLog;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TxtRgsHesapNo.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void BtnRgsHavale_Click(object sender, EventArgs e)
+        {
+            EntityTransfer ent = new EntityTransfer();
+            if (double.TryParse(TxtRgsTutar.Text,out double tutarrgs))
+            {
+                ent.Gonderen = hesapNo;
+                ent.Alici = TxtRgsHesapNo.Text;
+                ent.Tutar = tutarrgs;
+                int result = LogicCustomer.LLTransferMoney(ent);
+                if (result > 0)
+                {
+                    MessageBox.Show("Para transferi başarıyla tamamlandı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RegisterPayee();
+                }
+                if (result==0)
+                {
+                    MessageBox.Show("Para transferi sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (result==-2)
+                {
+                    MessageBox.Show("Lütfen hesap numarasını kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Hücreleri boş bırakmayınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
