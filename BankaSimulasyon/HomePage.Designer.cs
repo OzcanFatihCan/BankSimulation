@@ -42,24 +42,24 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.LblTitle = new System.Windows.Forms.Label();
             this.PanelDesktopPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PanelInfoBar = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.LblHesapNo = new System.Windows.Forms.Label();
-            this.LblTcNo = new System.Windows.Forms.Label();
-            this.LblTelefon = new System.Windows.Forms.Label();
             this.LblAdSoyad = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.LblTelefon = new System.Windows.Forms.Label();
+            this.LblTcNo = new System.Windows.Forms.Label();
+            this.LblHesapNo = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.PanelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelTitleBar.SuspendLayout();
             this.PanelDesktopPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PanelInfoBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -204,6 +204,7 @@
             // BtnAllClose
             // 
             this.BtnAllClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAllClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAllClose.FlatAppearance.BorderSize = 0;
             this.BtnAllClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAllClose.Image = global::BankaSimulasyon.Properties.Resources.kapatbeyaz;
@@ -233,11 +234,11 @@
             this.LblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblTitle.AutoSize = true;
             this.LblTitle.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTitle.Location = new System.Drawing.Point(309, 35);
+            this.LblTitle.Location = new System.Drawing.Point(331, 35);
             this.LblTitle.Name = "LblTitle";
-            this.LblTitle.Size = new System.Drawing.Size(155, 32);
+            this.LblTitle.Size = new System.Drawing.Size(170, 32);
             this.LblTitle.TabIndex = 9;
-            this.LblTitle.Text = "AD SOYAD";
+            this.LblTitle.Text = "Hoşgeldiniz";
             this.LblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PanelDesktopPanel
@@ -250,28 +251,6 @@
             this.PanelDesktopPanel.Name = "PanelDesktopPanel";
             this.PanelDesktopPanel.Size = new System.Drawing.Size(859, 511);
             this.PanelDesktopPanel.TabIndex = 28;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(293, 233);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 37);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "AURORA BANK";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(379, 156);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(78, 74);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
             // 
             // PanelInfoBar
             // 
@@ -290,60 +269,6 @@
             this.PanelInfoBar.Size = new System.Drawing.Size(859, 25);
             this.PanelInfoBar.TabIndex = 32;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(232, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 19);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Hesap No:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(460, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 19);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "TC No:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(652, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Telefon:";
-            // 
-            // LblHesapNo
-            // 
-            this.LblHesapNo.AutoSize = true;
-            this.LblHesapNo.Location = new System.Drawing.Point(318, 4);
-            this.LblHesapNo.Name = "LblHesapNo";
-            this.LblHesapNo.Size = new System.Drawing.Size(72, 19);
-            this.LblHesapNo.TabIndex = 3;
-            this.LblHesapNo.Text = "0000000";
-            // 
-            // LblTcNo
-            // 
-            this.LblTcNo.AutoSize = true;
-            this.LblTcNo.Location = new System.Drawing.Point(519, 4);
-            this.LblTcNo.Name = "LblTcNo";
-            this.LblTcNo.Size = new System.Drawing.Size(72, 19);
-            this.LblTcNo.TabIndex = 4;
-            this.LblTcNo.Text = "0000000";
-            // 
-            // LblTelefon
-            // 
-            this.LblTelefon.AutoSize = true;
-            this.LblTelefon.Location = new System.Drawing.Point(720, 4);
-            this.LblTelefon.Name = "LblTelefon";
-            this.LblTelefon.Size = new System.Drawing.Size(72, 19);
-            this.LblTelefon.TabIndex = 5;
-            this.LblTelefon.Text = "0000000";
-            // 
             // LblAdSoyad
             // 
             this.LblAdSoyad.AutoSize = true;
@@ -361,6 +286,82 @@
             this.label7.Size = new System.Drawing.Size(89, 19);
             this.label7.TabIndex = 6;
             this.label7.Text = "Ad Soyad:";
+            // 
+            // LblTelefon
+            // 
+            this.LblTelefon.AutoSize = true;
+            this.LblTelefon.Location = new System.Drawing.Point(720, 4);
+            this.LblTelefon.Name = "LblTelefon";
+            this.LblTelefon.Size = new System.Drawing.Size(72, 19);
+            this.LblTelefon.TabIndex = 5;
+            this.LblTelefon.Text = "0000000";
+            // 
+            // LblTcNo
+            // 
+            this.LblTcNo.AutoSize = true;
+            this.LblTcNo.Location = new System.Drawing.Point(519, 4);
+            this.LblTcNo.Name = "LblTcNo";
+            this.LblTcNo.Size = new System.Drawing.Size(72, 19);
+            this.LblTcNo.TabIndex = 4;
+            this.LblTcNo.Text = "0000000";
+            // 
+            // LblHesapNo
+            // 
+            this.LblHesapNo.AutoSize = true;
+            this.LblHesapNo.Location = new System.Drawing.Point(343, 4);
+            this.LblHesapNo.Name = "LblHesapNo";
+            this.LblHesapNo.Size = new System.Drawing.Size(72, 19);
+            this.LblHesapNo.TabIndex = 3;
+            this.LblHesapNo.Text = "0000000";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(652, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 19);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Telefon:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(460, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 19);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "TC No:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(257, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Hesap No:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(291, 237);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(251, 37);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "AURORA BANK";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(377, 160);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(78, 74);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
             // 
             // HomePage
             // 
@@ -389,9 +390,9 @@
             this.PanelTitleBar.PerformLayout();
             this.PanelDesktopPanel.ResumeLayout(false);
             this.PanelDesktopPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.PanelInfoBar.ResumeLayout(false);
             this.PanelInfoBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

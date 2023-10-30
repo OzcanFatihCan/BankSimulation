@@ -16,5 +16,10 @@ namespace BankaSimulasyon.Forms
         {
             InitializeComponent();
         }
+
+        private void TransferForm_Load(object sender, EventArgs e)
+        {
+    
+        }
     }
 }

@@ -66,8 +66,7 @@ namespace BankaSimulasyon
                     currentButton.ForeColor = Color.White;
                     currentButton.Font= new System.Drawing.Font("Arial", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
                     PanelTitleBar.BackColor = color;
-                    PanelInfoBar.BackColor = color;
-                    PanelLogo.BackColor = ThemeColor.ChangeColorBrightness(color,-0.3);
+                    PanelInfoBar.BackColor = color;                    
                     ThemeColor.PrimaryColor = color;
                     ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
                     BtnClose.Visible = true;
@@ -113,12 +112,11 @@ namespace BankaSimulasyon
             foreach (var item in CustomerInfo)
             {
                 string adsoyad= item.Ad + " " + item.Soyad;
-                LblAdSoyad.Text = adsoyad;
+                LblAdSoyad.Text = adsoyad;             
                 LblHesapNo.Text = item.Hesapno;
                 LblTcNo.Text = item.Tc;
                 LblTelefon.Text = item.Telefon;
-                string title = string.Format("Hoşgeldiniz {0}", adsoyad);
-                LblTitle.Text = title;
+                LblTitle.Text = "Hoşgeldiniz";
             }
         }
     

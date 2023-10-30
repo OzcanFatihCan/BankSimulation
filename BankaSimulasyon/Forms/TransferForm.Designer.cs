@@ -29,39 +29,178 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransferForm));
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.rgsReceiverPage = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.newReceiverPage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtHesapNo = new System.Windows.Forms.TextBox();
             this.BtnGonder = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.TxtTutar = new System.Windows.Forms.TextBox();
-            this.MskHesapNo = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.LblTel = new System.Windows.Forms.Label();
-            this.LblTc = new System.Windows.Forms.Label();
-            this.LblHesap = new System.Windows.Forms.Label();
-            this.LblAdSoyad = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.tabControl1.SuspendLayout();
+            this.rgsReceiverPage.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.newReceiverPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.tabControl1.Controls.Add(this.rgsReceiverPage);
+            this.tabControl1.Controls.Add(this.newReceiverPage);
+            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(844, 471);
+            this.tabControl1.TabIndex = 55;
+            // 
+            // rgsReceiverPage
+            // 
+            this.rgsReceiverPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.rgsReceiverPage.Controls.Add(this.groupBox3);
+            this.rgsReceiverPage.Controls.Add(this.groupBox2);
+            this.rgsReceiverPage.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rgsReceiverPage.Location = new System.Drawing.Point(4, 31);
+            this.rgsReceiverPage.Name = "rgsReceiverPage";
+            this.rgsReceiverPage.Padding = new System.Windows.Forms.Padding(3);
+            this.rgsReceiverPage.Size = new System.Drawing.Size(836, 436);
+            this.rgsReceiverPage.TabIndex = 0;
+            this.rgsReceiverPage.Text = "Kayıtlı Alıcılar";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(11, 7);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox3.Size = new System.Drawing.Size(817, 119);
+            this.groupBox3.TabIndex = 56;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Havale";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(160, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(311, 26);
+            this.textBox1.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(500, 31);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(280, 66);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Gönder";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(82, 74);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 19);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Tutar:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(160, 71);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(311, 26);
+            this.textBox2.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(46, 34);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Hesap No:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(8, 133);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(820, 298);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Geçmiş Alıcılar";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(814, 273);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // newReceiverPage
+            // 
+            this.newReceiverPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.newReceiverPage.Controls.Add(this.groupBox1);
+            this.newReceiverPage.Cursor = System.Windows.Forms.Cursors.Default;
+            this.newReceiverPage.Location = new System.Drawing.Point(4, 31);
+            this.newReceiverPage.Name = "newReceiverPage";
+            this.newReceiverPage.Padding = new System.Windows.Forms.Padding(3);
+            this.newReceiverPage.Size = new System.Drawing.Size(836, 436);
+            this.newReceiverPage.TabIndex = 1;
+            this.newReceiverPage.Text = "Yeni Bir Alıcı";
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TxtHesapNo);
             this.groupBox1.Controls.Add(this.BtnGonder);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.TxtTutar);
-            this.groupBox1.Controls.Add(this.MskHesapNo);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(142, 242);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(162, 82);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox1.Size = new System.Drawing.Size(537, 310);
-            this.groupBox1.TabIndex = 54;
+            this.groupBox1.Size = new System.Drawing.Size(505, 270);
+            this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Havale";
+            // 
+            // TxtHesapNo
+            // 
+            this.TxtHesapNo.Location = new System.Drawing.Point(197, 50);
+            this.TxtHesapNo.Name = "TxtHesapNo";
+            this.TxtHesapNo.Size = new System.Drawing.Size(277, 26);
+            this.TxtHesapNo.TabIndex = 7;
             // 
             // BtnGonder
             // 
@@ -93,157 +232,64 @@
             this.TxtTutar.Size = new System.Drawing.Size(277, 26);
             this.TxtTutar.TabIndex = 4;
             // 
-            // MskHesapNo
-            // 
-            this.MskHesapNo.Location = new System.Drawing.Point(197, 45);
-            this.MskHesapNo.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.MskHesapNo.Mask = "0000000";
-            this.MskHesapNo.Name = "MskHesapNo";
-            this.MskHesapNo.Size = new System.Drawing.Size(277, 26);
-            this.MskHesapNo.TabIndex = 3;
-            this.MskHesapNo.ValidatingType = typeof(int);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 50);
+            this.label9.Location = new System.Drawing.Point(61, 50);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 19);
             this.label9.TabIndex = 2;
             this.label9.Text = "Hesap No:";
             // 
-            // LblTel
-            // 
-            this.LblTel.AutoSize = true;
-            this.LblTel.ForeColor = System.Drawing.Color.Black;
-            this.LblTel.Location = new System.Drawing.Point(392, 204);
-            this.LblTel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.LblTel.Name = "LblTel";
-            this.LblTel.Size = new System.Drawing.Size(39, 19);
-            this.LblTel.TabIndex = 53;
-            this.LblTel.Text = "Null";
-            // 
-            // LblTc
-            // 
-            this.LblTc.AutoSize = true;
-            this.LblTc.ForeColor = System.Drawing.Color.Black;
-            this.LblTc.Location = new System.Drawing.Point(392, 145);
-            this.LblTc.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.LblTc.Name = "LblTc";
-            this.LblTc.Size = new System.Drawing.Size(39, 19);
-            this.LblTc.TabIndex = 52;
-            this.LblTc.Text = "Null";
-            // 
-            // LblHesap
-            // 
-            this.LblHesap.AutoSize = true;
-            this.LblHesap.ForeColor = System.Drawing.Color.Black;
-            this.LblHesap.Location = new System.Drawing.Point(392, 79);
-            this.LblHesap.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.LblHesap.Name = "LblHesap";
-            this.LblHesap.Size = new System.Drawing.Size(39, 19);
-            this.LblHesap.TabIndex = 51;
-            this.LblHesap.Text = "Null";
-            // 
-            // LblAdSoyad
-            // 
-            this.LblAdSoyad.AutoSize = true;
-            this.LblAdSoyad.ForeColor = System.Drawing.Color.Black;
-            this.LblAdSoyad.Location = new System.Drawing.Point(392, 9);
-            this.LblAdSoyad.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.LblAdSoyad.Name = "LblAdSoyad";
-            this.LblAdSoyad.Size = new System.Drawing.Size(39, 19);
-            this.LblAdSoyad.TabIndex = 50;
-            this.LblAdSoyad.Text = "Null";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(264, 204);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 19);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "Telefon:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(235, 145);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 19);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "TC Kimlik:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(232, 79);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 19);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "Hesap No:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(234, 9);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 19);
-            this.label5.TabIndex = 46;
-            this.label5.Text = "Ad Soyad:";
-            // 
             // TransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1014, 602);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.LblTel);
-            this.Controls.Add(this.LblTc);
-            this.Controls.Add(this.LblHesap);
-            this.Controls.Add(this.LblAdSoyad);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label5);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(844, 471);
+            this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "TransferForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transferler";
+            this.Load += new System.EventHandler(this.TransferForm_Load);
+            this.tabControl1.ResumeLayout(false);
+            this.rgsReceiverPage.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.newReceiverPage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage rgsReceiverPage;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TabPage newReceiverPage;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox TxtHesapNo;
         private System.Windows.Forms.Button BtnGonder;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TxtTutar;
-        private System.Windows.Forms.MaskedTextBox MskHesapNo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label LblTel;
-        private System.Windows.Forms.Label LblTc;
-        private System.Windows.Forms.Label LblHesap;
-        private System.Windows.Forms.Label LblAdSoyad;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
