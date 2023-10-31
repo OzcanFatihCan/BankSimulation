@@ -26,7 +26,7 @@ namespace BankaSimulasyon
         {
             InitializeComponent();
             random = new Random();
-            BtnClose.Visible = false;
+            //BtnClose.Visible = false; //ana ekrana dönme butonu anasayfada gizli konumda
             this.Text = string.Empty;
             this.ControlBox = false;
             //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;//ekranı yukarı atınca tam ekran olsun kodu
@@ -69,7 +69,7 @@ namespace BankaSimulasyon
                     PanelInfoBar.BackColor = color;                    
                     ThemeColor.PrimaryColor = color;
                     ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
-                    BtnClose.Visible = true;
+                    //BtnClose.Visible = true;//aktif olan sayfada görünür hale gelir ki geri dönülebilsin
 
                 }
             }
@@ -165,6 +165,7 @@ namespace BankaSimulasyon
             OpenChildForm(new Forms.TransferForm(hesap), sender);
         }
 
+        /*
         private void BtnClose_Click(object sender, EventArgs e)
         {
             if (activeForm!=null)
@@ -172,7 +173,7 @@ namespace BankaSimulasyon
                 activeForm.Close();
                 Reset();
             }
-        }
+        }*/
         private void Reset()
         {
             DisableButton();
@@ -181,7 +182,7 @@ namespace BankaSimulasyon
             PanelInfoBar.BackColor = Color.FromArgb(42,54,90);
             PanelLogo.BackColor=Color.FromArgb(39, 39, 58);
             currentButton = null;
-            BtnClose.Visible = false;
+            //BtnClose.Visible = false;//anasayfaya dönüldüğünde buton eski haline gelir.
         }
 
         private void PanelTitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -205,6 +206,15 @@ namespace BankaSimulasyon
                  this.WindowState = FormWindowState.Minimized;
              */
 
+        }
+
+        private void HomeLabel_Click(object sender, EventArgs e)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+                Reset();
+            }
         }
     }
 }

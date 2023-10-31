@@ -68,7 +68,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(844, 471);
+            this.tabControl1.Size = new System.Drawing.Size(849, 476);
             this.tabControl1.TabIndex = 55;
             // 
             // rgsReceiverPage
@@ -80,7 +80,7 @@
             this.rgsReceiverPage.Location = new System.Drawing.Point(4, 31);
             this.rgsReceiverPage.Name = "rgsReceiverPage";
             this.rgsReceiverPage.Padding = new System.Windows.Forms.Padding(3);
-            this.rgsReceiverPage.Size = new System.Drawing.Size(836, 436);
+            this.rgsReceiverPage.Size = new System.Drawing.Size(841, 441);
             this.rgsReceiverPage.TabIndex = 0;
             this.rgsReceiverPage.Text = "Kayıtlı Alıcılar";
             // 
@@ -96,7 +96,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox3.Size = new System.Drawing.Size(817, 119);
+            this.groupBox3.Size = new System.Drawing.Size(822, 119);
             this.groupBox3.TabIndex = 56;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Havale";
@@ -157,7 +157,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(8, 133);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(820, 298);
+            this.groupBox2.Size = new System.Drawing.Size(825, 302);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Geçmiş Alıcılar";
@@ -187,7 +187,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Size = new System.Drawing.Size(814, 273);
+            this.dataGridView1.Size = new System.Drawing.Size(819, 277);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -290,7 +290,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(115)))), ((int)(((byte)(158)))));
-            this.ClientSize = new System.Drawing.Size(844, 471);
+            this.ClientSize = new System.Drawing.Size(849, 476);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ForeColor = System.Drawing.Color.White;
