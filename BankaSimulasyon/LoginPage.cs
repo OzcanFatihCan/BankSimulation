@@ -101,10 +101,23 @@ namespace BankaSimulasyon
             {
                 MessageBox.Show("Kayıt sırasında hata oluştu", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if(result == -2)
+            {
+                MessageBox.Show("Lütfen başka bir hesap numarası alınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(result == -3)
+            {
+                MessageBox.Show("Girdiğiniz TC numarasına ait bir hesap zaten mevcut.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                MessageBox.Show("Hatalı giriş yaptınız. Lütfen kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hatalı veri girişi yapıldı. Lütfen kontrol ediniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }          
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

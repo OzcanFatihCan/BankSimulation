@@ -26,6 +26,10 @@ namespace LogicLayer
 
         public static int LLCustomerRegister(EntityCustomer ent)
         {
+            List<EntityCustomer> AccountNumber = LogicCustomer.LLAccountNumber();
+            List<EntityCustomer> TcNumber = LogicCustomer.LLTcNumber();
+            bool hesapExists = AccountNumber.Any(customer => customer.Hesapno == ent.Hesapno);
+            bool tcExists = TcNumber.Any(customer => customer.Tc == ent.Tc);
             if (ent.Ad!="" &&
                 ent.Soyad!="" &&
                 ent.Sifre!="" &&
@@ -35,7 +39,21 @@ namespace LogicLayer
                 ent.Tc.Length==11 &&
                 ent.Hesapno.Length==7)
             {
-                return DALCustomer.CustomerRegister(ent);
+                if (!hesapExists)
+                {
+                    if (!tcExists)
+                    {
+                        return DALCustomer.CustomerRegister(ent);
+                    }
+                    else
+                    {
+                        return -3;
+                    }
+                }
+                else
+                {
+                    return -2;
+                }
             }
             else
             {
@@ -45,6 +63,11 @@ namespace LogicLayer
         public static List<EntityCustomer> LLAccountNumber()
         {
             return DALCustomer.AccountNumber();
+        }
+
+        public static List<EntityCustomer> LLTcNumber()
+        {
+            return DALCustomer.TCNumber();
         }
         public static List<EntityCustomer> LLCustomerInfo(string hesapNo)
         {

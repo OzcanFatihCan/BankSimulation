@@ -197,5 +197,24 @@ namespace DataAccessLayer
                 throw;
             }
         }
+
+        public static List<EntityCustomer> TCNumber()
+        {
+            List<EntityCustomer> TcLog = new List<EntityCustomer>();
+            SqlCommand komut8 = new SqlCommand("SELECT TC FROM MUSTERILER", SQLConn.conn);
+            if (komut8.Connection.State != ConnectionState.Open)
+            {
+                komut8.Connection.Open();
+            }
+            SqlDataReader dr5 = komut8.ExecuteReader();
+            while (dr5.Read())
+            {
+                EntityCustomer ent = new EntityCustomer();
+                ent.Tc = dr5["TC"].ToString();
+                TcLog.Add(ent);
+            }
+            dr5.Close();
+            return TcLog;
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EntityLayer;
+using LogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,5 +25,7 @@ namespace BankaSimulasyon.Forms
         {
 
         }
+
+       
     }
 }
