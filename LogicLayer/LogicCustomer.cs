@@ -145,5 +145,41 @@ namespace LogicLayer
         {
             return DALCustomer.BillingService();
         }
+
+        public static int LLPayingBills(EntityBill ent)
+        {
+            double bakiye = 0.0;
+            List<EntityAccount> balance = LogicCustomer.LLBalanceCheck(ent.GonderenNo);
+            foreach (var item in balance)
+            {
+                bakiye = item.Bakiye;
+            }
+            if (ent.GonderenNo != "" &&
+                ent.AliciNo != "" &&
+                ent.AboneNo!=""&&
+                !string.IsNullOrEmpty(ent.Tutar.ToString()))
+            {
+                if (ent.GonderenNo.Length == 7 &&
+                    ent.AliciNo.Length == 7)
+                {
+                    if (ent.Tutar < bakiye)
+                    {
+                        return DALCustomer.PayingBills(ent);
+                    }
+                    else
+                    {
+                        return -3;
+                    }
+                }
+                else
+                {
+                    return -2;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

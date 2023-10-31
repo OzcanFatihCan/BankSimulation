@@ -121,43 +121,53 @@
             // 
             // CmbSu
             // 
+            this.CmbSu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbSu.FormattingEnabled = true;
             this.CmbSu.Location = new System.Drawing.Point(34, 61);
             this.CmbSu.Name = "CmbSu";
             this.CmbSu.Size = new System.Drawing.Size(178, 27);
             this.CmbSu.TabIndex = 0;
+            this.CmbSu.SelectedIndexChanged += new System.EventHandler(this.CmbSu_SelectedIndexChanged);
             // 
             // CmbElektrik
             // 
+            this.CmbElektrik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbElektrik.FormattingEnabled = true;
             this.CmbElektrik.Location = new System.Drawing.Point(34, 139);
             this.CmbElektrik.Name = "CmbElektrik";
             this.CmbElektrik.Size = new System.Drawing.Size(178, 27);
             this.CmbElektrik.TabIndex = 2;
+            this.CmbElektrik.SelectedIndexChanged += new System.EventHandler(this.CmbElektrik_SelectedIndexChanged);
             // 
             // CmbTv
             // 
+            this.CmbTv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTv.FormattingEnabled = true;
             this.CmbTv.Location = new System.Drawing.Point(34, 214);
             this.CmbTv.Name = "CmbTv";
             this.CmbTv.Size = new System.Drawing.Size(178, 27);
             this.CmbTv.TabIndex = 3;
+            this.CmbTv.SelectedIndexChanged += new System.EventHandler(this.CmbTv_SelectedIndexChanged);
             // 
             // CmbTelefon
             // 
+            this.CmbTelefon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTelefon.FormattingEnabled = true;
             this.CmbTelefon.Location = new System.Drawing.Point(34, 292);
             this.CmbTelefon.Name = "CmbTelefon";
             this.CmbTelefon.Size = new System.Drawing.Size(178, 27);
             this.CmbTelefon.TabIndex = 5;
+            this.CmbTelefon.SelectedIndexChanged += new System.EventHandler(this.CmbTelefon_SelectedIndexChanged);
             // 
             // CmbDogalgaz
             // 
+            this.CmbDogalgaz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDogalgaz.FormattingEnabled = true;
             this.CmbDogalgaz.Location = new System.Drawing.Point(34, 377);
             this.CmbDogalgaz.Name = "CmbDogalgaz";
             this.CmbDogalgaz.Size = new System.Drawing.Size(178, 27);
             this.CmbDogalgaz.TabIndex = 6;
+            this.CmbDogalgaz.SelectedIndexChanged += new System.EventHandler(this.CmbDogalgaz_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -236,6 +246,7 @@
             this.BtnOdeme.TabIndex = 5;
             this.BtnOdeme.Text = "Ödeme Yap";
             this.BtnOdeme.UseVisualStyleBackColor = true;
+            this.BtnOdeme.Click += new System.EventHandler(this.BtnOdeme_Click);
             // 
             // BillsForm
             // 

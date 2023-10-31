@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityAccount.cs" />
+    <Compile Include="EntityBill.cs" />
     <Compile Include="EntityTransfer.cs" />
     <Compile Include="EntityCustomer.cs" />
     <Compile Include="EntityTransactionsTransfer.cs" />

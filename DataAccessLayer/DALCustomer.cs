@@ -237,5 +237,53 @@ namespace DataAccessLayer
             dr6.Close();
             return BillsLog;
         }
+
+        public static int PayingBills(EntityBill ent)
+        {
+            try
+            {
+                SqlCommand komut10 = new SqlCommand(
+                    "DECLARE @GonderenHesap char(7);" +
+                    "DECLARE @AliciHesap char(7);" +
+                    "DECLARE @OdenecekTutar DECIMAL(18, 3);" +
+                    "DECLARE @AboneNumarasi varchar(30);" +
+                    "SET @GonderenHesap = @P1;" +
+                    "SET @AliciHesap = @P2;" +
+                    "SET @OdenecekTutar = @P3;" +
+                    "SET @AboneNumarasi = @P4;" +
+                    "IF (SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO = @GonderenHesap) >= @OdenecekTutar " +
+                    "BEGIN " +
+                    "BEGIN TRANSACTION;" +
+                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @OdenecekTutar WHERE HESAPNO = @GonderenHesap;" +
+                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE + @OdenecekTutar WHERE HESAPNO = @AliciHesap;" +
+                    "INSERT INTO FATURALAR (GONDERENNO,ALICINO,ABONENO,TUTAR)"+
+                    "VALUES (@GonderenHesap,@AliciHesap,@AboneNumarasi,@OdenecekTutar)" +
+                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
+                    "VALUES (@GonderenHesap, @AliciHesap, @OdenecekTutar, 'Fatura');" +
+                    "COMMIT;" +
+                    "PRINT 'Fatura ödemesi başarıyla tamamlandı.'; " +
+                    "END " +
+                    "ELSE " +
+                    "BEGIN " +
+                    "PRINT 'Yetersiz bakiye! Fatura ödeme iptal edildi.'; " +
+                    "END", SQLConn.conn);
+
+                if (komut10.Connection.State != ConnectionState.Open)
+                {
+                    komut10.Connection.Open();
+                }
+
+                komut10.Parameters.AddWithValue("@P1", ent.GonderenNo);
+                komut10.Parameters.AddWithValue("@P2", ent.AliciNo);
+                komut10.Parameters.AddWithValue("@P3", ent.Tutar);
+                komut10.Parameters.AddWithValue("@P4", ent.AboneNo);
+
+                return komut10.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
