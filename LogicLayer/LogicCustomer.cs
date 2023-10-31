@@ -129,7 +129,7 @@ namespace LogicLayer
             }
         }
 
-        public static  List<EntityAccount> LLBalanceCheck(string hesapNo)
+        public static List<EntityAccount> LLBalanceCheck(string hesapNo)
         {
             if (hesapNo!="")
             {
@@ -139,6 +139,11 @@ namespace LogicLayer
             {
                 return null;
             }
+        }
+
+        public static List<EntityCustomer> LLBillingService()
+        {
+            return DALCustomer.BillingService();
         }
     }
 }

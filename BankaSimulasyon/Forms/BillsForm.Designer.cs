@@ -35,11 +35,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.CmbSu = new System.Windows.Forms.ComboBox();
+            this.CmbElektrik = new System.Windows.Forms.ComboBox();
+            this.CmbTv = new System.Windows.Forms.ComboBox();
+            this.CmbTelefon = new System.Windows.Forms.ComboBox();
+            this.CmbDogalgaz = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -101,13 +101,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox5);
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.CmbDogalgaz);
+            this.groupBox1.Controls.Add(this.CmbTelefon);
+            this.groupBox1.Controls.Add(this.CmbTv);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.CmbElektrik);
+            this.groupBox1.Controls.Add(this.CmbSu);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
@@ -119,45 +119,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seçenekler";
             // 
-            // comboBox1
+            // CmbSu
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(34, 61);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(178, 27);
-            this.comboBox1.TabIndex = 0;
+            this.CmbSu.FormattingEnabled = true;
+            this.CmbSu.Location = new System.Drawing.Point(34, 61);
+            this.CmbSu.Name = "CmbSu";
+            this.CmbSu.Size = new System.Drawing.Size(178, 27);
+            this.CmbSu.TabIndex = 0;
             // 
-            // comboBox2
+            // CmbElektrik
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(34, 139);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(178, 27);
-            this.comboBox2.TabIndex = 2;
+            this.CmbElektrik.FormattingEnabled = true;
+            this.CmbElektrik.Location = new System.Drawing.Point(34, 139);
+            this.CmbElektrik.Name = "CmbElektrik";
+            this.CmbElektrik.Size = new System.Drawing.Size(178, 27);
+            this.CmbElektrik.TabIndex = 2;
             // 
-            // comboBox3
+            // CmbTv
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(34, 214);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(178, 27);
-            this.comboBox3.TabIndex = 3;
+            this.CmbTv.FormattingEnabled = true;
+            this.CmbTv.Location = new System.Drawing.Point(34, 214);
+            this.CmbTv.Name = "CmbTv";
+            this.CmbTv.Size = new System.Drawing.Size(178, 27);
+            this.CmbTv.TabIndex = 3;
             // 
-            // comboBox4
+            // CmbTelefon
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(34, 292);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(178, 27);
-            this.comboBox4.TabIndex = 5;
+            this.CmbTelefon.FormattingEnabled = true;
+            this.CmbTelefon.Location = new System.Drawing.Point(34, 292);
+            this.CmbTelefon.Name = "CmbTelefon";
+            this.CmbTelefon.Size = new System.Drawing.Size(178, 27);
+            this.CmbTelefon.TabIndex = 5;
             // 
-            // comboBox5
+            // CmbDogalgaz
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(34, 377);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(178, 27);
-            this.comboBox5.TabIndex = 6;
+            this.CmbDogalgaz.FormattingEnabled = true;
+            this.CmbDogalgaz.Location = new System.Drawing.Point(34, 377);
+            this.CmbDogalgaz.Name = "CmbDogalgaz";
+            this.CmbDogalgaz.Size = new System.Drawing.Size(178, 27);
+            this.CmbDogalgaz.TabIndex = 6;
             // 
             // groupBox2
             // 
@@ -273,11 +273,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CmbDogalgaz;
+        private System.Windows.Forms.ComboBox CmbTelefon;
+        private System.Windows.Forms.ComboBox CmbTv;
+        private System.Windows.Forms.ComboBox CmbElektrik;
+        private System.Windows.Forms.ComboBox CmbSu;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;

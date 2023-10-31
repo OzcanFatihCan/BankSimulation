@@ -216,5 +216,26 @@ namespace DataAccessLayer
             dr5.Close();
             return TcLog;
         }
+
+        public static List<EntityCustomer> BillingService()
+        {
+            List<EntityCustomer> BillsLog=new List<EntityCustomer>();
+            SqlCommand komut9 = new SqlCommand("SELECT AD, SOYAD, HESAPNO FROM MUSTERILER", SQLConn.conn);
+            if (komut9.Connection.State!=ConnectionState.Open)
+            {
+                komut9.Connection.Open();
+            }
+            SqlDataReader dr6=komut9.ExecuteReader();
+            while (dr6.Read())
+            {
+                EntityCustomer ent = new EntityCustomer();
+                ent.Ad = dr6["AD"].ToString();
+                ent.Soyad = dr6["SOYAD"].ToString();
+                ent.Hesapno = dr6["HESAPNO"].ToString();
+                BillsLog.Add(ent);
+            }
+            dr6.Close();
+            return BillsLog;
+        }
     }
 }
