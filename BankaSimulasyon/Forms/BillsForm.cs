@@ -26,6 +26,13 @@ namespace BankaSimulasyon.Forms
         private void BillsForm_Load(object sender, EventArgs e)
         {
             GetInvoiceType();
+            PastInvoices();
+        }
+
+        void PastInvoices()
+        {
+            List<EntityTransactionsTransfer> HistoryLog = LogicCustomer.LLPayingBillsHistory(hesapNo);
+            dataGridView1.DataSource = HistoryLog;
         }
 
         void GetInvoiceType()
@@ -162,6 +169,7 @@ namespace BankaSimulasyon.Forms
                 if (result > 0)
                 {
                     MessageBox.Show("Ödeme işlemi başarıyla tamamlandı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PastInvoices();
                     return;
                 }
                 if (result == 0)

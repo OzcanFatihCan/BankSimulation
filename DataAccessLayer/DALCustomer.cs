@@ -67,66 +67,90 @@ namespace DataAccessLayer
         }
         public static List<EntityCustomer> AccountNumber()
         {
-            List<EntityCustomer> AccountLog = new List<EntityCustomer>();
-            SqlCommand komut3 = new SqlCommand("SELECT HESAPNO FROM MUSTERILER", SQLConn.conn);
-            if (komut3.Connection.State != ConnectionState.Open)
+            try
             {
-                komut3.Connection.Open();
+                List<EntityCustomer> AccountLog = new List<EntityCustomer>();
+                SqlCommand komut3 = new SqlCommand("SELECT HESAPNO FROM MUSTERILER", SQLConn.conn);
+                if (komut3.Connection.State != ConnectionState.Open)
+                {
+                    komut3.Connection.Open();
+                }
+                SqlDataReader dr2 = komut3.ExecuteReader();
+                while (dr2.Read())
+                {
+                    EntityCustomer ent = new EntityCustomer();
+                    ent.Hesapno = dr2["HESAPNO"].ToString();
+                    AccountLog.Add(ent);
+                }
+                dr2.Close();
+                return AccountLog;
             }
-            SqlDataReader dr2 = komut3.ExecuteReader();
-            while (dr2.Read())
+            catch (Exception)
             {
-                EntityCustomer ent = new EntityCustomer();
-                ent.Hesapno = dr2["HESAPNO"].ToString();
-                AccountLog.Add(ent);
+
+                throw;
             }
-            dr2.Close();
-            return AccountLog;
         }
 
         public static List<EntityCustomer> CustumerInfo(string hesapNo)
         {
-            List<EntityCustomer> InfoLog = new List<EntityCustomer>();
-            SqlCommand komut4 = new SqlCommand("SELECT * FROM MUSTERILER WHERE HESAPNO=@P1", SQLConn.conn);
-            if (komut4.Connection.State != ConnectionState.Open)
+            try
             {
-                komut4.Connection.Open();
+                List<EntityCustomer> InfoLog = new List<EntityCustomer>();
+                SqlCommand komut4 = new SqlCommand("SELECT * FROM MUSTERILER WHERE HESAPNO=@P1", SQLConn.conn);
+                if (komut4.Connection.State != ConnectionState.Open)
+                {
+                    komut4.Connection.Open();
+                }
+                komut4.Parameters.AddWithValue("@P1", hesapNo);
+                SqlDataReader dr3 = komut4.ExecuteReader();
+                while (dr3.Read())
+                {
+                    EntityCustomer ent = new EntityCustomer();
+                    ent.Ad = dr3["AD"].ToString();
+                    ent.Soyad = dr3["SOYAD"].ToString();
+                    ent.Hesapno = dr3["HESAPNO"].ToString();
+                    ent.Tc = dr3["TC"].ToString();
+                    ent.Telefon = dr3["TELEFON"].ToString();
+                    InfoLog.Add(ent);
+                }
+                dr3.Close();
+                return InfoLog;
             }
-            komut4.Parameters.AddWithValue("@P1", hesapNo);
-            SqlDataReader dr3=komut4.ExecuteReader();      
-            while (dr3.Read())
+            catch (Exception)
             {
-                EntityCustomer ent = new EntityCustomer();
-                ent.Ad = dr3["AD"].ToString();
-                ent.Soyad = dr3["SOYAD"].ToString();
-                ent.Hesapno = dr3["HESAPNO"].ToString();
-                ent.Tc = dr3["TC"].ToString();
-                ent.Telefon = dr3["TELEFON"].ToString();
-                InfoLog.Add(ent);
+
+                throw;
             }
-            dr3.Close();
-            return InfoLog;
         }
 
         public static List<EntityTransactionsTransfer> MoneyTransferHistory(string hesapno)
         {
-            List<EntityTransactionsTransfer> HistoryLog= new List<EntityTransactionsTransfer>();
-            SqlCommand komut5 = new SqlCommand("SELECT AD,SOYAD,ALICI FROM HAREKETLER INNER JOIN MUSTERILER ON HAREKETLER.ALICI=MUSTERILER.HESAPNO WHERE GONDEREN=@P1", SQLConn.conn);
-            if (komut5.Connection.State != ConnectionState.Open)
+            try
             {
-                komut5.Connection.Open();
+                List<EntityTransactionsTransfer> HistoryLog = new List<EntityTransactionsTransfer>();
+                SqlCommand komut5 = new SqlCommand("SELECT AD,SOYAD,ALICI FROM HAREKETLER INNER JOIN MUSTERILER ON HAREKETLER.ALICI=MUSTERILER.HESAPNO WHERE GONDEREN=@P1 AND ISLEM='HAVALE'", SQLConn.conn);
+                if (komut5.Connection.State != ConnectionState.Open)
+                {
+                    komut5.Connection.Open();
+                }
+                komut5.Parameters.AddWithValue("@P1", hesapno);
+                SqlDataReader dr4 = komut5.ExecuteReader();
+                while (dr4.Read())
+                {
+                    EntityTransactionsTransfer ent = new EntityTransactionsTransfer();
+                    ent.Aliciisim = dr4["AD"] + " " + dr4["SOYAD"];
+                    ent.Alici = dr4["ALICI"].ToString();
+                    HistoryLog.Add(ent);
+                }
+                dr4.Close();
+                return HistoryLog;
             }
-            komut5.Parameters.AddWithValue("@P1",hesapno);
-            SqlDataReader dr4=komut5.ExecuteReader();
-            while (dr4.Read())
+            catch (Exception)
             {
-                EntityTransactionsTransfer ent=new EntityTransactionsTransfer();
-                ent.Aliciisim = dr4["AD"] + " " + dr4["SOYAD"];
-                ent.Alici = dr4["ALICI"].ToString();
-                HistoryLog.Add(ent);
+
+                throw;
             }
-            dr4.Close();
-            return HistoryLog;
         }
       
         public static int TransferMoney(EntityTransfer ent)
@@ -200,42 +224,58 @@ namespace DataAccessLayer
 
         public static List<EntityCustomer> TCNumber()
         {
-            List<EntityCustomer> TcLog = new List<EntityCustomer>();
-            SqlCommand komut8 = new SqlCommand("SELECT TC FROM MUSTERILER", SQLConn.conn);
-            if (komut8.Connection.State != ConnectionState.Open)
+            try
             {
-                komut8.Connection.Open();
+                List<EntityCustomer> TcLog = new List<EntityCustomer>();
+                SqlCommand komut8 = new SqlCommand("SELECT TC FROM MUSTERILER", SQLConn.conn);
+                if (komut8.Connection.State != ConnectionState.Open)
+                {
+                    komut8.Connection.Open();
+                }
+                SqlDataReader dr5 = komut8.ExecuteReader();
+                while (dr5.Read())
+                {
+                    EntityCustomer ent = new EntityCustomer();
+                    ent.Tc = dr5["TC"].ToString();
+                    TcLog.Add(ent);
+                }
+                dr5.Close();
+                return TcLog;
             }
-            SqlDataReader dr5 = komut8.ExecuteReader();
-            while (dr5.Read())
+            catch (Exception)
             {
-                EntityCustomer ent = new EntityCustomer();
-                ent.Tc = dr5["TC"].ToString();
-                TcLog.Add(ent);
+
+                throw;
             }
-            dr5.Close();
-            return TcLog;
         }
 
         public static List<EntityCustomer> BillingService()
         {
-            List<EntityCustomer> BillsLog=new List<EntityCustomer>();
-            SqlCommand komut9 = new SqlCommand("SELECT AD, SOYAD, HESAPNO FROM MUSTERILER", SQLConn.conn);
-            if (komut9.Connection.State!=ConnectionState.Open)
+            try
             {
-                komut9.Connection.Open();
+                List<EntityCustomer> BillsLog = new List<EntityCustomer>();
+                SqlCommand komut9 = new SqlCommand("SELECT AD, SOYAD, HESAPNO FROM MUSTERILER", SQLConn.conn);
+                if (komut9.Connection.State != ConnectionState.Open)
+                {
+                    komut9.Connection.Open();
+                }
+                SqlDataReader dr6 = komut9.ExecuteReader();
+                while (dr6.Read())
+                {
+                    EntityCustomer ent = new EntityCustomer();
+                    ent.Ad = dr6["AD"].ToString();
+                    ent.Soyad = dr6["SOYAD"].ToString();
+                    ent.Hesapno = dr6["HESAPNO"].ToString();
+                    BillsLog.Add(ent);
+                }
+                dr6.Close();
+                return BillsLog;
             }
-            SqlDataReader dr6=komut9.ExecuteReader();
-            while (dr6.Read())
+            catch (Exception)
             {
-                EntityCustomer ent = new EntityCustomer();
-                ent.Ad = dr6["AD"].ToString();
-                ent.Soyad = dr6["SOYAD"].ToString();
-                ent.Hesapno = dr6["HESAPNO"].ToString();
-                BillsLog.Add(ent);
+
+                throw;
             }
-            dr6.Close();
-            return BillsLog;
         }
 
         public static int PayingBills(EntityBill ent)
@@ -282,6 +322,35 @@ namespace DataAccessLayer
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public static List<EntityTransactionsTransfer> PayingBillsHistory(string hesapno)
+        {
+            try
+            {
+                List<EntityTransactionsTransfer> HistoryLog = new List<EntityTransactionsTransfer>();
+                SqlCommand komut11 = new SqlCommand("SELECT AD,ALICI FROM HAREKETLER INNER JOIN MUSTERILER ON HAREKETLER.ALICI=MUSTERILER.HESAPNO WHERE GONDEREN=@P1 AND ISLEM='Fatura'", SQLConn.conn);
+                if (komut11.Connection.State != ConnectionState.Open)
+                {
+                    komut11.Connection.Open();
+                }
+                komut11.Parameters.AddWithValue("@P1", hesapno);
+                SqlDataReader dr4 = komut11.ExecuteReader();
+                while (dr4.Read())
+                {
+                    EntityTransactionsTransfer ent = new EntityTransactionsTransfer();
+                    ent.Aliciisim = dr4["AD"].ToString();
+                    ent.Alici = dr4["ALICI"].ToString();
+                    HistoryLog.Add(ent);
+                }
+                dr4.Close();
+                return HistoryLog;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

@@ -181,5 +181,18 @@ namespace LogicLayer
                 return -1;
             }
         }
+
+        public static List<EntityTransactionsTransfer> LLPayingBillsHistory(string HesapNo)
+        {
+            if (HesapNo != "")
+            {
+                return DALCustomer.PayingBillsHistory(HesapNo);
+
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
