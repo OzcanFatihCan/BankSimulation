@@ -217,5 +217,83 @@ namespace DataAccessLayer
                 throw;
             }
         }
+
+        public static int DepositTransaction(EntityTransfer ent)
+        {
+            try
+            {
+                SqlCommand komut12 = new SqlCommand(
+                    "DECLARE @GonderenHesap char(7);" +
+                    "DECLARE @AliciHesap char(7);" +
+                    "DECLARE @YatirilacakTutar DECIMAL(18, 3);" +
+                    "SET @GonderenHesap = @P1;" +
+                    "SET @AliciHesap = @P2;" +
+                    "SET @YatirilacakTutar = @P3;" +                 
+                    "BEGIN " +
+                    "BEGIN TRANSACTION;" +                   
+                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE + @YatirilacakTutar WHERE HESAPNO = @AliciHesap;" +
+                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
+                    "VALUES (@GonderenHesap, @AliciHesap, @YatirilacakTutar, 'Para Yatırma');" +
+                    "COMMIT;" +
+                    "PRINT 'Hesaba para geldi.'; " +
+                    "END ",SQLConn.conn);
+
+                if (komut12.Connection.State != ConnectionState.Open)
+                {
+                    komut12.Connection.Open();
+                }
+
+                komut12.Parameters.AddWithValue("@P1", ent.Gonderen);
+                komut12.Parameters.AddWithValue("@P2", ent.Gonderen);
+                komut12.Parameters.AddWithValue("@P3", ent.Tutar);
+
+                return komut12.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public static int WithdrawalTransaction(EntityTransfer ent)
+        {
+            try
+            {
+                SqlCommand komut13 = new SqlCommand(
+                    "DECLARE @GonderenHesap char(7);" +
+                    "DECLARE @AliciHesap char(7);" +
+                    "DECLARE @CekilecekTutar DECIMAL(18, 3);" +
+                    "SET @GonderenHesap = @P1;" +
+                    "SET @AliciHesap = @P2;" +
+                    "SET @CekilecekTutar = @P3;" +
+                    "IF (SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO = @GonderenHesap) >= @CekilecekTutar " +
+                    "BEGIN " +
+                    "BEGIN TRANSACTION;" +
+                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @CekilecekTutar WHERE HESAPNO = @GonderenHesap;" +                   
+                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
+                    "VALUES (@GonderenHesap, @AliciHesap, @CekilecekTutar, 'Para Çekme');" +
+                    "COMMIT;" +
+                    "PRINT 'Para çekim işlemi tamamlandı'; " +
+                    "END " +
+                    "ELSE " +
+                    "BEGIN " +
+                    "PRINT 'Yetersiz bakiye! Para çekim işlemi iptal edildi.'; " +
+                    "END", SQLConn.conn);
+
+                if (komut13.Connection.State != ConnectionState.Open)
+                {
+                    komut13.Connection.Open();
+                }
+
+                komut13.Parameters.AddWithValue("@P1", ent.Alici);
+                komut13.Parameters.AddWithValue("@P2", ent.Alici);
+                komut13.Parameters.AddWithValue("@P3", ent.Tutar);
+
+                return komut13.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

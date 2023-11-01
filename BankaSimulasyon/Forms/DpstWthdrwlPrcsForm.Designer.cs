@@ -33,10 +33,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.RadioCek = new System.Windows.Forms.RadioButton();
             this.RadioYatir = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.BtnOdeme = new System.Windows.Forms.Button();
+            this.TxtTutarHesap = new System.Windows.Forms.TextBox();
+            this.BtnIslem = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtTutarKredi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -47,8 +47,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.BtnOdeme);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.BtnIslem);
+            this.groupBox1.Controls.Add(this.TxtTutarHesap);
             this.groupBox1.Controls.Add(this.RadioYatir);
             this.groupBox1.Controls.Add(this.RadioCek);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -66,7 +66,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.TxtTutarKredi);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(435, 12);
             this.groupBox2.Name = "groupBox2";
@@ -85,6 +85,7 @@
             this.RadioCek.TabStop = true;
             this.RadioCek.Text = "Para Çek";
             this.RadioCek.UseVisualStyleBackColor = true;
+            this.RadioCek.CheckedChanged += new System.EventHandler(this.RadioCek_CheckedChanged);
             // 
             // RadioYatir
             // 
@@ -96,24 +97,26 @@
             this.RadioYatir.TabStop = true;
             this.RadioYatir.Text = "Para Yatır";
             this.RadioYatir.UseVisualStyleBackColor = true;
+            this.RadioYatir.CheckedChanged += new System.EventHandler(this.RadioYatir_CheckedChanged);
             // 
-            // textBox1
+            // TxtTutarHesap
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 215);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(218, 26);
-            this.textBox1.TabIndex = 2;
+            this.TxtTutarHesap.Location = new System.Drawing.Point(86, 215);
+            this.TxtTutarHesap.Name = "TxtTutarHesap";
+            this.TxtTutarHesap.Size = new System.Drawing.Size(218, 26);
+            this.TxtTutarHesap.TabIndex = 2;
             // 
-            // BtnOdeme
+            // BtnIslem
             // 
-            this.BtnOdeme.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnOdeme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnOdeme.Location = new System.Drawing.Point(136, 301);
-            this.BtnOdeme.Name = "BtnOdeme";
-            this.BtnOdeme.Size = new System.Drawing.Size(110, 40);
-            this.BtnOdeme.TabIndex = 4;
-            this.BtnOdeme.Text = "Tamamla";
-            this.BtnOdeme.UseVisualStyleBackColor = true;
+            this.BtnIslem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnIslem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnIslem.Location = new System.Drawing.Point(136, 301);
+            this.BtnIslem.Name = "BtnIslem";
+            this.BtnIslem.Size = new System.Drawing.Size(110, 40);
+            this.BtnIslem.TabIndex = 4;
+            this.BtnIslem.Text = "Tamamla";
+            this.BtnIslem.UseVisualStyleBackColor = true;
+            this.BtnIslem.Click += new System.EventHandler(this.BtnIslem_Click);
             // 
             // button1
             // 
@@ -126,12 +129,12 @@
             this.button1.Text = "Tamamla";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // TxtTutarKredi
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 215);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(218, 26);
-            this.textBox2.TabIndex = 5;
+            this.TxtTutarKredi.Location = new System.Drawing.Point(96, 215);
+            this.TxtTutarKredi.Name = "TxtTutarKredi";
+            this.TxtTutarKredi.Size = new System.Drawing.Size(218, 26);
+            this.TxtTutarKredi.TabIndex = 5;
             // 
             // label1
             // 
@@ -182,10 +185,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton RadioYatir;
         private System.Windows.Forms.RadioButton RadioCek;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button BtnOdeme;
+        private System.Windows.Forms.TextBox TxtTutarHesap;
+        private System.Windows.Forms.Button BtnIslem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtTutarKredi;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

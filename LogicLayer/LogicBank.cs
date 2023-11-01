@@ -121,5 +121,58 @@ namespace LogicLayer
                 return null;
             }
         }
+
+        public static int LLDepositTransaction(EntityTransfer ent)
+        {
+            if (ent.Gonderen!="" &&
+               !string.IsNullOrEmpty(ent.Tutar.ToString()))
+            {
+                if (ent.Tutar>5)
+                {
+                    return DALBank.DepositTransaction(ent);
+                }
+                else
+                {
+                    return -2;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public static int LLWithdrawalTransaction(EntityTransfer ent)
+        {
+            double bakiye = 0.0;
+            List<EntityAccount> balance = LogicBank.LLBalanceCheck(ent.Alici);
+            foreach (var item in balance)
+            {
+                bakiye = item.Bakiye;
+            }
+            if (ent.Alici != "" &&
+                !string.IsNullOrEmpty(ent.Tutar.ToString()))
+            {
+                if (ent.Alici.Length == 7)
+                {
+                    if (ent.Tutar < bakiye)
+                    {
+                        return DALBank.WithdrawalTransaction(ent);
+                    }
+                    else
+                    {
+                        return -3;
+                    }
+                }
+                else
+                {
+                    return -2;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }
