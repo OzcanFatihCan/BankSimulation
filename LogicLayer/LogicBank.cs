@@ -174,5 +174,32 @@ namespace LogicLayer
                 return -1;
             }
         }
+        
+        public static int LLCreditCardDebt(EntityTransfer ent)
+        {
+            if (ent.Alici!="" &&
+                !string.IsNullOrEmpty(ent.Tutar.ToString()))
+            {
+                if (ent.Alici.Length == 7)
+                {
+                    if (ent.Tutar<50000)
+                    {
+                        return DALBank.CreditCardDebt(ent);
+                    }
+                    else
+                    {
+                        return -3;
+                    }
+                }
+                else
+                {
+                    return -2;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

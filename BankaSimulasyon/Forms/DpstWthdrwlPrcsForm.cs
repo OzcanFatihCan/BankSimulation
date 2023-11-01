@@ -72,11 +72,35 @@ namespace BankaSimulasyon.Forms
                         DialogResult resultMessage = MessageBox.Show("Hesabınızda yeterli bakiye bulunmamaktadır. Kredi kartından çekilsin mi?", "Para Çekme",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                         if (resultMessage==DialogResult.Yes)
                         {
-                            return;
+                            int creditResult=LogicBank.LLCreditCardDebt(ent);
+                            if (creditResult>0)
+                            {
+                                MessageBox.Show("Para çekme işlemi başarıyla gerçekeleşti. Yetersiz bakiye kredi ile çekildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
+                            if (creditResult==0)
+                            {
+                                MessageBox.Show("Kredi çekme sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            if (creditResult == -2)
+                            {
+                                MessageBox.Show("Lütfen hesap numarasını kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            if (creditResult == -3)
+                            {
+                                MessageBox.Show("Uygulama üzerinden çekilebilecek en fazla kredi 50.000₺'dir.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Kredi çekimi sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            
+                            MessageBox.Show("Para çekme işlemi iptal ediliyor.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }                      
                     }
                     else
