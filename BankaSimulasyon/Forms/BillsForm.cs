@@ -20,7 +20,7 @@ namespace BankaSimulasyon.Forms
         {
             InitializeComponent();
             this.hesapNo = hesap;
-           
+            dataGridView1.ForeColor = Color.Black;
         }
 
         private void BillsForm_Load(object sender, EventArgs e)
@@ -31,13 +31,13 @@ namespace BankaSimulasyon.Forms
 
         void PastInvoices()
         {
-            List<EntityTransactionsTransfer> HistoryLog = LogicCustomer.LLPayingBillsHistory(hesapNo);
+            List<EntityTransactionsTransfer> HistoryLog = LogicBank.LLPayingBillsHistory(hesapNo);
             dataGridView1.DataSource = HistoryLog;
         }
 
         void GetInvoiceType()
         {
-            List<EntityCustomer> BillsLog = LogicCustomer.LLBillingService();
+            List<EntityCustomer> BillsLog = LogicBank.LLBillingService();
             foreach (var item in BillsLog)
             {
                 if (item.Soyad=="su hizmeti")
@@ -81,7 +81,8 @@ namespace BankaSimulasyon.Forms
             {
                 string chosen = CmbSu.SelectedItem.ToString();
                 groupBox2.Text = "Su Faturası Ödeme";
-                List<EntityCustomer> BillsLog = LogicCustomer.LLBillingService();
+                label6.Text = "Abone Numarası:";
+                List<EntityCustomer> BillsLog = LogicBank.LLBillingService();
                 EntityCustomer waterBill = BillsLog.FirstOrDefault(item => item.Ad == chosen);
                 AliciNoGet(waterBill);
                 CmbElektrik.SelectedIndex = -1;
@@ -98,7 +99,8 @@ namespace BankaSimulasyon.Forms
             {
                 string chosen = CmbElektrik.SelectedItem.ToString();
                 groupBox2.Text = "Elektrik Faturası Ödeme";
-                List<EntityCustomer> BillsLog = LogicCustomer.LLBillingService();
+                label6.Text = "Abone Numarası:";
+                List<EntityCustomer> BillsLog = LogicBank.LLBillingService();
                 EntityCustomer electricityBill = BillsLog.FirstOrDefault(item => item.Ad == chosen);
                 AliciNoGet(electricityBill);
                 CmbSu.SelectedIndex = -1;
@@ -114,7 +116,8 @@ namespace BankaSimulasyon.Forms
             {
                 string chosen = CmbTv.SelectedItem.ToString();
                 groupBox2.Text = "Tv Faturası Ödeme";
-                List<EntityCustomer> BillsLog = LogicCustomer.LLBillingService();
+                label6.Text = "Abone Numarası:";
+                List<EntityCustomer> BillsLog = LogicBank.LLBillingService();
                 EntityCustomer tvBill = BillsLog.FirstOrDefault(item => item.Ad == chosen);
                 AliciNoGet(tvBill);
                 CmbSu.SelectedIndex = -1;
@@ -130,7 +133,8 @@ namespace BankaSimulasyon.Forms
             {
                 string chosen = CmbTelefon.SelectedItem.ToString();
                 groupBox2.Text = "Telefon Faturası Ödeme";
-                List<EntityCustomer> BillsLog = LogicCustomer.LLBillingService();
+                label6.Text = "Telefon Numarası:";
+                List<EntityCustomer> BillsLog = LogicBank.LLBillingService();
                 EntityCustomer telephoneBill = BillsLog.FirstOrDefault(item => item.Ad == chosen);
                 AliciNoGet(telephoneBill);
                 CmbSu.SelectedIndex = -1;
@@ -146,7 +150,8 @@ namespace BankaSimulasyon.Forms
             {
                 string chosen = CmbDogalgaz.SelectedItem.ToString();
                 groupBox2.Text = "Doğalgaz Faturası Ödeme";
-                List<EntityCustomer> BillsLog = LogicCustomer.LLBillingService();
+                label6.Text = "Abone Numarası:";
+                List<EntityCustomer> BillsLog = LogicBank.LLBillingService();
                 EntityCustomer naturalgasBill = BillsLog.FirstOrDefault(item => item.Ad == chosen);
                 AliciNoGet(naturalgasBill);
                 CmbSu.SelectedIndex = -1;
@@ -159,42 +164,49 @@ namespace BankaSimulasyon.Forms
         private void BtnOdeme_Click(object sender, EventArgs e)
         {
             EntityBill ent = new EntityBill();
-            if (double.TryParse(TxtFaturaTutar.Text, out double tutar))
+            if (aliciNo!=null)
             {
-                ent.GonderenNo = hesapNo;
-                ent.AliciNo = aliciNo;
-                ent.Tutar = tutar;
-                ent.AboneNo = TxtAbone.Text;
-                int result = LogicCustomer.LLPayingBills(ent);
-                if (result > 0)
+                if (double.TryParse(TxtFaturaTutar.Text, out double tutar))
                 {
-                    MessageBox.Show("Ödeme işlemi başarıyla tamamlandı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    PastInvoices();
-                    return;
-                }
-                if (result == 0)
-                {
-                    MessageBox.Show("Ödeme işlemi sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (result == -2)
-                {
-                    MessageBox.Show("Lütfen hesap numarasını kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (result == -3)
-                {
-                    MessageBox.Show("Hesabınızda yeterli bakiye bulunmamaktadır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    ent.GonderenNo = hesapNo;
+                    ent.AliciNo = aliciNo;
+                    ent.Tutar = tutar;
+                    ent.AboneNo = TxtAbone.Text;
+                    int result = LogicBank.LLPayingBills(ent);
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Ödeme işlemi başarıyla tamamlandı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        PastInvoices();
+                        return;
+                    }
+                    if (result == 0)
+                    {
+                        MessageBox.Show("Ödeme işlemi sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (result == -2)
+                    {
+                        MessageBox.Show("Lütfen hesap numarasını kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (result == -3)
+                    {
+                        MessageBox.Show("Hesabınızda yeterli bakiye bulunmamaktadır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Hücreleri boş bırakmayınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Hücreleri boş bırakmayınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lütfen geçerli bir tutar giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Lütfen geçerli bir tutar giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen ödenecek fatura hizmetini seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -19,8 +19,9 @@ namespace BankaSimulasyon.Forms
         {
             InitializeComponent();
             this.hesapNo = hesap;
+            dataGridView1.ForeColor = Color.Black;
         }
-       
+
         private void TransferForm_Load(object sender, EventArgs e)
         {
             RegisterPayee();
@@ -28,13 +29,20 @@ namespace BankaSimulasyon.Forms
 
         void RegisterPayee()
         {
-            List<EntityTransactionsTransfer> HistoryLog = LogicCustomer.LLMoneyTransferHistory(hesapNo);
+            List<EntityTransactionsTransfer> HistoryLog = LogicBank.LLMoneyTransferHistory(hesapNo);
             dataGridView1.DataSource= HistoryLog;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            TxtRgsHesapNo.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                int columnIndex = e.ColumnIndex;
+                if (columnIndex >= 0)
+                {
+                    TxtRgsHesapNo.Text = dataGridView1.Rows[e.RowIndex].Cells[columnIndex].Value.ToString();
+                }
+            }
         }
 
         private void BtnRgsHavale_Click(object sender, EventArgs e)
@@ -45,7 +53,7 @@ namespace BankaSimulasyon.Forms
                 ent.Gonderen = hesapNo;
                 ent.Alici = TxtRgsHesapNo.Text;
                 ent.Tutar = tutarrgs;
-                int result = LogicCustomer.LLTransferMoney(ent);
+                int result = LogicBank.LLTransferMoney(ent);
                 if (result > 0)
                 {
                     MessageBox.Show("Para transferi başarıyla tamamlandı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -92,7 +100,7 @@ namespace BankaSimulasyon.Forms
                 ent.Gonderen = hesapNo;
                 ent.Alici = TxtHesapNo.Text;
                 ent.Tutar = tutar;
-                int result = LogicCustomer.LLTransferMoney(ent);
+                int result = LogicBank.LLTransferMoney(ent);
                 if (result > 0)
                 {
                     MessageBox.Show("Para transferi başarıyla tamamlandı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);

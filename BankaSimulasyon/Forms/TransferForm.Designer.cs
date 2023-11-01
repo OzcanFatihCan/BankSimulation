@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransferForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.rgsReceiverPage = new System.Windows.Forms.TabPage();
@@ -119,7 +118,7 @@
             this.BtnRgsHavale.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.BtnRgsHavale.Name = "BtnRgsHavale";
             this.BtnRgsHavale.Size = new System.Drawing.Size(280, 66);
-            this.BtnRgsHavale.TabIndex = 6;
+            this.BtnRgsHavale.TabIndex = 2;
             this.BtnRgsHavale.Text = "Gönder";
             this.BtnRgsHavale.UseVisualStyleBackColor = true;
             this.BtnRgsHavale.Click += new System.EventHandler(this.BtnRgsHavale_Click);
@@ -140,7 +139,7 @@
             this.TxtRgsTutar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.TxtRgsTutar.Name = "TxtRgsTutar";
             this.TxtRgsTutar.Size = new System.Drawing.Size(311, 26);
-            this.TxtRgsTutar.TabIndex = 4;
+            this.TxtRgsTutar.TabIndex = 1;
             // 
             // label2
             // 
@@ -176,26 +175,18 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Size = new System.Drawing.Size(819, 277);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -239,7 +230,7 @@
             this.BtnTemizle.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(160, 56);
-            this.BtnTemizle.TabIndex = 8;
+            this.BtnTemizle.TabIndex = 6;
             this.BtnTemizle.Text = "Temizle";
             this.BtnTemizle.UseVisualStyleBackColor = true;
             this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
@@ -249,7 +240,7 @@
             this.TxtHesapNo.Location = new System.Drawing.Point(142, 64);
             this.TxtHesapNo.Name = "TxtHesapNo";
             this.TxtHesapNo.Size = new System.Drawing.Size(277, 26);
-            this.TxtHesapNo.TabIndex = 7;
+            this.TxtHesapNo.TabIndex = 3;
             // 
             // BtnGonder
             // 
@@ -260,7 +251,7 @@
             this.BtnGonder.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.BtnGonder.Name = "BtnGonder";
             this.BtnGonder.Size = new System.Drawing.Size(160, 56);
-            this.BtnGonder.TabIndex = 6;
+            this.BtnGonder.TabIndex = 5;
             this.BtnGonder.Text = "Gönder";
             this.BtnGonder.UseVisualStyleBackColor = true;
             this.BtnGonder.Click += new System.EventHandler(this.BtnGonder_Click);

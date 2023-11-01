@@ -117,34 +117,6 @@ namespace BankaSimulasyon
                 LblTitle.Text = "Hoşgeldiniz";
             }
         }
-    
-
-        private void BtnGonder_Click(object sender, EventArgs e)
-        {
-            /*
-            //gönderilen hesabın para atışı
-            Baglanti.Open();
-            SqlCommand komut = new SqlCommand("UPDATE HESAPLAR SET BAKIYE=BAKIYE+@P1 WHERE HESAPNO=@P2", Baglanti);
-            komut.Parameters.AddWithValue("@P1", decimal.Parse(TxtTutar.Text));
-            komut.Parameters.AddWithValue("@P2",MskHesapNo.Text);
-            komut.ExecuteNonQuery();
-            Baglanti.Close();
-           
-
-            //gönderen hesabın para azalışı
-            Baglanti.Open();
-            SqlCommand komut2 = new SqlCommand("UPDATE HESAPLAR SET BAKIYE=BAKIYE-@K1 WHERE HESAPNO=@K2", Baglanti);
-            komut2.Parameters.AddWithValue("@K1", decimal.Parse(TxtTutar.Text));
-            komut2.Parameters.AddWithValue("@K2", hesap);
-            komut2.ExecuteNonQuery();
-            Baglanti.Close();
-            MessageBox.Show("Havale işlemi gerçekleşti");
-
-            //HAREKET
-            */
-
-        }
-
         private void BtnHesap_Click(object sender, EventArgs e)
         {            
             OpenChildForm(new Forms.AccountStatementForm(hesap), sender);

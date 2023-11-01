@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillsForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,19 +35,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CmbSu = new System.Windows.Forms.ComboBox();
-            this.CmbElektrik = new System.Windows.Forms.ComboBox();
-            this.CmbTv = new System.Windows.Forms.ComboBox();
-            this.CmbTelefon = new System.Windows.Forms.ComboBox();
             this.CmbDogalgaz = new System.Windows.Forms.ComboBox();
+            this.CmbTelefon = new System.Windows.Forms.ComboBox();
+            this.CmbTv = new System.Windows.Forms.ComboBox();
+            this.CmbElektrik = new System.Windows.Forms.ComboBox();
+            this.CmbSu = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnOdeme = new System.Windows.Forms.Button();
+            this.TxtFaturaTutar = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TxtAbone = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TxtAbone = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TxtFaturaTutar = new System.Windows.Forms.TextBox();
-            this.BtnOdeme = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -120,35 +119,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seçenekler";
             // 
-            // CmbSu
+            // CmbDogalgaz
             // 
-            this.CmbSu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbSu.FormattingEnabled = true;
-            this.CmbSu.Location = new System.Drawing.Point(34, 61);
-            this.CmbSu.Name = "CmbSu";
-            this.CmbSu.Size = new System.Drawing.Size(178, 27);
-            this.CmbSu.TabIndex = 0;
-            this.CmbSu.SelectedIndexChanged += new System.EventHandler(this.CmbSu_SelectedIndexChanged);
-            // 
-            // CmbElektrik
-            // 
-            this.CmbElektrik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbElektrik.FormattingEnabled = true;
-            this.CmbElektrik.Location = new System.Drawing.Point(34, 139);
-            this.CmbElektrik.Name = "CmbElektrik";
-            this.CmbElektrik.Size = new System.Drawing.Size(178, 27);
-            this.CmbElektrik.TabIndex = 2;
-            this.CmbElektrik.SelectedIndexChanged += new System.EventHandler(this.CmbElektrik_SelectedIndexChanged);
-            // 
-            // CmbTv
-            // 
-            this.CmbTv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTv.FormattingEnabled = true;
-            this.CmbTv.Location = new System.Drawing.Point(34, 214);
-            this.CmbTv.Name = "CmbTv";
-            this.CmbTv.Size = new System.Drawing.Size(178, 27);
-            this.CmbTv.TabIndex = 3;
-            this.CmbTv.SelectedIndexChanged += new System.EventHandler(this.CmbTv_SelectedIndexChanged);
+            this.CmbDogalgaz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDogalgaz.FormattingEnabled = true;
+            this.CmbDogalgaz.Location = new System.Drawing.Point(34, 377);
+            this.CmbDogalgaz.Name = "CmbDogalgaz";
+            this.CmbDogalgaz.Size = new System.Drawing.Size(178, 27);
+            this.CmbDogalgaz.TabIndex = 6;
+            this.CmbDogalgaz.SelectedIndexChanged += new System.EventHandler(this.CmbDogalgaz_SelectedIndexChanged);
             // 
             // CmbTelefon
             // 
@@ -160,15 +139,35 @@
             this.CmbTelefon.TabIndex = 5;
             this.CmbTelefon.SelectedIndexChanged += new System.EventHandler(this.CmbTelefon_SelectedIndexChanged);
             // 
-            // CmbDogalgaz
+            // CmbTv
             // 
-            this.CmbDogalgaz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDogalgaz.FormattingEnabled = true;
-            this.CmbDogalgaz.Location = new System.Drawing.Point(34, 377);
-            this.CmbDogalgaz.Name = "CmbDogalgaz";
-            this.CmbDogalgaz.Size = new System.Drawing.Size(178, 27);
-            this.CmbDogalgaz.TabIndex = 6;
-            this.CmbDogalgaz.SelectedIndexChanged += new System.EventHandler(this.CmbDogalgaz_SelectedIndexChanged);
+            this.CmbTv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTv.FormattingEnabled = true;
+            this.CmbTv.Location = new System.Drawing.Point(34, 214);
+            this.CmbTv.Name = "CmbTv";
+            this.CmbTv.Size = new System.Drawing.Size(178, 27);
+            this.CmbTv.TabIndex = 3;
+            this.CmbTv.SelectedIndexChanged += new System.EventHandler(this.CmbTv_SelectedIndexChanged);
+            // 
+            // CmbElektrik
+            // 
+            this.CmbElektrik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbElektrik.FormattingEnabled = true;
+            this.CmbElektrik.Location = new System.Drawing.Point(34, 139);
+            this.CmbElektrik.Name = "CmbElektrik";
+            this.CmbElektrik.Size = new System.Drawing.Size(178, 27);
+            this.CmbElektrik.TabIndex = 2;
+            this.CmbElektrik.SelectedIndexChanged += new System.EventHandler(this.CmbElektrik_SelectedIndexChanged);
+            // 
+            // CmbSu
+            // 
+            this.CmbSu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbSu.FormattingEnabled = true;
+            this.CmbSu.Location = new System.Drawing.Point(34, 61);
+            this.CmbSu.Name = "CmbSu";
+            this.CmbSu.Size = new System.Drawing.Size(178, 27);
+            this.CmbSu.TabIndex = 0;
+            this.CmbSu.SelectedIndexChanged += new System.EventHandler(this.CmbSu_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -185,6 +184,50 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ödeme";
             // 
+            // BtnOdeme
+            // 
+            this.BtnOdeme.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOdeme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOdeme.Location = new System.Drawing.Point(276, 181);
+            this.BtnOdeme.Name = "BtnOdeme";
+            this.BtnOdeme.Size = new System.Drawing.Size(110, 40);
+            this.BtnOdeme.TabIndex = 3;
+            this.BtnOdeme.Text = "Ödeme Yap";
+            this.BtnOdeme.UseVisualStyleBackColor = true;
+            this.BtnOdeme.Click += new System.EventHandler(this.BtnOdeme_Click);
+            // 
+            // TxtFaturaTutar
+            // 
+            this.TxtFaturaTutar.Location = new System.Drawing.Point(209, 139);
+            this.TxtFaturaTutar.Name = "TxtFaturaTutar";
+            this.TxtFaturaTutar.Size = new System.Drawing.Size(249, 26);
+            this.TxtFaturaTutar.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(57, 142);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(135, 19);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Ödenecek Tutar:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(57, 89);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(142, 19);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Abone Numarası:";
+            // 
+            // TxtAbone
+            // 
+            this.TxtAbone.Location = new System.Drawing.Point(209, 86);
+            this.TxtAbone.Name = "TxtAbone";
+            this.TxtAbone.Size = new System.Drawing.Size(249, 26);
+            this.TxtAbone.TabIndex = 1;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
@@ -200,64 +243,12 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(538, 158);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // TxtAbone
-            // 
-            this.TxtAbone.Location = new System.Drawing.Point(209, 86);
-            this.TxtAbone.Name = "TxtAbone";
-            this.TxtAbone.Size = new System.Drawing.Size(249, 26);
-            this.TxtAbone.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(61, 89);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 19);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Abone Numarası:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(68, 142);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 19);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Ödenecek Tutar:";
-            // 
-            // TxtFaturaTutar
-            // 
-            this.TxtFaturaTutar.Location = new System.Drawing.Point(209, 139);
-            this.TxtFaturaTutar.Name = "TxtFaturaTutar";
-            this.TxtFaturaTutar.Size = new System.Drawing.Size(249, 26);
-            this.TxtFaturaTutar.TabIndex = 4;
-            // 
-            // BtnOdeme
-            // 
-            this.BtnOdeme.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnOdeme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnOdeme.Location = new System.Drawing.Point(276, 181);
-            this.BtnOdeme.Name = "BtnOdeme";
-            this.BtnOdeme.Size = new System.Drawing.Size(110, 40);
-            this.BtnOdeme.TabIndex = 5;
-            this.BtnOdeme.Text = "Ödeme Yap";
-            this.BtnOdeme.UseVisualStyleBackColor = true;
-            this.BtnOdeme.Click += new System.EventHandler(this.BtnOdeme_Click);
             // 
             // BillsForm
             // 
@@ -275,6 +266,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "BillsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Faturalar";
             this.Load += new System.EventHandler(this.BillsForm_Load);
             this.groupBox1.ResumeLayout(false);

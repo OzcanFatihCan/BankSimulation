@@ -10,8 +10,10 @@ namespace EntityLayer
     {
         private string aliciisim;
         private string alici;
+        private double tutar;
 
         public string Aliciisim { get => aliciisim; set => aliciisim = value; }
         public string Alici { get => alici; set => alici = value; }
+        public double Tutar { get => tutar; set => tutar = value; }
     }
 }

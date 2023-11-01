@@ -295,7 +295,7 @@
             // LblHesapNo
             // 
             this.LblHesapNo.AutoSize = true;
-            this.LblHesapNo.Location = new System.Drawing.Point(343, 4);
+            this.LblHesapNo.Location = new System.Drawing.Point(364, 4);
             this.LblHesapNo.Name = "LblHesapNo";
             this.LblHesapNo.Size = new System.Drawing.Size(72, 19);
             this.LblHesapNo.TabIndex = 3;
@@ -322,7 +322,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(257, 4);
+            this.label2.Location = new System.Drawing.Point(278, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 19);
             this.label2.TabIndex = 0;

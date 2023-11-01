@@ -15,7 +15,6 @@ namespace BankaSimulasyon
 {
     public partial class LoginPage : Form
     {
-        SqlConnection Baglanti=new SqlConnection("Data Source=FatihBuzac\\SQLEXPRESS;Initial Catalog=DbBanka;Integrated Security=True");
         public LoginPage()
         {
             InitializeComponent();
