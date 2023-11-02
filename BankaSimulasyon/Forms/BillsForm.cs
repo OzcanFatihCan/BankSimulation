@@ -31,8 +31,17 @@ namespace BankaSimulasyon.Forms
 
         void PastInvoices()
         {
-            List<EntityTransactionsTransfer> HistoryLog = LogicBank.LLPayingBillsHistory(hesapNo);
-            dataGridView1.DataSource = HistoryLog;
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            List<EntityMovement> HistoryLog = LogicBank.LLPayingBillsHistory(hesapNo);
+            dataGridView1.Columns.Add("Alici", "Alıcı");
+            dataGridView1.Columns.Add("AliciHesapNo", "Alıcı Hesap No");
+            dataGridView1.Columns.Add("Tutar", "Tutar");
+            
+            foreach (var item in HistoryLog)
+            {
+                dataGridView1.Rows.Add(item.Aliciisim,item.Alici,item.Tutar+" ₺");
+            }      
         }
 
         void GetInvoiceType()

@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DpstWthdrwlPrcsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.RadioCek = new System.Windows.Forms.RadioButton();
-            this.RadioYatir = new System.Windows.Forms.RadioButton();
-            this.TxtTutarHesap = new System.Windows.Forms.TextBox();
             this.BtnIslem = new System.Windows.Forms.Button();
+            this.TxtTutarHesap = new System.Windows.Forms.TextBox();
+            this.RadioYatir = new System.Windows.Forms.RadioButton();
+            this.RadioCek = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LblBorc = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.TxtTutarKredi = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -59,33 +59,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Para Çekme - Yatırma İşlemleri";
             // 
-            // groupBox2
+            // BtnIslem
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.TxtTutarKredi);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(435, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(400, 450);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kredi Kartı Borç Ödeme";
+            this.BtnIslem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnIslem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnIslem.Location = new System.Drawing.Point(136, 301);
+            this.BtnIslem.Name = "BtnIslem";
+            this.BtnIslem.Size = new System.Drawing.Size(110, 40);
+            this.BtnIslem.TabIndex = 4;
+            this.BtnIslem.Text = "Tamamla";
+            this.BtnIslem.UseVisualStyleBackColor = true;
+            this.BtnIslem.Click += new System.EventHandler(this.BtnIslem_Click);
             // 
-            // RadioCek
+            // TxtTutarHesap
             // 
-            this.RadioCek.AutoSize = true;
-            this.RadioCek.Location = new System.Drawing.Point(86, 135);
-            this.RadioCek.Name = "RadioCek";
-            this.RadioCek.Size = new System.Drawing.Size(96, 23);
-            this.RadioCek.TabIndex = 0;
-            this.RadioCek.TabStop = true;
-            this.RadioCek.Text = "Para Çek";
-            this.RadioCek.UseVisualStyleBackColor = true;
-            this.RadioCek.CheckedChanged += new System.EventHandler(this.RadioCek_CheckedChanged);
+            this.TxtTutarHesap.Location = new System.Drawing.Point(86, 215);
+            this.TxtTutarHesap.Name = "TxtTutarHesap";
+            this.TxtTutarHesap.Size = new System.Drawing.Size(218, 26);
+            this.TxtTutarHesap.TabIndex = 2;
             // 
             // RadioYatir
             // 
@@ -99,24 +90,51 @@
             this.RadioYatir.UseVisualStyleBackColor = true;
             this.RadioYatir.CheckedChanged += new System.EventHandler(this.RadioYatir_CheckedChanged);
             // 
-            // TxtTutarHesap
+            // RadioCek
             // 
-            this.TxtTutarHesap.Location = new System.Drawing.Point(86, 215);
-            this.TxtTutarHesap.Name = "TxtTutarHesap";
-            this.TxtTutarHesap.Size = new System.Drawing.Size(218, 26);
-            this.TxtTutarHesap.TabIndex = 2;
+            this.RadioCek.AutoSize = true;
+            this.RadioCek.Location = new System.Drawing.Point(86, 135);
+            this.RadioCek.Name = "RadioCek";
+            this.RadioCek.Size = new System.Drawing.Size(96, 23);
+            this.RadioCek.TabIndex = 0;
+            this.RadioCek.TabStop = true;
+            this.RadioCek.Text = "Para Çek";
+            this.RadioCek.UseVisualStyleBackColor = true;
+            this.RadioCek.CheckedChanged += new System.EventHandler(this.RadioCek_CheckedChanged);
             // 
-            // BtnIslem
+            // groupBox2
             // 
-            this.BtnIslem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnIslem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIslem.Location = new System.Drawing.Point(136, 301);
-            this.BtnIslem.Name = "BtnIslem";
-            this.BtnIslem.Size = new System.Drawing.Size(110, 40);
-            this.BtnIslem.TabIndex = 4;
-            this.BtnIslem.Text = "Tamamla";
-            this.BtnIslem.UseVisualStyleBackColor = true;
-            this.BtnIslem.Click += new System.EventHandler(this.BtnIslem_Click);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.LblBorc);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.TxtTutarKredi);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(435, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(400, 450);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Kredi Kartı Borç Ödeme";
+            // 
+            // LblBorc
+            // 
+            this.LblBorc.AutoSize = true;
+            this.LblBorc.Location = new System.Drawing.Point(203, 98);
+            this.LblBorc.Name = "LblBorc";
+            this.LblBorc.Size = new System.Drawing.Size(54, 19);
+            this.LblBorc.TabIndex = 8;
+            this.LblBorc.Text = "0.00 ₺";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(87, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 19);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Güncel Borç:";
             // 
             // button1
             // 
@@ -135,24 +153,6 @@
             this.TxtTutarKredi.Name = "TxtTutarKredi";
             this.TxtTutarKredi.Size = new System.Drawing.Size(218, 26);
             this.TxtTutarKredi.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 19);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Güncel Borç";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(185, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 19);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "00 ₺";
             // 
             // DpstWthdrwlPrcsForm
             // 
@@ -189,7 +189,7 @@
         private System.Windows.Forms.Button BtnIslem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox TxtTutarKredi;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblBorc;
         private System.Windows.Forms.Label label1;
     }
 }

@@ -29,22 +29,37 @@ namespace BankaSimulasyon.Forms
 
         void RegisterPayee()
         {
-            List<EntityTransactionsTransfer> HistoryLog = LogicBank.LLMoneyTransferHistory(hesapNo);
-            dataGridView1.DataSource= HistoryLog;
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            List<EntityMovement> HistoryLog = LogicBank.LLMoneyTransferHistory(hesapNo);
+            dataGridView1.Columns.Add("AliciHesapNo", "Alıcı Hesap No");
+            dataGridView1.Columns.Add("Alici", "Alıcı");          
+            dataGridView1.Columns.Add("Tutar", "Tutar");
+            foreach (var item in HistoryLog)
             {
-                int columnIndex = e.ColumnIndex;
-                if (columnIndex >= 0)
-                {
-                    TxtRgsHesapNo.Text = dataGridView1.Rows[e.RowIndex].Cells[columnIndex].Value.ToString();
-                }
+                dataGridView1.Rows.Add(item.Alici,item.Aliciisim,item.Tutar + " ₺");
             }
         }
+       
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["AliciHesapNo"].Index)
+            {
+                object value = dataGridView1.Rows[e.RowIndex].Cells["AliciHesapNo"].Value;
+                if (value != null)
+                {
+                    string alici = value.ToString();
+                    TxtRgsHesapNo.Text = alici;
+                }
+                else
+                {
+                    TxtRgsHesapNo.Text = "Hesap numarası seçiniz.";
+                }
+            }
 
+        }
+        
         private void BtnRgsHavale_Click(object sender, EventArgs e)
         {
             EntityTransfer ent = new EntityTransfer();

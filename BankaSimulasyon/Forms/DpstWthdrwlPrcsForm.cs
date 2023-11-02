@@ -23,7 +23,17 @@ namespace BankaSimulasyon.Forms
 
         private void DpstWthdrwlPrcsForm_Load(object sender, EventArgs e)
         {
+            DebtFetch();
+        }
 
+        void DebtFetch()
+        {
+            LblBorc.Text = "";
+            List<EntityDebt> DebtLog = LogicBank.LLCreditDebtFetch(hesapNo);
+            foreach (var item in DebtLog)
+            {
+                LblBorc.Text = item.Borc + " ₺";
+            }
         }
 
         private void RadioCek_CheckedChanged(object sender, EventArgs e)
@@ -76,6 +86,7 @@ namespace BankaSimulasyon.Forms
                             if (creditResult>0)
                             {
                                 MessageBox.Show("Para çekme işlemi başarıyla gerçekeleşti. Yetersiz bakiye kredi ile çekildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                DebtFetch();
                                 return;
                             }
                             if (creditResult==0)

@@ -10,7 +10,7 @@ namespace LogicLayer
 {
     public class LogicBank
     {
-        public static List<EntityTransactionsTransfer> LLMoneyTransferHistory(string HesapNo)
+        public static List<EntityMovement> LLMoneyTransferHistory(string HesapNo)
         {
             if (HesapNo != "")
             {
@@ -110,7 +110,7 @@ namespace LogicLayer
             }
         }
 
-        public static List<EntityTransactionsTransfer> LLPayingBillsHistory(string HesapNo)
+        public static List<EntityMovement> LLPayingBillsHistory(string HesapNo)
         {
             if (HesapNo != "")
             {
@@ -199,6 +199,18 @@ namespace LogicLayer
             else
             {
                 return -1;
+            }
+        }
+
+        public static List<EntityDebt> LLCreditDebtFetch(string hesapNo)
+        {
+            if (hesapNo != "")
+            {
+                return DALBank.CreditDebtFetch(hesapNo);
+            }
+            else
+            {
+                return null;
             }
         }
     }

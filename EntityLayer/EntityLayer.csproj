@@ -43,9 +43,10 @@
   <ItemGroup>
     <Compile Include="EntityAccount.cs" />
     <Compile Include="EntityBill.cs" />
+    <Compile Include="EntityDebt.cs" />
     <Compile Include="EntityTransfer.cs" />
     <Compile Include="EntityCustomer.cs" />
-    <Compile Include="EntityTransactionsTransfer.cs" />
+    <Compile Include="EntityMovement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

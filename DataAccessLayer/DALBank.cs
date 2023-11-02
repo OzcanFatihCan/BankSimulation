@@ -11,11 +11,11 @@ namespace DataAccessLayer
 {
     public class DALBank
     {
-        public static List<EntityTransactionsTransfer> MoneyTransferHistory(string hesapno)
+        public static List<EntityMovement> MoneyTransferHistory(string hesapno)
         {
             try
             {
-                List<EntityTransactionsTransfer> HistoryLog = new List<EntityTransactionsTransfer>();
+                List<EntityMovement> HistoryLog = new List<EntityMovement>();
                 SqlCommand komut5 = new SqlCommand("SELECT AD,SOYAD,ALICI,TUTAR FROM HAREKETLER INNER JOIN MUSTERILER ON HAREKETLER.ALICI=MUSTERILER.HESAPNO WHERE GONDEREN=@P1 AND ISLEM='HAVALE'", SQLConn.conn);
                 if (komut5.Connection.State != ConnectionState.Open)
                 {
@@ -25,7 +25,7 @@ namespace DataAccessLayer
                 SqlDataReader dr4 = komut5.ExecuteReader();
                 while (dr4.Read())
                 {
-                    EntityTransactionsTransfer ent = new EntityTransactionsTransfer();
+                    EntityMovement ent = new EntityMovement();
                     ent.Aliciisim = dr4["AD"] + " " + dr4["SOYAD"];
                     ent.Alici = dr4["ALICI"].ToString();
                     ent.Tutar = double.Parse(dr4["TUTAR"].ToString());
@@ -188,27 +188,27 @@ namespace DataAccessLayer
             }
         }
 
-        public static List<EntityTransactionsTransfer> PayingBillsHistory(string hesapno)
+        public static List<EntityMovement> PayingBillsHistory(string hesapno)
         {
             try
             {
-                List<EntityTransactionsTransfer> HistoryLog = new List<EntityTransactionsTransfer>();
+                List<EntityMovement> HistoryLog = new List<EntityMovement>();
                 SqlCommand komut11 = new SqlCommand("SELECT AD,ALICI,TUTAR FROM HAREKETLER INNER JOIN MUSTERILER ON HAREKETLER.ALICI=MUSTERILER.HESAPNO WHERE GONDEREN=@P1 AND ISLEM='Fatura'", SQLConn.conn);
                 if (komut11.Connection.State != ConnectionState.Open)
                 {
                     komut11.Connection.Open();
                 }
                 komut11.Parameters.AddWithValue("@P1", hesapno);
-                SqlDataReader dr4 = komut11.ExecuteReader();
-                while (dr4.Read())
+                SqlDataReader dr7 = komut11.ExecuteReader();
+                while (dr7.Read())
                 {
-                    EntityTransactionsTransfer ent = new EntityTransactionsTransfer();
-                    ent.Aliciisim = dr4["AD"].ToString();
-                    ent.Alici = dr4["ALICI"].ToString();
-                    ent.Tutar = double.Parse(dr4["TUTAR"].ToString());
+                    EntityMovement ent = new EntityMovement();
+                    ent.Aliciisim = dr7["AD"].ToString();
+                    ent.Alici = dr7["ALICI"].ToString();
+                    ent.Tutar = double.Parse(dr7["TUTAR"].ToString());
                     HistoryLog.Add(ent);
                 }
-                dr4.Close();
+                dr7.Close();
                 return HistoryLog;
             }
             catch (Exception)
@@ -338,6 +338,26 @@ namespace DataAccessLayer
             {
                 throw;
             }
+        }
+
+        public static List<EntityDebt> CreditDebtFetch(string hesapNo)
+        {
+            List<EntityDebt> DebtLog=new List<EntityDebt>();
+            SqlCommand komut15 = new SqlCommand("SELECT BORC FROM BORCLAR WHERE HESAPNO=@P1",SQLConn.conn);
+            if (komut15.Connection.State!=ConnectionState.Open)
+            {
+                komut15.Connection.Open();
+            }
+            komut15.Parameters.AddWithValue("@P1",hesapNo);
+            SqlDataReader dr8=komut15.ExecuteReader();
+            while (dr8.Read())
+            {
+                EntityDebt ent=new EntityDebt();
+                ent.Borc = dr8["BORC"].ToString();
+                DebtLog.Add(ent);
+            }
+            dr8.Close();
+            return DebtLog; 
         }
     }
 }

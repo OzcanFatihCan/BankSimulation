@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    public class EntityTransactionsTransfer
+    public class EntityMovement
     {
         private string aliciisim;
         private string alici;
