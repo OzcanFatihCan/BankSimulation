@@ -48,7 +48,7 @@ namespace DataAccessLayer
                 SqlCommand komut6 = new SqlCommand(
                     "DECLARE @GonderenHesap char(7);" +
                     "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @TransferMiktari DECIMAL(18, 3);" +
+                    "DECLARE @TransferMiktari DECIMAL(18, 2);" +
                     "SET @GonderenHesap = @P1;" +
                     "SET @AliciHesap = @P2;" +
                     "SET @TransferMiktari = @P3;" +
@@ -147,7 +147,7 @@ namespace DataAccessLayer
                 SqlCommand komut10 = new SqlCommand(
                     "DECLARE @GonderenHesap char(7);" +
                     "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @OdenecekTutar DECIMAL(18, 3);" +
+                    "DECLARE @OdenecekTutar DECIMAL(18, 2);" +
                     "DECLARE @AboneNumarasi varchar(30);" +
                     "SET @GonderenHesap = @P1;" +
                     "SET @AliciHesap = @P2;" +
@@ -225,7 +225,7 @@ namespace DataAccessLayer
                 SqlCommand komut12 = new SqlCommand(
                     "DECLARE @GonderenHesap char(7);" +
                     "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @YatirilacakTutar DECIMAL(18, 3);" +
+                    "DECLARE @YatirilacakTutar DECIMAL(18, 2);" +
                     "SET @GonderenHesap = @P1;" +
                     "SET @AliciHesap = @P2;" +
                     "SET @YatirilacakTutar = @P3;" +                 
@@ -261,7 +261,7 @@ namespace DataAccessLayer
                 SqlCommand komut13 = new SqlCommand(
                     "DECLARE @GonderenHesap char(7);" +
                     "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @CekilecekTutar DECIMAL(18, 3);" +
+                    "DECLARE @CekilecekTutar DECIMAL(18, 2);" +
                     "SET @GonderenHesap = @P1;" +
                     "SET @AliciHesap = @P2;" +
                     "SET @CekilecekTutar = @P3;" +
@@ -303,9 +303,9 @@ namespace DataAccessLayer
                 SqlCommand komut14 = new SqlCommand(
                     "DECLARE @GonderenHesap char(7);" +
                     "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @CekilecekTutar DECIMAL(18, 3);" +
-                    "DECLARE @KrediTutar DECIMAL(18,3);" +
-                    "DECLARE @HesapBakiye DECIMAL(18,3);" +
+                    "DECLARE @CekilecekTutar DECIMAL(18, 2);" +
+                    "DECLARE @KrediTutar DECIMAL(18,2);" +
+                    "DECLARE @HesapBakiye DECIMAL(18,2);" +
                     "SET @GonderenHesap = @P1;" +
                     "SET @AliciHesap = @P2;" +
                     "SET @CekilecekTutar = @P3;" +
@@ -342,22 +342,68 @@ namespace DataAccessLayer
 
         public static List<EntityDebt> CreditDebtFetch(string hesapNo)
         {
-            List<EntityDebt> DebtLog=new List<EntityDebt>();
-            SqlCommand komut15 = new SqlCommand("SELECT BORC FROM BORCLAR WHERE HESAPNO=@P1",SQLConn.conn);
-            if (komut15.Connection.State!=ConnectionState.Open)
+            try
             {
-                komut15.Connection.Open();
+                List<EntityDebt> DebtLog = new List<EntityDebt>();
+                SqlCommand komut15 = new SqlCommand("SELECT BORC FROM BORCLAR WHERE HESAPNO=@P1", SQLConn.conn);
+                if (komut15.Connection.State != ConnectionState.Open)
+                {
+                    komut15.Connection.Open();
+                }
+                komut15.Parameters.AddWithValue("@P1", hesapNo);
+                SqlDataReader dr8 = komut15.ExecuteReader();
+                while (dr8.Read())
+                {
+                    EntityDebt ent = new EntityDebt();
+                    ent.Borc = dr8["BORC"].ToString();
+                    DebtLog.Add(ent);
+                }
+                dr8.Close();
+                return DebtLog;
             }
-            komut15.Parameters.AddWithValue("@P1",hesapNo);
-            SqlDataReader dr8=komut15.ExecuteReader();
-            while (dr8.Read())
+            catch (Exception)
             {
-                EntityDebt ent=new EntityDebt();
-                ent.Borc = dr8["BORC"].ToString();
-                DebtLog.Add(ent);
+                throw;
             }
-            dr8.Close();
-            return DebtLog; 
+        }
+
+        public static int PaymentCreditCardDebt(EntityTransfer ent)
+        {
+            try
+            {
+                SqlCommand komut16 = new SqlCommand(
+                   "DECLARE @GonderenHesap char(7);" +                 
+                   "DECLARE @OdenecekTutar DECIMAL(18, 2);" +
+                   "SET @GonderenHesap = @P1;" +                
+                   "SET @OdenecekTutar = @P2;" +
+                   "IF (SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO = @GonderenHesap) >= @OdenecekTutar " +
+                   "BEGIN " +
+                   "BEGIN TRANSACTION;" +
+                   "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @OdenecekTutar WHERE HESAPNO = @GonderenHesap;" +
+                   "UPDATE BORCLAR SET BORC = BORC - @OdenecekTutar WHERE HESAPNO=@GonderenHesap;"+
+                   "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
+                   "VALUES (@GonderenHesap, '5060073',@OdenecekTutar, 'Kredi Ödeme');" +
+                   "COMMIT;" +
+                   "PRINT 'Kredi ödemesi başarıyla tamamlandı.'; " +
+                   "END " +
+                   "ELSE " +
+                   "BEGIN " +
+                   "PRINT 'Yetersiz bakiye! Kredi ödeme iptal edildi.'; " +
+                   "END", SQLConn.conn);
+
+                if (komut16.Connection.State != ConnectionState.Open)
+                {
+                    komut16.Connection.Open();
+                }
+                komut16.Parameters.AddWithValue("@P1", ent.Gonderen);
+                komut16.Parameters.AddWithValue("@P2", ent.Tutar);
+
+                return komut16.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

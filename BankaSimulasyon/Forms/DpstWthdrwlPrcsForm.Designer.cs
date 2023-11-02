@@ -37,7 +37,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LblBorc = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnKrediIslem = new System.Windows.Forms.Button();
             this.TxtTutarKredi = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,7 +108,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.LblBorc);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.BtnKrediIslem);
             this.groupBox2.Controls.Add(this.TxtTutarKredi);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(435, 12);
@@ -121,7 +121,7 @@
             // LblBorc
             // 
             this.LblBorc.AutoSize = true;
-            this.LblBorc.Location = new System.Drawing.Point(203, 98);
+            this.LblBorc.Location = new System.Drawing.Point(234, 100);
             this.LblBorc.Name = "LblBorc";
             this.LblBorc.Size = new System.Drawing.Size(54, 19);
             this.LblBorc.TabIndex = 8;
@@ -130,22 +130,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 98);
+            this.label1.Location = new System.Drawing.Point(118, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "Güncel Borç:";
             // 
-            // button1
+            // BtnKrediIslem
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(150, 301);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 40);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Tamamla";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnKrediIslem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKrediIslem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnKrediIslem.Location = new System.Drawing.Point(150, 301);
+            this.BtnKrediIslem.Name = "BtnKrediIslem";
+            this.BtnKrediIslem.Size = new System.Drawing.Size(110, 40);
+            this.BtnKrediIslem.TabIndex = 6;
+            this.BtnKrediIslem.Text = "Tamamla";
+            this.BtnKrediIslem.UseVisualStyleBackColor = true;
+            this.BtnKrediIslem.Click += new System.EventHandler(this.BtnKrediIslem_Click);
             // 
             // TxtTutarKredi
             // 
@@ -187,7 +188,7 @@
         private System.Windows.Forms.RadioButton RadioCek;
         private System.Windows.Forms.TextBox TxtTutarHesap;
         private System.Windows.Forms.Button BtnIslem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnKrediIslem;
         private System.Windows.Forms.TextBox TxtTutarKredi;
         private System.Windows.Forms.Label LblBorc;
         private System.Windows.Forms.Label label1;

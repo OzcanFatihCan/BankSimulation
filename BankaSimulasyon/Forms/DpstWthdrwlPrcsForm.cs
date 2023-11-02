@@ -15,6 +15,7 @@ namespace BankaSimulasyon.Forms
     public partial class DpstWthdrwlPrcsForm : Form
     {
         private string hesapNo;
+        private double guncelBorc;
         public DpstWthdrwlPrcsForm(string hesap)
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace BankaSimulasyon.Forms
             foreach (var item in DebtLog)
             {
                 LblBorc.Text = item.Borc + " ₺";
+                guncelBorc = double.Parse(item.Borc);
             }
         }
 
@@ -79,7 +81,7 @@ namespace BankaSimulasyon.Forms
                     }
                     if (result == -3)
                     {                     
-                        DialogResult resultMessage = MessageBox.Show("Hesabınızda yeterli bakiye bulunmamaktadır. Kredi kartından çekilsin mi?", "Para Çekme",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                        DialogResult resultMessage = MessageBox.Show("Hesabınızda yeterli bakiye bulunmamaktadır. Kredi kartından çekilsin mi?", "Yetersiz Bakiye", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                         if (resultMessage==DialogResult.Yes)
                         {
                             int creditResult=LogicBank.LLCreditCardDebt(ent);
@@ -163,5 +165,55 @@ namespace BankaSimulasyon.Forms
                 MessageBox.Show("Yapmak istediğiniz işlemi seçiniz.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
+
+        private void BtnKrediIslem_Click(object sender, EventArgs e)
+        {
+            EntityTransfer ent = new EntityTransfer();
+            if (double.TryParse(TxtTutarKredi.Text, out double tutarKredi))
+            {
+                ent.Gonderen = hesapNo;
+                ent.Tutar = tutarKredi;
+                if (guncelBorc >= tutarKredi)
+                {
+                    int result = LogicBank.LLPaymentCreditCardDebt(ent);                
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Kredi ödeme işlemi başarıyla gerçekeleşti", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DebtFetch();
+                        return;
+                    }
+                    if (result == 0)
+                    {
+                        MessageBox.Show("Kredi ödeme sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (result == -2)
+                    {
+                        MessageBox.Show("Lütfen hesap numarasını kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (result == -3)
+                    {
+                        MessageBox.Show("Hesabınızda yeterli bakiye bulunmamaktadır.", "YetersizBakiye", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kredi ödemesi sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    ent.Gonderen = "";
+                    ent.Tutar = 0.0;
+                    MessageBox.Show("En fazla güncel borç kadar ödeme yapabilirsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }                     
+            }
+            else
+            {
+                MessageBox.Show("Lütfen geçerli bir tutar giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+

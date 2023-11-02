@@ -213,5 +213,38 @@ namespace LogicLayer
                 return null;
             }
         }
+
+        public static int LLPaymentCreditCardDebt(EntityTransfer ent)
+        {
+            double bakiye = 0.0;
+            List<EntityAccount> balance = LogicBank.LLBalanceCheck(ent.Gonderen);
+            foreach (var item in balance)
+            {
+                bakiye = item.Bakiye;
+            }
+            if (ent.Gonderen != "" &&
+                !string.IsNullOrEmpty(ent.Tutar.ToString()))
+            {
+                if (ent.Gonderen.Length == 7)
+                {
+                    if (ent.Tutar < bakiye)
+                    {
+                        return DALBank.PaymentCreditCardDebt(ent);
+                    }
+                    else
+                    {
+                        return -3;
+                    }
+                }
+                else
+                {
+                    return -2;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }
