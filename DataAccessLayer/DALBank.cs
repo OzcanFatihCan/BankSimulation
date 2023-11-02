@@ -405,5 +405,46 @@ namespace DataAccessLayer
                 throw;
             }
         }
+
+        public static List<EntityMovementDetailed> AccountStatementFetch(string hesapNo)
+        {
+            try
+            {
+                List<EntityMovementDetailed> AccountStatementLog = new List<EntityMovementDetailed>();
+                SqlCommand komut17 = new SqlCommand(
+                    "SELECT GonderenMusteri.AD + ' ' + GonderenMusteri.SOYAD AS 'Gönderen', " +
+                    "AlıcıMusteri.AD + ' ' + AlıcıMusteri.SOYAD AS 'Alıcı', " +
+                    "Hareketler.TUTAR, " +
+                    "Hareketler.ISLEM " +
+                    "FROM HAREKETLER " +
+                    "INNER JOIN MUSTERILER AS GonderenMusteri ON Hareketler.GONDEREN = GonderenMusteri.HESAPNO " +
+                    "INNER JOIN MUSTERILER AS AlıcıMusteri ON Hareketler.ALICI = AlıcıMusteri.HESAPNO " +
+                    "WHERE HAREKETLER.GONDEREN = @P1 OR HAREKETLER.ALICI = @P2", SQLConn.conn);
+                if (komut17.Connection.State != ConnectionState.Open)
+                {
+                    komut17.Connection.Open();
+                }
+                komut17.Parameters.AddWithValue("@P1", hesapNo);
+                komut17.Parameters.AddWithValue("@P2", hesapNo);
+                SqlDataReader dr9 = komut17.ExecuteReader();
+                while (dr9.Read())
+                {
+                    EntityMovementDetailed ent = new EntityMovementDetailed();
+                    ent.Gonderen = dr9["Gönderen"].ToString();
+                    ent.Alici = dr9["Alıcı"].ToString();
+                    ent.Tutar = double.Parse(dr9["Tutar"].ToString());
+                    ent.Islem = dr9["Islem"].ToString();
+                    AccountStatementLog.Add(ent);
+                }
+                dr9.Close();
+                return AccountStatementLog;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

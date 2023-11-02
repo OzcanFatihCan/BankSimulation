@@ -38,7 +38,7 @@ namespace BankaSimulasyon
 
         private void HomePage_Load(object sender, EventArgs e)
         {
-            BringInfo();
+            InfoFetch();
         }
 
         private Color SelectThemeColor()
@@ -104,7 +104,7 @@ namespace BankaSimulasyon
             LblTitle.Text = childForm.Text;
         }
       
-        void BringInfo()
+        void InfoFetch()
         {
             List<EntityCustomer> CustomerInfo = LogicCustomer.LLCustomerInfo(hesap);
             foreach (var item in CustomerInfo)
@@ -149,7 +149,7 @@ namespace BankaSimulasyon
         private void Reset()
         {
             DisableButton();
-            BringInfo();
+            InfoFetch();
             PanelTitleBar.BackColor = Color.FromArgb(42, 54, 90);
             PanelInfoBar.BackColor = Color.FromArgb(42,54,90);
             PanelLogo.BackColor=Color.FromArgb(39, 39, 58);

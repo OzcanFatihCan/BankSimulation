@@ -37,7 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LblMusteriNo = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LblAdSoyad = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LblBakiye = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.LblBakiye);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.LblAdSoyad);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.LblMusteriNo);
             this.groupBox1.Controls.Add(this.label2);
@@ -94,7 +94,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
@@ -138,14 +139,14 @@
             this.LblMusteriNo.TabIndex = 2;
             this.LblMusteriNo.Text = "0000000";
             // 
-            // label3
+            // LblAdSoyad
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(373, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Adınız Soyadınız";
+            this.LblAdSoyad.AutoSize = true;
+            this.LblAdSoyad.Location = new System.Drawing.Point(373, 54);
+            this.LblAdSoyad.Name = "LblAdSoyad";
+            this.LblAdSoyad.Size = new System.Drawing.Size(137, 19);
+            this.LblAdSoyad.TabIndex = 4;
+            this.LblAdSoyad.Text = "Adınız Soyadınız";
             // 
             // label4
             // 
@@ -176,10 +177,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 23);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(795, 253);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(800, 250);
             this.dataGridView1.TabIndex = 0;
             // 
             // AccountStatementForm
@@ -221,7 +227,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblBakiye;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblAdSoyad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
     }

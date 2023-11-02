@@ -246,5 +246,16 @@ namespace LogicLayer
                 return -1;
             }
         }
+        public static List<EntityMovementDetailed> LLAccountStatementFetch(string hesapNo)
+        {
+            if (hesapNo!="")
+            {
+               return DALBank.AccountStatementFetch(hesapNo);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
