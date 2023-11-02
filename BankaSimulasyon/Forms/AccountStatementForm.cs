@@ -16,11 +16,19 @@ namespace BankaSimulasyon.Forms
         public AccountStatementForm(string hesap)
         {
             InitializeComponent();
-            LoadTheme();
+            //LoadTheme();
             this.hesapNo = hesap;
         }
+        
+        private void AccountStatementForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void LoadTheme()
         {
+            //butonların da rengini değiştirmek istersek
+            /*
             foreach (Control btns in this.Controls)
             {
                 if (btns.GetType() == typeof(Button))
@@ -30,14 +38,15 @@ namespace BankaSimulasyon.Forms
                     btn.ForeColor = Color.White;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
-            }
-            label1.ForeColor = ThemeColor.SecondaryColor;
-            label2.ForeColor = ThemeColor.PrimaryColor;
+            }*/
+
+           // label1.ForeColor = ThemeColor.SecondaryColor;
+           // label2.ForeColor = ThemeColor.PrimaryColor;
         }
 
-        private void AccountStatementForm_Load(object sender, EventArgs e)
+        private void BtnKapat_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }
