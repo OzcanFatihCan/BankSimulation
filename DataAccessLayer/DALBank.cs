@@ -233,7 +233,7 @@ namespace DataAccessLayer
                     "BEGIN TRANSACTION;" +                   
                     "UPDATE HESAPLAR SET BAKIYE = BAKIYE + @YatirilacakTutar WHERE HESAPNO = @AliciHesap;" +
                     "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
-                    "VALUES (@GonderenHesap, @AliciHesap, @YatirilacakTutar, 'Para Yatırma');" +
+                    "VALUES ('5060073', @AliciHesap, @YatirilacakTutar, 'Para Yatırma');" +
                     "COMMIT;" +
                     "PRINT 'Hesaba para geldi.'; " +
                     "END ",SQLConn.conn);
@@ -412,13 +412,18 @@ namespace DataAccessLayer
             {
                 List<EntityMovementDetailed> AccountStatementLog = new List<EntityMovementDetailed>();
                 SqlCommand komut17 = new SqlCommand(
-                    "SELECT GonderenMusteri.AD + ' ' + GonderenMusteri.SOYAD AS 'Gönderen', " +
-                    "AlıcıMusteri.AD + ' ' + AlıcıMusteri.SOYAD AS 'Alıcı', " +
+                    "SELECT " +
+                    "CASE " +
+                    "WHEN GonderenMusteri.HESAPNO IS NULL THEN 'Farklı banka müşterisi' " +
+                    "ELSE ISNULL(GonderenMusteri.AD, '') + ' ' + ISNULL(GonderenMusteri.SOYAD, '') END AS 'Gönderen', " +
+                    "CASE " +
+                    "WHEN AlıcıMusteri.HESAPNO IS NULL THEN 'Farklı banka müşterisi' " +
+                    "ELSE ISNULL(AlıcıMusteri.AD, '') + ' ' + ISNULL(AlıcıMusteri.SOYAD, '') END AS 'Alıcı', " +
                     "Hareketler.TUTAR, " +
                     "Hareketler.ISLEM " +
                     "FROM HAREKETLER " +
-                    "INNER JOIN MUSTERILER AS GonderenMusteri ON Hareketler.GONDEREN = GonderenMusteri.HESAPNO " +
-                    "INNER JOIN MUSTERILER AS AlıcıMusteri ON Hareketler.ALICI = AlıcıMusteri.HESAPNO " +
+                    "LEFT JOIN MUSTERILER AS GonderenMusteri ON Hareketler.GONDEREN = GonderenMusteri.HESAPNO " +
+                    "LEFT JOIN MUSTERILER AS AlıcıMusteri ON Hareketler.ALICI = AlıcıMusteri.HESAPNO " +
                     "WHERE HAREKETLER.GONDEREN = @P1 OR HAREKETLER.ALICI = @P2", SQLConn.conn);
                 if (komut17.Connection.State != ConnectionState.Open)
                 {

@@ -49,16 +49,23 @@ namespace BankaSimulasyon.Forms
             dataGridView1.Columns.Add("Islem", "İşlem");
             foreach (var item in HistoryLog)
             {
-                string tutar = ""; 
+                string tutar = "";
+              
                 if (adsoyad==item.Gonderen &&
                     adsoyad!=item.Alici)
                 {
                     tutar= "- "+item.Tutar+" ₺";
                 }
                 if (adsoyad ==item.Gonderen &&
-                    adsoyad ==item.Alici)
+                    adsoyad ==item.Alici &&
+                    "Para Çekme"==item.Islem)
                 {
                     tutar = "- " + item.Tutar + " ₺";
+                }
+                if (adsoyad == item.Alici &&
+                    "Para Yatırma" == item.Islem)
+                {
+                    tutar = "+ " + item.Tutar + " ₺";
                 }
                 if (adsoyad == item.Alici &&
                     adsoyad !=item.Gonderen)
