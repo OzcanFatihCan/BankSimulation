@@ -257,5 +257,18 @@ namespace LogicLayer
                 return null;
             }
         }
+        /*
+        public static List<EntityMovementDetailed> LLSearchForMovement(string deger, string hesapNo)
+        {
+            if (deger!=""&&
+                hesapNo!="")
+            {
+                return DALBank.SearchForMovement(deger,hesapNo);
+            }
+            else
+            {
+                return null;
+            }
+        }*/
     }
 }
