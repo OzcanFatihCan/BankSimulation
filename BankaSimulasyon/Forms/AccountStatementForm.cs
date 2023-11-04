@@ -42,92 +42,56 @@ namespace BankaSimulasyon.Forms
         private BindingList<EntityMovementDetailed> movementLogBindingList;
         void AccountStatementFetch()
         {
+            //yenikod
+            string hes = hesapNo;
+            string aramaMetni = textBox1.Text;
+            List<EntityMovementDetailed> historyLog = LogicBank.LLAccountStatementFetch(hes,aramaMetni);
 
-            List<EntityMovementDetailed> HistoryLogText = LogicBank.LLAccountStatementFetch(hesapNo);
-            movementLogBindingList = new BindingList<EntityMovementDetailed>(HistoryLogText);
-            dataGridView1.DataSource = movementLogBindingList;
-            ApplyCellFormatting();
-            /*
             dataGridView1.Rows.Clear();
-            dataGridView1.Columns.Clear();
-            List<EntityMovementDetailed> HistoryLog = LogicBank.LLAccountStatementFetch(hesapNo);
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.Columns.Add("Gonderen", "Gönderen");
-            dataGridView1.Columns.Add("Alıcı", "Alıcı");
-            dataGridView1.Columns.Add("Tutar", "Tutar");
-            dataGridView1.Columns.Add("Islem", "İşlem");
-            foreach (var item in HistoryLog)
+
+            if (historyLog != null)
             {
-                string tutar = "";
-              
-                if (adsoyad==item.Gonderen &&
-                    adsoyad!=item.Alici)
+                foreach (var hareket in historyLog)
                 {
-                    tutar= "- "+item.Tutar+" ₺";
+                    string tutar = "";
+
+                    if (adsoyad == hareket.Gonderen &&
+                        adsoyad != hareket.Alici)
+                    {
+                        tutar = "- " + hareket.Tutar + " ₺";
+                    }
+                    if (adsoyad == hareket.Gonderen &&
+                        adsoyad == hareket  .Alici &&
+                        "Para Çekme" == hareket.Islem)
+                    {
+                        tutar = "- " + hareket.Tutar + " ₺";
+                    }
+                    if (adsoyad == hareket.Alici &&
+                        "Para Yatırma" == hareket.Islem)
+                    {
+                        tutar = "+ " + hareket.Tutar + " ₺";
+                    }
+                    if (adsoyad == hareket.Alici &&
+                        adsoyad != hareket.Gonderen)
+                    {
+                        tutar = "+ " + hareket.Tutar + " ₺";
+                    }
+
+                    dataGridView1.Rows.Add(hareket.Gonderen, hareket.Alici, tutar, hareket.Islem);
                 }
-                if (adsoyad ==item.Gonderen &&
-                    adsoyad ==item.Alici &&
-                    "Para Çekme"==item.Islem)
-                {
-                    tutar = "- " + item.Tutar + " ₺";
-                }
-                if (adsoyad == item.Alici &&
-                    "Para Yatırma" == item.Islem)
-                {
-                    tutar = "+ " + item.Tutar + " ₺";
-                }
-                if (adsoyad == item.Alici &&
-                    adsoyad !=item.Gonderen)
-                {
-                    tutar = "+ " + item.Tutar + " ₺";
-                }
-                dataGridView1.Rows.Add(item.Gonderen,item.Alici,tutar,item.Islem);
-            }*/
+            }
         }
 
         private void AccountStatementForm_Load(object sender, EventArgs e)
         {
             InfoFetch();
             AccountStatementFetch();
-            ApplyCellFormatting();
+            //ApplyCellFormatting();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {/*
-            string searchText = textBox1.Text.Trim();
-            if (searchText == "")
-            {
-                dataGridView1.Columns.Clear();
-                AccountStatementFetch();
-            }
-            else
-            {
-                dataGridView1.Columns.Clear(); // Önceki sütunları temizle
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.Columns.Add("Gonderen", "Gönderen");
-                dataGridView1.Columns.Add("Alıcı", "Alıcı");
-                dataGridView1.Columns.Add("Tutar", "Tutar");
-                dataGridView1.Columns.Add("Islem", "İşlem");
-                List<EntityMovementDetailed> movementLog = LogicBank.LLSearchForMovement(searchText, hesapNo);
-                dataGridView1.DataSource = movementLog;
-            }*/
-            string searchText = textBox1.Text.Trim();
-            if (searchText == "")
-            {            
-                dataGridView1.DataSource = movementLogBindingList;               
-            }
-            else
-            {
-                
-                var filteredList = movementLogBindingList.Where(item =>
-                    item.Gonderen.Contains(searchText) ||
-                    item.Alici.Contains(searchText) ||
-                    item.Islem.Contains(searchText)
-                ).ToList();/*
-                List<EntityMovementDetailed> filteredList = LogicBank.LLSearchForMovement(textBox1.Text,hesapNo);*/
-                dataGridView1.DataSource = new BindingList<EntityMovementDetailed>(filteredList);
-            }
-            ApplyCellFormatting();
+        {
+            AccountStatementFetch();
         }
 
         private void ApplyCellFormatting()

@@ -42,6 +42,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Gonderen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alıcı = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Islem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -183,11 +187,40 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Gonderen,
+            this.Alıcı,
+            this.Tutar,
+            this.Islem});
             this.dataGridView1.Location = new System.Drawing.Point(12, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(800, 250);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Gonderen
+            // 
+            this.Gonderen.HeaderText = "Gönderen";
+            this.Gonderen.Name = "Gonderen";
+            this.Gonderen.ReadOnly = true;
+            // 
+            // Alıcı
+            // 
+            this.Alıcı.HeaderText = "Alıcı";
+            this.Alıcı.Name = "Alıcı";
+            this.Alıcı.ReadOnly = true;
+            // 
+            // Tutar
+            // 
+            this.Tutar.HeaderText = "Tutar";
+            this.Tutar.Name = "Tutar";
+            this.Tutar.ReadOnly = true;
+            // 
+            // Islem
+            // 
+            this.Islem.HeaderText = "İşlem";
+            this.Islem.Name = "Islem";
+            this.Islem.ReadOnly = true;
             // 
             // AccountStatementForm
             // 
@@ -231,5 +264,9 @@
         private System.Windows.Forms.Label LblAdSoyad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gonderen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Alıcı;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tutar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Islem;
     }
 }

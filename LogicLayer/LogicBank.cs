@@ -246,29 +246,16 @@ namespace LogicLayer
                 return -1;
             }
         }
-        public static List<EntityMovementDetailed> LLAccountStatementFetch(string hesapNo)
+        public static List<EntityMovementDetailed> LLAccountStatementFetch(string hesapNo,string aramaMetni)
         {
-            if (hesapNo!="")
+            if (!string.IsNullOrEmpty(hesapNo))
             {
-               return DALBank.AccountStatementFetch(hesapNo);
+               return DALBank.AccountStatementFetch(hesapNo,aramaMetni);
             }
             else
             {
                 return null;
             }
         }
-        /*
-        public static List<EntityMovementDetailed> LLSearchForMovement(string deger, string hesapNo)
-        {
-            if (deger!=""&&
-                hesapNo!="")
-            {
-                return DALBank.SearchForMovement(deger,hesapNo);
-            }
-            else
-            {
-                return null;
-            }
-        }*/
     }
 }

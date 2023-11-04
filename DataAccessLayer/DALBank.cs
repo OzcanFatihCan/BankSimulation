@@ -405,8 +405,7 @@ namespace DataAccessLayer
                 throw;
             }
         }
-
-        public static List<EntityMovementDetailed> AccountStatementFetch(string hesapNo)
+        public static List<EntityMovementDetailed> AccountStatementFetch(string hesapNo, string aramaMetni)
         {
             try
             {
@@ -424,13 +423,15 @@ namespace DataAccessLayer
                     "FROM HAREKETLER " +
                     "LEFT JOIN MUSTERILER AS GonderenMusteri ON Hareketler.GONDEREN = GonderenMusteri.HESAPNO " +
                     "LEFT JOIN MUSTERILER AS AlıcıMusteri ON Hareketler.ALICI = AlıcıMusteri.HESAPNO " +
-                    "WHERE HAREKETLER.GONDEREN = @P1 OR HAREKETLER.ALICI = @P2", SQLConn.conn);
+                    "WHERE (HAREKETLER.GONDEREN = @P1 OR HAREKETLER.ALICI = @P2) " +
+                    "AND Hareketler.ISLEM LIKE @P3", SQLConn.conn);
                 if (komut17.Connection.State != ConnectionState.Open)
                 {
                     komut17.Connection.Open();
                 }
                 komut17.Parameters.AddWithValue("@P1", hesapNo);
                 komut17.Parameters.AddWithValue("@P2", hesapNo);
+                komut17.Parameters.AddWithValue("@P3", "%" + aramaMetni + "%");
                 SqlDataReader dr9 = komut17.ExecuteReader();
                 while (dr9.Read())
                 {
@@ -447,54 +448,8 @@ namespace DataAccessLayer
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-        
-        /*
-        public static List<EntityMovementDetailed> SearchForMovement(string deger,string hesapNo)
-        {
-            try
-            {
-                List<EntityMovementDetailed> MovementLog = new List<EntityMovementDetailed>();
-                SqlCommand komut18 = new SqlCommand(
-                 "SELECT " +
-                 "ISNULL(GonderenMusteri.AD, 'Farklı banka müşterisi') + ' ' + ISNULL(GonderenMusteri.SOYAD, '') AS 'Gonderen', " +
-                 "ISNULL(AlıcıMusteri.AD, 'Farklı banka müşterisi') + ' ' + ISNULL(AlıcıMusteri.SOYAD, '') AS 'Alıcı', " +
-                 "Hareketler.TUTAR, " +
-                 "Hareketler.ISLEM " +
-                 "FROM HAREKETLER " +
-                 "LEFT JOIN MUSTERILER AS GonderenMusteri ON Hareketler.GONDEREN = GonderenMusteri.HESAPNO " +
-                 "LEFT JOIN MUSTERILER AS AlıcıMusteri ON Hareketler.ALICI = AlıcıMusteri.HESAPNO " +
-                 "WHERE ISLEM LIKE @P1" +
-                 "AND (HAREKETLER.GONDEREN = @P2 OR HAREKETLER.ALICI = @P3)", SQLConn.conn);
-                if (komut18.Connection.State != ConnectionState.Open)
-                {
-                    komut18.Connection.Open();
-                }
-                komut18.Parameters.AddWithValue("@P1", "%" + deger + "%"); 
-                komut18.Parameters.AddWithValue("@P2", hesapNo);
-                komut18.Parameters.AddWithValue("@P3", hesapNo);
-                SqlDataReader dr10 = komut18.ExecuteReader();
-                while (dr10.Read())
-                {
-                    EntityMovementDetailed ent = new EntityMovementDetailed();
-                    ent.Gonderen = dr10["Gonderen"].ToString();
-                    ent.Alici = dr10["Alıcı"].ToString();
-                    ent.Tutar = double.Parse(dr10["Tutar"].ToString());
-                    ent.Islem = dr10["Islem"].ToString();
-                    MovementLog.Add(ent);
-                }
-                dr10.Close();
-                return MovementLog;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-        */
     }
 }
