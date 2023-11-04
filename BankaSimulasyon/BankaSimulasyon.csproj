@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AccountSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AccountSettingsForm.Designer.cs">
+      <DependentUpon>AccountSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AccountStatementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
+    <EmbeddedResource Include="Forms\AccountSettingsForm.resx">
+      <DependentUpon>AccountSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AccountStatementForm.resx">
       <DependentUpon>AccountStatementForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +173,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UygulamaKapat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ayarlar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

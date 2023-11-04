@@ -20,3 +20,4 @@ D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaS
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Forms.BillsForm.resources
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Forms.DpstWthdrwlPrcsForm.resources
 D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Forms.TransferForm.resources
+D:\Projeler\C#Projeler\GitProje\BankaSimulasyon\BankaSimulasyon\obj\Debug\BankaSimulasyon.Forms.AccountSettingsForm.resources

@@ -30,15 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.BtnTransfer = new System.Windows.Forms.Button();
-            this.BtnFatura = new System.Windows.Forms.Button();
-            this.BtnCekim = new System.Windows.Forms.Button();
-            this.BtnHesap = new System.Windows.Forms.Button();
             this.PanelLogo = new System.Windows.Forms.Panel();
             this.HomeLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelTitleBar = new System.Windows.Forms.Panel();
-            this.BtnAllClose = new System.Windows.Forms.Button();
             this.LblTitle = new System.Windows.Forms.Label();
             this.PanelDesktopPanel = new System.Windows.Forms.Panel();
             this.PanelInfoBar = new System.Windows.Forms.Panel();
@@ -52,18 +46,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.BtnAllClose = new System.Windows.Forms.Button();
+            this.BtnAyarlar = new System.Windows.Forms.Button();
+            this.BtnTransfer = new System.Windows.Forms.Button();
+            this.BtnFatura = new System.Windows.Forms.Button();
+            this.BtnCekim = new System.Windows.Forms.Button();
+            this.BtnHesap = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.PanelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelTitleBar.SuspendLayout();
             this.PanelDesktopPanel.SuspendLayout();
             this.PanelInfoBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(54)))), ((int)(((byte)(90)))));
+            this.panelMenu.Controls.Add(this.BtnAyarlar);
             this.panelMenu.Controls.Add(this.BtnTransfer);
             this.panelMenu.Controls.Add(this.BtnFatura);
             this.panelMenu.Controls.Add(this.BtnCekim);
@@ -74,86 +76,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(225, 611);
             this.panelMenu.TabIndex = 0;
-            // 
-            // BtnTransfer
-            // 
-            this.BtnTransfer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTransfer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnTransfer.FlatAppearance.BorderSize = 0;
-            this.BtnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTransfer.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnTransfer.Image = global::BankaSimulasyon.Properties.Resources.transferbeyaz;
-            this.BtnTransfer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTransfer.Location = new System.Drawing.Point(0, 370);
-            this.BtnTransfer.Name = "BtnTransfer";
-            this.BtnTransfer.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.BtnTransfer.Size = new System.Drawing.Size(225, 90);
-            this.BtnTransfer.TabIndex = 31;
-            this.BtnTransfer.Text = "  Para Transferi";
-            this.BtnTransfer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTransfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnTransfer.UseVisualStyleBackColor = true;
-            this.BtnTransfer.Click += new System.EventHandler(this.BtnTransfer_Click);
-            // 
-            // BtnFatura
-            // 
-            this.BtnFatura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFatura.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnFatura.FlatAppearance.BorderSize = 0;
-            this.BtnFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnFatura.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnFatura.Image = global::BankaSimulasyon.Properties.Resources.faturabeyaz;
-            this.BtnFatura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFatura.Location = new System.Drawing.Point(0, 280);
-            this.BtnFatura.Name = "BtnFatura";
-            this.BtnFatura.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.BtnFatura.Size = new System.Drawing.Size(225, 90);
-            this.BtnFatura.TabIndex = 30;
-            this.BtnFatura.Text = "  Faturalar";
-            this.BtnFatura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFatura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnFatura.UseVisualStyleBackColor = true;
-            this.BtnFatura.Click += new System.EventHandler(this.BtnFatura_Click);
-            // 
-            // BtnCekim
-            // 
-            this.BtnCekim.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCekim.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCekim.FlatAppearance.BorderSize = 0;
-            this.BtnCekim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCekim.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnCekim.Image = global::BankaSimulasyon.Properties.Resources.paracekmebeyaz;
-            this.BtnCekim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCekim.Location = new System.Drawing.Point(0, 190);
-            this.BtnCekim.Name = "BtnCekim";
-            this.BtnCekim.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.BtnCekim.Size = new System.Drawing.Size(225, 90);
-            this.BtnCekim.TabIndex = 29;
-            this.BtnCekim.Text = "  Para \r\nÇekme-Yatırma";
-            this.BtnCekim.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCekim.UseVisualStyleBackColor = true;
-            this.BtnCekim.Click += new System.EventHandler(this.BtnCekim_Click);
-            // 
-            // BtnHesap
-            // 
-            this.BtnHesap.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnHesap.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnHesap.FlatAppearance.BorderSize = 0;
-            this.BtnHesap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnHesap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnHesap.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnHesap.Image = global::BankaSimulasyon.Properties.Resources.hesappbeyaz;
-            this.BtnHesap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnHesap.Location = new System.Drawing.Point(0, 100);
-            this.BtnHesap.Name = "BtnHesap";
-            this.BtnHesap.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.BtnHesap.Size = new System.Drawing.Size(225, 90);
-            this.BtnHesap.TabIndex = 28;
-            this.BtnHesap.Text = "  Hesap Dökümü";
-            this.BtnHesap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnHesap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnHesap.UseVisualStyleBackColor = true;
-            this.BtnHesap.Click += new System.EventHandler(this.BtnHesap_Click);
             // 
             // PanelLogo
             // 
@@ -179,16 +101,6 @@
             this.HomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HomeLabel.Click += new System.EventHandler(this.HomeLabel_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 59);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // PanelTitleBar
             // 
             this.PanelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(54)))), ((int)(((byte)(90)))));
@@ -200,20 +112,6 @@
             this.PanelTitleBar.Size = new System.Drawing.Size(859, 100);
             this.PanelTitleBar.TabIndex = 27;
             this.PanelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitleBar_MouseDown);
-            // 
-            // BtnAllClose
-            // 
-            this.BtnAllClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnAllClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAllClose.FlatAppearance.BorderSize = 0;
-            this.BtnAllClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAllClose.Image = global::BankaSimulasyon.Properties.Resources.kapatbeyaz;
-            this.BtnAllClose.Location = new System.Drawing.Point(831, 3);
-            this.BtnAllClose.Name = "BtnAllClose";
-            this.BtnAllClose.Size = new System.Drawing.Size(23, 23);
-            this.BtnAllClose.TabIndex = 11;
-            this.BtnAllClose.UseVisualStyleBackColor = true;
-            this.BtnAllClose.Click += new System.EventHandler(this.BtnAllClose_Click);
             // 
             // LblTitle
             // 
@@ -350,6 +248,130 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // BtnAllClose
+            // 
+            this.BtnAllClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAllClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAllClose.FlatAppearance.BorderSize = 0;
+            this.BtnAllClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAllClose.Image = global::BankaSimulasyon.Properties.Resources.kapatbeyaz;
+            this.BtnAllClose.Location = new System.Drawing.Point(831, 3);
+            this.BtnAllClose.Name = "BtnAllClose";
+            this.BtnAllClose.Size = new System.Drawing.Size(23, 23);
+            this.BtnAllClose.TabIndex = 11;
+            this.BtnAllClose.UseVisualStyleBackColor = true;
+            this.BtnAllClose.Click += new System.EventHandler(this.BtnAllClose_Click);
+            // 
+            // BtnAyarlar
+            // 
+            this.BtnAyarlar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAyarlar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnAyarlar.FlatAppearance.BorderSize = 0;
+            this.BtnAyarlar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAyarlar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnAyarlar.Image = global::BankaSimulasyon.Properties.Resources.ayarlar;
+            this.BtnAyarlar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAyarlar.Location = new System.Drawing.Point(0, 488);
+            this.BtnAyarlar.Name = "BtnAyarlar";
+            this.BtnAyarlar.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnAyarlar.Size = new System.Drawing.Size(225, 97);
+            this.BtnAyarlar.TabIndex = 32;
+            this.BtnAyarlar.Text = "  Hesap Ayarları";
+            this.BtnAyarlar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAyarlar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAyarlar.UseVisualStyleBackColor = true;
+            this.BtnAyarlar.Click += new System.EventHandler(this.BtnAyarlar_Click);
+            // 
+            // BtnTransfer
+            // 
+            this.BtnTransfer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTransfer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnTransfer.FlatAppearance.BorderSize = 0;
+            this.BtnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTransfer.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnTransfer.Image = global::BankaSimulasyon.Properties.Resources.transferbeyaz;
+            this.BtnTransfer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTransfer.Location = new System.Drawing.Point(0, 391);
+            this.BtnTransfer.Name = "BtnTransfer";
+            this.BtnTransfer.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnTransfer.Size = new System.Drawing.Size(225, 97);
+            this.BtnTransfer.TabIndex = 31;
+            this.BtnTransfer.Text = "  Para Transferi";
+            this.BtnTransfer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTransfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnTransfer.UseVisualStyleBackColor = true;
+            this.BtnTransfer.Click += new System.EventHandler(this.BtnTransfer_Click);
+            // 
+            // BtnFatura
+            // 
+            this.BtnFatura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFatura.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnFatura.FlatAppearance.BorderSize = 0;
+            this.BtnFatura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFatura.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnFatura.Image = global::BankaSimulasyon.Properties.Resources.faturabeyaz;
+            this.BtnFatura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFatura.Location = new System.Drawing.Point(0, 294);
+            this.BtnFatura.Name = "BtnFatura";
+            this.BtnFatura.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnFatura.Size = new System.Drawing.Size(225, 97);
+            this.BtnFatura.TabIndex = 30;
+            this.BtnFatura.Text = "  Faturalar";
+            this.BtnFatura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFatura.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnFatura.UseVisualStyleBackColor = true;
+            this.BtnFatura.Click += new System.EventHandler(this.BtnFatura_Click);
+            // 
+            // BtnCekim
+            // 
+            this.BtnCekim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCekim.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnCekim.FlatAppearance.BorderSize = 0;
+            this.BtnCekim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCekim.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnCekim.Image = global::BankaSimulasyon.Properties.Resources.paracekmebeyaz;
+            this.BtnCekim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCekim.Location = new System.Drawing.Point(0, 197);
+            this.BtnCekim.Name = "BtnCekim";
+            this.BtnCekim.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnCekim.Size = new System.Drawing.Size(225, 97);
+            this.BtnCekim.TabIndex = 29;
+            this.BtnCekim.Text = "  Para \r\nÇekme-Yatırma";
+            this.BtnCekim.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCekim.UseVisualStyleBackColor = true;
+            this.BtnCekim.Click += new System.EventHandler(this.BtnCekim_Click);
+            // 
+            // BtnHesap
+            // 
+            this.BtnHesap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnHesap.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnHesap.FlatAppearance.BorderSize = 0;
+            this.BtnHesap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnHesap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnHesap.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BtnHesap.Image = global::BankaSimulasyon.Properties.Resources.hesappbeyaz;
+            this.BtnHesap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnHesap.Location = new System.Drawing.Point(0, 100);
+            this.BtnHesap.Name = "BtnHesap";
+            this.BtnHesap.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.BtnHesap.Size = new System.Drawing.Size(225, 97);
+            this.BtnHesap.TabIndex = 28;
+            this.BtnHesap.Text = "  Hesap Dökümü";
+            this.BtnHesap.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnHesap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnHesap.UseVisualStyleBackColor = true;
+            this.BtnHesap.Click += new System.EventHandler(this.BtnHesap_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(57, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -372,7 +394,6 @@
             this.panelMenu.ResumeLayout(false);
             this.PanelLogo.ResumeLayout(false);
             this.PanelLogo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelTitleBar.ResumeLayout(false);
             this.PanelTitleBar.PerformLayout();
             this.PanelDesktopPanel.ResumeLayout(false);
@@ -380,6 +401,7 @@
             this.PanelInfoBar.ResumeLayout(false);
             this.PanelInfoBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -409,5 +431,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LblAdSoyad;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button BtnAyarlar;
     }
 }

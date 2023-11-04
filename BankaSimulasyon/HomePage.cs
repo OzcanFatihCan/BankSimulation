@@ -136,6 +136,11 @@ namespace BankaSimulasyon
             OpenChildForm(new Forms.TransferForm(hesap), sender);
         }
 
+        private void BtnAyarlar_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.AccountSettingsForm(hesap), sender);
+        }
+
         /*
         private void BtnClose_Click(object sender, EventArgs e)
         {
@@ -187,5 +192,6 @@ namespace BankaSimulasyon
                 Reset();
             }
         }
+
     }
 }

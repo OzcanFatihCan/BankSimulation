@@ -76,7 +76,7 @@
             // LblBakiye
             // 
             this.LblBakiye.AutoSize = true;
-            this.LblBakiye.Location = new System.Drawing.Point(664, 54);
+            this.LblBakiye.Location = new System.Drawing.Point(670, 54);
             this.LblBakiye.Name = "LblBakiye";
             this.LblBakiye.Size = new System.Drawing.Size(54, 19);
             this.LblBakiye.TabIndex = 6;
@@ -85,7 +85,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(657, 25);
+            this.label6.Location = new System.Drawing.Point(663, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 19);
             this.label6.TabIndex = 5;
@@ -94,16 +94,16 @@
             // LblAdSoyad
             // 
             this.LblAdSoyad.AutoSize = true;
-            this.LblAdSoyad.Location = new System.Drawing.Point(373, 54);
+            this.LblAdSoyad.Location = new System.Drawing.Point(436, 41);
             this.LblAdSoyad.Name = "LblAdSoyad";
-            this.LblAdSoyad.Size = new System.Drawing.Size(137, 19);
+            this.LblAdSoyad.Size = new System.Drawing.Size(73, 19);
             this.LblAdSoyad.TabIndex = 4;
-            this.LblAdSoyad.Text = "Adınız Soyadınız";
+            this.LblAdSoyad.Text = "Null Null";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(391, 25);
+            this.label4.Location = new System.Drawing.Point(337, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 19);
             this.label4.TabIndex = 3;
@@ -206,7 +206,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
