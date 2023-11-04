@@ -48,6 +48,8 @@
             this.TxtAbone = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CmbInternet = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -57,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 192);
+            this.label1.Location = new System.Drawing.Point(69, 162);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 19);
             this.label1.TabIndex = 0;
@@ -66,7 +68,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 39);
+            this.label2.Location = new System.Drawing.Point(68, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 19);
             this.label2.TabIndex = 1;
@@ -75,7 +77,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 117);
+            this.label3.Location = new System.Drawing.Point(38, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 19);
             this.label3.TabIndex = 2;
@@ -84,7 +86,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 355);
+            this.label4.Location = new System.Drawing.Point(35, 308);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 19);
             this.label4.TabIndex = 3;
@@ -93,7 +95,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 270);
+            this.label5.Location = new System.Drawing.Point(41, 235);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(168, 19);
             this.label5.TabIndex = 4;
@@ -103,6 +105,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.CmbInternet);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.CmbDogalgaz);
             this.groupBox1.Controls.Add(this.CmbTelefon);
             this.groupBox1.Controls.Add(this.CmbTv);
@@ -125,7 +129,7 @@
             // 
             this.CmbDogalgaz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDogalgaz.FormattingEnabled = true;
-            this.CmbDogalgaz.Location = new System.Drawing.Point(34, 377);
+            this.CmbDogalgaz.Location = new System.Drawing.Point(36, 330);
             this.CmbDogalgaz.Name = "CmbDogalgaz";
             this.CmbDogalgaz.Size = new System.Drawing.Size(178, 27);
             this.CmbDogalgaz.TabIndex = 6;
@@ -135,7 +139,7 @@
             // 
             this.CmbTelefon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTelefon.FormattingEnabled = true;
-            this.CmbTelefon.Location = new System.Drawing.Point(34, 292);
+            this.CmbTelefon.Location = new System.Drawing.Point(36, 257);
             this.CmbTelefon.Name = "CmbTelefon";
             this.CmbTelefon.Size = new System.Drawing.Size(178, 27);
             this.CmbTelefon.TabIndex = 5;
@@ -145,7 +149,7 @@
             // 
             this.CmbTv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTv.FormattingEnabled = true;
-            this.CmbTv.Location = new System.Drawing.Point(34, 214);
+            this.CmbTv.Location = new System.Drawing.Point(36, 184);
             this.CmbTv.Name = "CmbTv";
             this.CmbTv.Size = new System.Drawing.Size(178, 27);
             this.CmbTv.TabIndex = 3;
@@ -155,7 +159,7 @@
             // 
             this.CmbElektrik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbElektrik.FormattingEnabled = true;
-            this.CmbElektrik.Location = new System.Drawing.Point(34, 139);
+            this.CmbElektrik.Location = new System.Drawing.Point(36, 116);
             this.CmbElektrik.Name = "CmbElektrik";
             this.CmbElektrik.Size = new System.Drawing.Size(178, 27);
             this.CmbElektrik.TabIndex = 2;
@@ -165,7 +169,7 @@
             // 
             this.CmbSu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbSu.FormattingEnabled = true;
-            this.CmbSu.Location = new System.Drawing.Point(34, 61);
+            this.CmbSu.Location = new System.Drawing.Point(36, 47);
             this.CmbSu.Name = "CmbSu";
             this.CmbSu.Size = new System.Drawing.Size(178, 27);
             this.CmbSu.TabIndex = 0;
@@ -251,8 +255,28 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(538, 158);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // CmbInternet
+            // 
+            this.CmbInternet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbInternet.FormattingEnabled = true;
+            this.CmbInternet.Location = new System.Drawing.Point(36, 401);
+            this.CmbInternet.Name = "CmbInternet";
+            this.CmbInternet.Size = new System.Drawing.Size(178, 27);
+            this.CmbInternet.TabIndex = 8;
+            this.CmbInternet.SelectedIndexChanged += new System.EventHandler(this.CmbInternet_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(38, 379);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(174, 19);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "İNTERNET FATURASI";
             // 
             // BillsForm
             // 
@@ -304,5 +328,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtAbone;
+        private System.Windows.Forms.ComboBox CmbInternet;
+        private System.Windows.Forms.Label label8;
     }
 }

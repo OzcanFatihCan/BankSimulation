@@ -69,6 +69,10 @@ namespace BankaSimulasyon.Forms
                 {
                     CmbDogalgaz.Items.Add(item.Ad);
                 }
+                if (item.Soyad == "internet hizmeti")
+                {
+                    CmbInternet.Items.Add(item.Ad);
+                }
             }
         }
 
@@ -98,6 +102,7 @@ namespace BankaSimulasyon.Forms
                 CmbTv.SelectedIndex = -1;
                 CmbTelefon.SelectedIndex = -1;
                 CmbDogalgaz.SelectedIndex = -1;
+                CmbInternet.SelectedIndex = -1;
             }
         }
 
@@ -116,6 +121,7 @@ namespace BankaSimulasyon.Forms
                 CmbTv.SelectedIndex = -1;
                 CmbTelefon.SelectedIndex = -1;
                 CmbDogalgaz.SelectedIndex = -1;
+                CmbInternet.SelectedIndex = -1;
             }
         }
 
@@ -132,7 +138,8 @@ namespace BankaSimulasyon.Forms
                 CmbSu.SelectedIndex = -1;
                 CmbElektrik.SelectedIndex = -1;
                 CmbTelefon.SelectedIndex = -1;
-                CmbDogalgaz.SelectedIndex = -1;  
+                CmbDogalgaz.SelectedIndex = -1; 
+                CmbInternet.SelectedIndex = -1;
             }
         }
 
@@ -149,7 +156,8 @@ namespace BankaSimulasyon.Forms
                 CmbSu.SelectedIndex = -1;
                 CmbElektrik.SelectedIndex = -1;
                 CmbTv.SelectedIndex = -1;
-                CmbDogalgaz.SelectedIndex = -1;  
+                CmbDogalgaz.SelectedIndex = -1;
+                CmbInternet.SelectedIndex = -1;
             }
         }
 
@@ -166,10 +174,27 @@ namespace BankaSimulasyon.Forms
                 CmbSu.SelectedIndex = -1;
                 CmbElektrik.SelectedIndex = -1;
                 CmbTv.SelectedIndex = -1;
-                CmbTelefon.SelectedIndex = -1;               
+                CmbTelefon.SelectedIndex = -1; 
+                CmbInternet.SelectedIndex = -1;
             }
         }
-
+        private void CmbInternet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbInternet.SelectedItem != null)
+            {
+                string chosen = CmbInternet.SelectedItem.ToString();
+                groupBox2.Text = "İnternet Faturası Ödeme";
+                label6.Text = "Abone Numarası:";
+                List<EntityCustomer> BillsLog = LogicBank.LLBillingService();
+                EntityCustomer InternetBill = BillsLog.FirstOrDefault(item => item.Ad == chosen);
+                AliciNoGet(InternetBill);
+                CmbElektrik.SelectedIndex = -1;
+                CmbTv.SelectedIndex = -1;
+                CmbTelefon.SelectedIndex = -1;
+                CmbDogalgaz.SelectedIndex = -1;
+                CmbSu.SelectedIndex = -1;
+            }
+        }
         private void BtnOdeme_Click(object sender, EventArgs e)
         {
             EntityBill ent = new EntityBill();
@@ -217,6 +242,6 @@ namespace BankaSimulasyon.Forms
             {
                 MessageBox.Show("Lütfen ödenecek fatura hizmetini seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }   
     }
 }

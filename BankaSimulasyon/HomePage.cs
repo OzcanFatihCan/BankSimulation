@@ -72,8 +72,7 @@ namespace BankaSimulasyon
                     //BtnClose.Visible = true;//aktif olan sayfada görünür hale gelir ki geri dönülebilsin
 
                 }
-            }
-           
+            }           
         }
         private void DisableButton()
         {
