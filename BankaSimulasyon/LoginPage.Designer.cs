@@ -141,6 +141,7 @@
             // 
             // BtnHesapNo
             // 
+            this.BtnHesapNo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnHesapNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnHesapNo.Location = new System.Drawing.Point(23, 270);
             this.BtnHesapNo.Name = "BtnHesapNo";
