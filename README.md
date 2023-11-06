@@ -14,22 +14,22 @@ Merhaba,
 
 ### 3.Uygulamanın çalışabilmesi için, 
 
-# MSSQL'e dosyalar arasında bulunan DB yedeği dahil edilmelidir. DB yedeği backup ile oluşturulmuştur. 
+##### MSSQL'e dosyalar arasında bulunan DB yedeği dahil edilmelidir. DB yedeği backup ile oluşturulmuştur. 
 Database sağ tık Restore Database seçeneği ile açılan sayfada device kısmından indirilen backupı MSSQL'e dahil edebilirsiniz. Veri tabanınızı ayarlamayı unutmayınız.
 
 
 
 ### 4. Uygulama arayüzünden görseller
 
-## * Giriş Ekranı
+##  Giriş Ekranı
 
 https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/ee84ca3d-37f2-4b0b-9c2c-039d4b204b73
 
-## * Arayüz
+##  Arayüz
 
 https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/9f5720c2-977a-445b-baf6-f225d865fa04
 
-## * Hata kontrolleri ve diğerleri
+##  Hata kontrolleri ve diğerleri
 
 ![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/6218c46c-65ff-4e09-bf72-f1e6a9cde7e0)
 ![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/d00f24e6-e635-448c-b597-4bd2491ca277)
