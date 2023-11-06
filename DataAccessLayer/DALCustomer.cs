@@ -113,6 +113,7 @@ namespace DataAccessLayer
                     ent.Hesapno = dr3["HESAPNO"].ToString();
                     ent.Tc = dr3["TC"].ToString();
                     ent.Telefon = dr3["TELEFON"].ToString();
+                    ent.Sifre = dr3["SIFRE"].ToString();
                     InfoLog.Add(ent);
                 }
                 dr3.Close();

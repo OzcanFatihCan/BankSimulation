@@ -39,6 +39,7 @@
             this.TxtSifre = new System.Windows.Forms.TextBox();
             this.MskTel = new System.Windows.Forms.MaskedTextBox();
             this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.BtnSifAcKapa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.BtnSifAcKapa);
             this.groupBox1.Controls.Add(this.BtnGuncelle);
             this.groupBox1.Controls.Add(this.MskTel);
             this.groupBox1.Controls.Add(this.TxtSifre);
@@ -59,14 +61,14 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(105, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(640, 300);
+            this.groupBox1.Size = new System.Drawing.Size(650, 300);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 51);
+            this.label1.Location = new System.Drawing.Point(38, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 19);
             this.label1.TabIndex = 0;
@@ -75,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 152);
+            this.label2.Location = new System.Drawing.Point(10, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 19);
             this.label2.TabIndex = 1;
@@ -84,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(342, 51);
+            this.label3.Location = new System.Drawing.Point(319, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 19);
             this.label3.TabIndex = 2;
@@ -93,7 +95,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(363, 152);
+            this.label4.Location = new System.Drawing.Point(340, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 19);
             this.label4.TabIndex = 3;
@@ -101,28 +103,28 @@
             // 
             // TxtAd
             // 
-            this.TxtAd.Location = new System.Drawing.Point(118, 47);
+            this.TxtAd.Location = new System.Drawing.Point(107, 47);
             this.TxtAd.Name = "TxtAd";
             this.TxtAd.Size = new System.Drawing.Size(188, 26);
             this.TxtAd.TabIndex = 1;
             // 
             // TxtSoyad
             // 
-            this.TxtSoyad.Location = new System.Drawing.Point(118, 148);
+            this.TxtSoyad.Location = new System.Drawing.Point(107, 148);
             this.TxtSoyad.Name = "TxtSoyad";
             this.TxtSoyad.Size = new System.Drawing.Size(188, 26);
             this.TxtSoyad.TabIndex = 2;
             // 
             // TxtSifre
             // 
-            this.TxtSifre.Location = new System.Drawing.Point(419, 148);
+            this.TxtSifre.Location = new System.Drawing.Point(396, 148);
             this.TxtSifre.Name = "TxtSifre";
             this.TxtSifre.Size = new System.Drawing.Size(188, 26);
             this.TxtSifre.TabIndex = 4;
             // 
             // MskTel
             // 
-            this.MskTel.Location = new System.Drawing.Point(419, 47);
+            this.MskTel.Location = new System.Drawing.Point(396, 47);
             this.MskTel.Mask = "(999) 000-0000";
             this.MskTel.Name = "MskTel";
             this.MskTel.Size = new System.Drawing.Size(188, 26);
@@ -140,6 +142,18 @@
             this.BtnGuncelle.UseVisualStyleBackColor = true;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
+            // BtnSifAcKapa
+            // 
+            this.BtnSifAcKapa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSifAcKapa.FlatAppearance.BorderSize = 0;
+            this.BtnSifAcKapa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSifAcKapa.Location = new System.Drawing.Point(591, 143);
+            this.BtnSifAcKapa.Name = "BtnSifAcKapa";
+            this.BtnSifAcKapa.Size = new System.Drawing.Size(53, 36);
+            this.BtnSifAcKapa.TabIndex = 6;
+            this.BtnSifAcKapa.UseVisualStyleBackColor = true;
+            this.BtnSifAcKapa.Click += new System.EventHandler(this.BtnSifAcKapa_Click);
+            // 
             // AccountSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -155,6 +169,7 @@
             this.Name = "AccountSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hesap Ayarları";
+            this.Load += new System.EventHandler(this.AccountSettingsForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -173,5 +188,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnGuncelle;
+        private System.Windows.Forms.Button BtnSifAcKapa;
     }
 }

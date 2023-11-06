@@ -133,6 +133,26 @@ namespace BankaSimulasyon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Sifreac {
+            get {
+                object obj = ResourceManager.GetObject("Sifreac", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sifrekapat {
+            get {
+                object obj = ResourceManager.GetObject("Sifrekapat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap transferbeyaz {
             get {
                 object obj = ResourceManager.GetObject("transferbeyaz", resourceCulture);
