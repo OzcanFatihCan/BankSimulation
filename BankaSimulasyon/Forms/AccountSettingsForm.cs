@@ -19,5 +19,10 @@ namespace BankaSimulasyon.Forms
             InitializeComponent();
             this.hesapNo = hesap;
         }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
