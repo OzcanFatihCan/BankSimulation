@@ -151,6 +151,30 @@ namespace DataAccessLayer
 
                 throw;
             }
-        }    
+        } 
+        
+        public static bool CustomerUpdate(EntityCustomer ent)
+        {
+            try
+            {
+                SqlCommand komut18 = new SqlCommand("UPDATE MUSTERILER SET AD=@P2,SOYAD=@P3,SIFRE=@P4,TELEFON=@P5 WHERE HESAPNO=@P1",SQLConn.conn);
+                if (komut18.Connection.State!=ConnectionState.Open)
+                {
+                    komut18.Connection.Open();
+                }
+                komut18.Parameters.AddWithValue("@P1",ent.Hesapno);
+                komut18.Parameters.AddWithValue("@P2", ent.Ad);
+                komut18.Parameters.AddWithValue("@P3", ent.Soyad);
+                komut18.Parameters.AddWithValue("@P4", ent.Sifre);
+                komut18.Parameters.AddWithValue("@P5", ent.Telefon);
+                return komut18.ExecuteNonQuery() > 0;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

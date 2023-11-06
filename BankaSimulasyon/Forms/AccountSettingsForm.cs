@@ -37,7 +37,21 @@ namespace BankaSimulasyon.Forms
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
-
+            EntityCustomer ent = new EntityCustomer();
+            ent.Hesapno = hesapNo;
+            ent.Ad = TxtAd.Text;
+            ent.Soyad = TxtSoyad.Text;
+            ent.Sifre = TxtSifre.Text;
+            ent.Telefon = MskTel.Text;
+            bool result=LogicCustomer.LLCustomerUpdate(ent);
+            if (result)
+            {
+                MessageBox.Show("Güncelleme işlemi başarılı", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bilgileri boş bırakmayınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnSifAcKapa_Click(object sender, EventArgs e)

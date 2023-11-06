@@ -81,5 +81,20 @@ namespace LogicLayer
                 return null; 
             }
         }
+        public static bool LLCustomerUpdate(EntityCustomer ent)
+        {
+            if (!string.IsNullOrEmpty(ent.Ad)&&
+                !string.IsNullOrEmpty(ent.Soyad) &&
+                !string.IsNullOrEmpty(ent.Sifre) &&
+                !string.IsNullOrEmpty(ent.Telefon) &&
+                !string.IsNullOrEmpty(ent.Hesapno) )
+            {
+                return DALCustomer.CustomerUpdate(ent);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
