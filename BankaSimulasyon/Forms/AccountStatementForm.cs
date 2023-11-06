@@ -42,7 +42,7 @@ namespace BankaSimulasyon.Forms
         private BindingList<EntityMovementDetailed> movementLogBindingList;
         void AccountStatementFetch()
         {
-            //yenikod
+            
             string hes = hesapNo;
             string aramaMetni = textBox1.Text;
             List<EntityMovementDetailed> historyLog = LogicBank.LLAccountStatementFetch(hes,aramaMetni);
@@ -86,66 +86,20 @@ namespace BankaSimulasyon.Forms
         {
             InfoFetch();
             AccountStatementFetch();
-            //ApplyCellFormatting();
+          
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             AccountStatementFetch();
         }
-
-        private void ApplyCellFormatting()
-        {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-               
-                if (row.Cells["Tutar"].Value != null && row.Cells["Islem"].Value != null)
-                {
-                    string tutar = row.Cells["Tutar"].Value.ToString();
-                    string islem = row.Cells["Islem"].Value.ToString();
-
-                    if (adsoyad == row.Cells["Gonderen"].Value.ToString() &&
-                        adsoyad != row.Cells["Alici"].Value.ToString())
-                    {
-                        row.Cells["Tutar"].Style.BackColor = Color.Red;
-                        row.Cells["Tutar"].Style.ForeColor = Color.White;
-                    }
-                    else if (adsoyad == row.Cells["Gonderen"].Value.ToString() &&
-                        adsoyad == row.Cells["Alici"].Value.ToString() &&
-                        "Para Çekme" == islem)
-                    {
-                        row.Cells["Tutar"].Style.BackColor = Color.Red;
-                        row.Cells["Tutar"].Style.ForeColor = Color.White;
-
-                    }
-                    else if (adsoyad == row.Cells["Alici"].Value.ToString() &&
-                        "Para Yatırma" == islem)
-                    {
-                        row.Cells["Tutar"].Style.BackColor = Color.Green;
-                        row.Cells["Tutar"].Style.ForeColor = Color.White;
-
-                    }
-                    else if (adsoyad == row.Cells["Alici"].Value.ToString() &&
-                        adsoyad != row.Cells["Gonderen"].Value.ToString())
-                    {
-                        row.Cells["Tutar"].Style.BackColor = Color.Green;
-                        row.Cells["Tutar"].Style.ForeColor = Color.White;
-
-                    }
-                    else
-                    {
-                        row.Cells["Tutar"].Style.BackColor = Color.Empty;
-                    }
-                }
-            }
-        }
+  
 
         private void BtnKapat_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-      
+   
         private void LoadTheme()
         {
             //butonların da rengini değiştirmek istersek
