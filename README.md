@@ -52,6 +52,8 @@ https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/9f5720c2-977a-44
 ![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/4413b457-0f50-46ee-837c-5c5a3b1a0252)
 ![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/68e91a2e-2e21-4277-83ae-d1296c3bea98)
 ![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/0979fa81-29db-4d51-9805-2eef7b727f25)
+
+
 Diğer prosedür görselleri için db içerisini kontrol edebilirsiniz.
 
 #### Projenin kurulumu esnasında sorun yaşarsanız, mail adresimden bana ulaşabilirsiniz.
