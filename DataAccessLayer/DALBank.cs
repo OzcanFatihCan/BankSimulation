@@ -267,6 +267,7 @@ namespace DataAccessLayer
                     DebtLog.Add(ent);
                 }
                 dr8.Close();
+                komut15.Connection.Close();
                 return DebtLog;
             }
             catch (Exception)
@@ -279,32 +280,15 @@ namespace DataAccessLayer
         {
             try
             {
-                SqlCommand komut16 = new SqlCommand(
-                   "DECLARE @GonderenHesap char(7);" +                 
-                   "DECLARE @OdenecekTutar DECIMAL(18, 2);" +
-                   "SET @GonderenHesap = @P1;" +                
-                   "SET @OdenecekTutar = @P2;" +
-                   "IF (SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO = @GonderenHesap) >= @OdenecekTutar " +
-                   "BEGIN " +
-                   "BEGIN TRANSACTION;" +
-                   "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @OdenecekTutar WHERE HESAPNO = @GonderenHesap;" +
-                   "UPDATE BORCLAR SET BORC = BORC - @OdenecekTutar WHERE HESAPNO=@GonderenHesap;"+
-                   "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
-                   "VALUES (@GonderenHesap, '5060073',@OdenecekTutar, 'Kredi Ödeme');" +
-                   "COMMIT;" +
-                   "PRINT 'Kredi ödemesi başarıyla tamamlandı.'; " +
-                   "END " +
-                   "ELSE " +
-                   "BEGIN " +
-                   "PRINT 'Yetersiz bakiye! Kredi ödeme iptal edildi.'; " +
-                   "END", SQLConn.conn);
+                SqlCommand komut16 = new SqlCommand("PaymentCreditCardDebt", SQLConn.conn);
+                komut16.CommandType = CommandType.StoredProcedure;
+                komut16.Parameters.AddWithValue("@GonderenHesap", ent.Gonderen);
+                komut16.Parameters.AddWithValue("@OdenecekTutar", ent.Tutar);
 
                 if (komut16.Connection.State != ConnectionState.Open)
                 {
                     komut16.Connection.Open();
                 }
-                komut16.Parameters.AddWithValue("@P1", ent.Gonderen);
-                komut16.Parameters.AddWithValue("@P2", ent.Tutar);
 
                 return komut16.ExecuteNonQuery();
             }
@@ -318,36 +302,22 @@ namespace DataAccessLayer
             try
             {
                 List<EntityMovementDetailed> AccountStatementLog = new List<EntityMovementDetailed>();
-                SqlCommand komut17 = new SqlCommand(
-                    "SELECT " +
-                    "CASE " +
-                    "WHEN GonderenMusteri.HESAPNO IS NULL THEN 'Farklı banka müşterisi' " +
-                    "ELSE ISNULL(GonderenMusteri.AD, '') + ' ' + ISNULL(GonderenMusteri.SOYAD, '') END AS 'Gönderen', " +
-                    "CASE " +
-                    "WHEN AlıcıMusteri.HESAPNO IS NULL THEN 'Farklı banka müşterisi' " +
-                    "ELSE ISNULL(AlıcıMusteri.AD, '') + ' ' + ISNULL(AlıcıMusteri.SOYAD, '') END AS 'Alıcı', " +
-                    "Hareketler.TUTAR, " +
-                    "Hareketler.ISLEM " +
-                    "FROM HAREKETLER " +
-                    "LEFT JOIN MUSTERILER AS GonderenMusteri ON Hareketler.GONDEREN = GonderenMusteri.HESAPNO " +
-                    "LEFT JOIN MUSTERILER AS AlıcıMusteri ON Hareketler.ALICI = AlıcıMusteri.HESAPNO " +
-                    "WHERE (HAREKETLER.GONDEREN = @P1 OR HAREKETLER.ALICI = @P2) " +
-                    "AND Hareketler.ISLEM LIKE @P3", SQLConn.conn);
+                SqlCommand komut17 = new SqlCommand("AccountStatementFetch", SQLConn.conn);
+                komut17.CommandType = CommandType.StoredProcedure;
+                komut17.Parameters.AddWithValue("@HesapNo", hesapNo);
+                komut17.Parameters.AddWithValue("@AramaMetni", aramaMetni);
                 if (komut17.Connection.State != ConnectionState.Open)
                 {
                     komut17.Connection.Open();
                 }
-                komut17.Parameters.AddWithValue("@P1", hesapNo);
-                komut17.Parameters.AddWithValue("@P2", hesapNo);
-                komut17.Parameters.AddWithValue("@P3", "%" + aramaMetni + "%");
                 SqlDataReader dr9 = komut17.ExecuteReader();
                 while (dr9.Read())
                 {
                     EntityMovementDetailed ent = new EntityMovementDetailed();
                     ent.Gonderen = dr9["Gönderen"].ToString();
                     ent.Alici = dr9["Alıcı"].ToString();
-                    ent.Tutar = double.Parse(dr9["Tutar"].ToString());
-                    ent.Islem = dr9["Islem"].ToString();
+                    ent.Tutar = double.Parse(dr9["TUTAR"].ToString());
+                    ent.Islem = dr9["ISLEM"].ToString();
 
                     AccountStatementLog.Add(ent);
                 }

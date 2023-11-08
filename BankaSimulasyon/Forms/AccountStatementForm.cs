@@ -39,7 +39,7 @@ namespace BankaSimulasyon.Forms
             }
         }
 
-        private BindingList<EntityMovementDetailed> movementLogBindingList;
+        
         void AccountStatementFetch()
         {
             
@@ -51,6 +51,7 @@ namespace BankaSimulasyon.Forms
 
             if (historyLog != null)
             {
+                historyLog.Reverse();
                 foreach (var hareket in historyLog)
                 {
                     string tutar = "";
@@ -76,9 +77,14 @@ namespace BankaSimulasyon.Forms
                     {
                         tutar = "+ " + hareket.Tutar + " ₺";
                     }
+                    if (adsoyad == hareket.Alici &&
+                        "Kredi Çekme" == hareket.Islem)
+                    {
+                        tutar = "- " + hareket.Tutar + " ₺";
+                    }
 
                     dataGridView1.Rows.Add(hareket.Gonderen, hareket.Alici, tutar, hareket.Islem);
-                }
+                }           
             }
         }
 
