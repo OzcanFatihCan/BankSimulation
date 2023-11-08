@@ -208,35 +208,16 @@ namespace DataAccessLayer
         {
             try
             {
-                SqlCommand komut13 = new SqlCommand(
-                    "DECLARE @GonderenHesap char(7);" +
-                    "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @CekilecekTutar DECIMAL(18, 2);" +
-                    "SET @GonderenHesap = @P1;" +
-                    "SET @AliciHesap = @P2;" +
-                    "SET @CekilecekTutar = @P3;" +
-                    "IF (SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO = @GonderenHesap) >= @CekilecekTutar " +
-                    "BEGIN " +
-                    "BEGIN TRANSACTION;" +
-                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @CekilecekTutar WHERE HESAPNO = @GonderenHesap;" +                   
-                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
-                    "VALUES (@GonderenHesap, @AliciHesap, @CekilecekTutar, 'Para Çekme');" +
-                    "COMMIT;" +
-                    "PRINT 'Para çekim işlemi tamamlandı'; " +
-                    "END " +
-                    "ELSE " +
-                    "BEGIN " +
-                    "PRINT 'Yetersiz bakiye! Para çekim işlemi iptal edildi.'; " +
-                    "END", SQLConn.conn);
+                SqlCommand komut13 = new SqlCommand("WithdrawalTransaction", SQLConn.conn);
+                komut13.CommandType = CommandType.StoredProcedure;
+                komut13.Parameters.AddWithValue("@GonderenHesap", ent.Alici);
+                komut13.Parameters.AddWithValue("@AliciHesap", ent.Alici);
+                komut13.Parameters.AddWithValue("@CekilecekTutar", ent.Tutar);
 
                 if (komut13.Connection.State != ConnectionState.Open)
                 {
                     komut13.Connection.Open();
                 }
-
-                komut13.Parameters.AddWithValue("@P1", ent.Alici);
-                komut13.Parameters.AddWithValue("@P2", ent.Alici);
-                komut13.Parameters.AddWithValue("@P3", ent.Tutar);
 
                 return komut13.ExecuteNonQuery();
             }
@@ -247,41 +228,18 @@ namespace DataAccessLayer
         }
 
         public static int CreditCardDebt(EntityTransfer ent)
-        { 
+        {
             try
             {
-                SqlCommand komut14 = new SqlCommand(
-                    "DECLARE @GonderenHesap char(7);" +
-                    "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @CekilecekTutar DECIMAL(18, 2);" +
-                    "DECLARE @KrediTutar DECIMAL(18,2);" +
-                    "DECLARE @HesapBakiye DECIMAL(18,2);" +
-                    "SET @GonderenHesap = @P1;" +
-                    "SET @AliciHesap = @P2;" +
-                    "SET @CekilecekTutar = @P3;" +
-                    "BEGIN " +
-                    "SELECT @HesapBakiye= BAKIYE FROM HESAPLAR WHERE HESAPNO=@AliciHesap;" +
-                    "SELECT @KrediTutar= @CekilecekTutar-@HesapBakiye;" +
-                    "BEGIN TRANSACTION;" +
-                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM)" +
-                    "VALUES (@GonderenHesap, @AliciHesap, @HesapBakiye, 'Para Çekme');" +
-                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @HesapBakiye WHERE HESAPNO = @AliciHesap;" +
-                    "UPDATE BORCLAR SET BORC=BORC+@KrediTutar WHERE HESAPNO=@AliciHesap;" +
-                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
-                    "VALUES ('5060073', @AliciHesap, @KrediTutar, 'Kredi Çekme');" +
-                    "COMMIT;" +
-                    "PRINT 'Para çekim işlemi tamamlandı'; " +
-                    "END ", SQLConn.conn) ;
-
+                SqlCommand komut14 = new SqlCommand("CreditCardDebtProcedure", SQLConn.conn);
+                komut14.CommandType = CommandType.StoredProcedure;
+                komut14.Parameters.AddWithValue("@GonderenHesap", ent.Alici);
+                komut14.Parameters.AddWithValue("@AliciHesap", ent.Alici);
+                komut14.Parameters.AddWithValue("@CekilecekTutar", ent.Tutar);
                 if (komut14.Connection.State != ConnectionState.Open)
                 {
                     komut14.Connection.Open();
                 }
-
-                komut14.Parameters.AddWithValue("@P1", ent.Alici);
-                komut14.Parameters.AddWithValue("@P2", ent.Alici);
-                komut14.Parameters.AddWithValue("@P3", ent.Tutar);
-
                 return komut14.ExecuteNonQuery();
             }
             catch (Exception)
