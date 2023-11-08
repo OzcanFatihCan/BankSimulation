@@ -10,12 +10,11 @@ Merhaba,
 * Transaction, yaşanabilecek hatalara karşın banka işleminin iptal edilmesi için kullanıldı
 * Trigger, oluşturulan müşteri hesap numarasından tetiklenerek müşteriye bakiyesini tutabileceği, borçlarını takip edebileceği iki farklı tabloda alan oluşturuldu.
 * CRUD, klasik ekleme, silme, güncelleme işlemi kullanılmıştır. Silme metoduna yer verilmedi.
-
+* Procedure, DataAccessLayerda servis ile ilgili uzun kodları parametreli procedür haline getirmek için kullanıldı.
 
 ### 3.Uygulamanın çalışabilmesi için, 
 
-##### MSSQL'e dosyalar arasında bulunan DB yedeği dahil edilmelidir. DB yedeği backup ile oluşturulmuştur. 
-Database sağ tık Restore Database seçeneği ile açılan sayfada device kısmından indirilen backupı MSSQL'e dahil edebilirsiniz. Veri tabanınızı ayarlamayı unutmayınız.
+##### MSSQL'e dosyalar arasında bulunan DB yedeği dahil edilmelidir. DB yedeği backup ile oluşturulmuştur. Database sağ tık Restore Database seçeneği ile açılan sayfada device kısmından indirilen backupı MSSQL'e dahil edebilirsiniz. Veri tabanınızı ayarlamayı unutmayınız.
 
 
 
@@ -48,6 +47,14 @@ https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/9f5720c2-977a-44
 ![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/04b6b654-5121-44b7-ae60-8f498c7487f5)
 ![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/6eb937a8-55a7-479d-a209-24608dc6e5e8)
 
+##  Procedures
+
+![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/4413b457-0f50-46ee-837c-5c5a3b1a0252)
+![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/68e91a2e-2e21-4277-83ae-d1296c3bea98)
+![image](https://github.com/OzcanFatihCan/BankSimulation/assets/93872480/0979fa81-29db-4d51-9805-2eef7b727f25)
+Diğer prosedür görselleri için db içerisini kontrol edebilirsiniz.
+
+#### Projenin kurulumu esnasında sorun yaşarsanız, mail adresimden bana ulaşabilirsiniz.
 
 
 
