@@ -16,12 +16,15 @@ namespace DataAccessLayer
             try
             {
                 List<EntityMovement> HistoryLog = new List<EntityMovement>();
-                SqlCommand komut5 = new SqlCommand("SELECT AD,SOYAD,ALICI,TUTAR FROM HAREKETLER INNER JOIN MUSTERILER ON HAREKETLER.ALICI=MUSTERILER.HESAPNO WHERE GONDEREN=@P1 AND ISLEM='HAVALE'", SQLConn.conn);
+                SqlCommand komut5 = new SqlCommand("GetMoneyTransferHistory", SQLConn.conn);
+                komut5.CommandType = CommandType.StoredProcedure;
+                komut5.Parameters.AddWithValue("@HesapNo", hesapno);
+
                 if (komut5.Connection.State != ConnectionState.Open)
                 {
                     komut5.Connection.Open();
                 }
-                komut5.Parameters.AddWithValue("@P1", hesapno);
+
                 SqlDataReader dr4 = komut5.ExecuteReader();
                 while (dr4.Read())
                 {
@@ -32,11 +35,11 @@ namespace DataAccessLayer
                     HistoryLog.Add(ent);
                 }
                 dr4.Close();
+                komut5.Connection.Close();
                 return HistoryLog;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -45,37 +48,17 @@ namespace DataAccessLayer
         {
             try
             {
-                SqlCommand komut6 = new SqlCommand(
-                    "DECLARE @GonderenHesap char(7);" +
-                    "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @TransferMiktari DECIMAL(18, 2);" +
-                    "SET @GonderenHesap = @P1;" +
-                    "SET @AliciHesap = @P2;" +
-                    "SET @TransferMiktari = @P3;" +
-                    "IF (SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO = @GonderenHesap) >= @TransferMiktari " +
-                    "BEGIN " +
-                    "BEGIN TRANSACTION;" +
-                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @TransferMiktari WHERE HESAPNO = @GonderenHesap;" +
-                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE + @TransferMiktari WHERE HESAPNO = @AliciHesap;" +
-                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
-                    "VALUES (@GonderenHesap, @AliciHesap, @TransferMiktari, 'Havale');" +
-                    "COMMIT;" +
-                    "PRINT 'Para transferi başarıyla tamamlandı.'; " +
-                    "END " +
-                    "ELSE " +
-                    "BEGIN " +
-                    "PRINT 'Yetersiz bakiye! Para transferi iptal edildi.'; " +
-                    "END", SQLConn.conn);
+                SqlCommand komut6 = new SqlCommand("TransferMoney", SQLConn.conn);
+                komut6.CommandType = CommandType.StoredProcedure;
 
                 if (komut6.Connection.State != ConnectionState.Open)
                 {
                     komut6.Connection.Open();
                 }
-
-                komut6.Parameters.AddWithValue("@P1", ent.Gonderen);
-                komut6.Parameters.AddWithValue("@P2", ent.Alici);
-                komut6.Parameters.AddWithValue("@P3", ent.Tutar);
-
+                komut6.Parameters.AddWithValue("@GonderenHesap", ent.Gonderen);
+                komut6.Parameters.AddWithValue("@AliciHesap", ent.Alici);
+                komut6.Parameters.AddWithValue("@TransferMiktari", ent.Tutar);
+                
                 return komut6.ExecuteNonQuery();
             }
             catch (Exception)
