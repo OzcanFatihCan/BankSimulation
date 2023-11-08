@@ -86,6 +86,7 @@ namespace DataAccessLayer
                     BalanceLog.Add(ent);
                 }
                 dr5.Close();
+                komut7.Connection.Close();
                 return BalanceLog;
             }
             catch (Exception)
@@ -114,6 +115,7 @@ namespace DataAccessLayer
                     BillsLog.Add(ent);
                 }
                 dr6.Close();
+                komut9.Connection.Close();
                 return BillsLog;
             }
             catch (Exception)
@@ -127,41 +129,17 @@ namespace DataAccessLayer
         {
             try
             {
-                SqlCommand komut10 = new SqlCommand(
-                    "DECLARE @GonderenHesap char(7);" +
-                    "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @OdenecekTutar DECIMAL(18, 2);" +
-                    "DECLARE @AboneNumarasi varchar(30);" +
-                    "SET @GonderenHesap = @P1;" +
-                    "SET @AliciHesap = @P2;" +
-                    "SET @OdenecekTutar = @P3;" +
-                    "SET @AboneNumarasi = @P4;" +
-                    "IF (SELECT BAKIYE FROM HESAPLAR WHERE HESAPNO = @GonderenHesap) >= @OdenecekTutar " +
-                    "BEGIN " +
-                    "BEGIN TRANSACTION;" +
-                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE - @OdenecekTutar WHERE HESAPNO = @GonderenHesap;" +
-                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE + @OdenecekTutar WHERE HESAPNO = @AliciHesap;" +
-                    "INSERT INTO FATURALAR (GONDERENNO,ALICINO,ABONENO,TUTAR)" +
-                    "VALUES (@GonderenHesap,@AliciHesap,@AboneNumarasi,@OdenecekTutar)" +
-                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
-                    "VALUES (@GonderenHesap, @AliciHesap, @OdenecekTutar, 'Fatura');" +
-                    "COMMIT;" +
-                    "PRINT 'Fatura ödemesi başarıyla tamamlandı.'; " +
-                    "END " +
-                    "ELSE " +
-                    "BEGIN " +
-                    "PRINT 'Yetersiz bakiye! Fatura ödeme iptal edildi.'; " +
-                    "END", SQLConn.conn);
+                SqlCommand komut10 = new SqlCommand("PayBills", SQLConn.conn);
+                komut10.CommandType = CommandType.StoredProcedure;
+                komut10.Parameters.AddWithValue("@GonderenHesap", ent.GonderenNo);
+                komut10.Parameters.AddWithValue("@AliciHesap", ent.AliciNo);
+                komut10.Parameters.AddWithValue("@OdenecekTutar", ent.Tutar);
+                komut10.Parameters.AddWithValue("@AboneNumarasi", ent.AboneNo);
 
                 if (komut10.Connection.State != ConnectionState.Open)
                 {
                     komut10.Connection.Open();
                 }
-
-                komut10.Parameters.AddWithValue("@P1", ent.GonderenNo);
-                komut10.Parameters.AddWithValue("@P2", ent.AliciNo);
-                komut10.Parameters.AddWithValue("@P3", ent.Tutar);
-                komut10.Parameters.AddWithValue("@P4", ent.AboneNo);
 
                 return komut10.ExecuteNonQuery();
             }
@@ -176,12 +154,15 @@ namespace DataAccessLayer
             try
             {
                 List<EntityMovement> HistoryLog = new List<EntityMovement>();
-                SqlCommand komut11 = new SqlCommand("SELECT AD,ALICI,TUTAR FROM HAREKETLER INNER JOIN MUSTERILER ON HAREKETLER.ALICI=MUSTERILER.HESAPNO WHERE GONDEREN=@P1 AND ISLEM='Fatura'", SQLConn.conn);
+                SqlCommand komut11 = new SqlCommand("GetPayingBillsHistory", SQLConn.conn);
+                komut11.CommandType = CommandType.StoredProcedure;
+                komut11.Parameters.AddWithValue("@HesapNo", hesapno);
+
                 if (komut11.Connection.State != ConnectionState.Open)
                 {
                     komut11.Connection.Open();
                 }
-                komut11.Parameters.AddWithValue("@P1", hesapno);
+
                 SqlDataReader dr7 = komut11.ExecuteReader();
                 while (dr7.Read())
                 {
@@ -192,11 +173,11 @@ namespace DataAccessLayer
                     HistoryLog.Add(ent);
                 }
                 dr7.Close();
+                komut11.Connection.Close();
                 return HistoryLog;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
