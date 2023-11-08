@@ -186,30 +186,16 @@ namespace DataAccessLayer
         {
             try
             {
-                SqlCommand komut12 = new SqlCommand(
-                    "DECLARE @GonderenHesap char(7);" +
-                    "DECLARE @AliciHesap char(7);" +
-                    "DECLARE @YatirilacakTutar DECIMAL(18, 2);" +
-                    "SET @GonderenHesap = @P1;" +
-                    "SET @AliciHesap = @P2;" +
-                    "SET @YatirilacakTutar = @P3;" +                 
-                    "BEGIN " +
-                    "BEGIN TRANSACTION;" +                   
-                    "UPDATE HESAPLAR SET BAKIYE = BAKIYE + @YatirilacakTutar WHERE HESAPNO = @AliciHesap;" +
-                    "INSERT INTO HAREKETLER (GONDEREN, ALICI, TUTAR, ISLEM) " +
-                    "VALUES ('5060073', @AliciHesap, @YatirilacakTutar, 'Para Yatırma');" +
-                    "COMMIT;" +
-                    "PRINT 'Hesaba para geldi.'; " +
-                    "END ",SQLConn.conn);
+                SqlCommand komut12 = new SqlCommand("DepositTransaction", SQLConn.conn);
+                komut12.CommandType = CommandType.StoredProcedure;
+                komut12.Parameters.AddWithValue("@GonderenHesap", ent.Gonderen);
+                komut12.Parameters.AddWithValue("@AliciHesap", ent.Gonderen);
+                komut12.Parameters.AddWithValue("@YatirilacakTutar", ent.Tutar);
 
                 if (komut12.Connection.State != ConnectionState.Open)
                 {
                     komut12.Connection.Open();
                 }
-
-                komut12.Parameters.AddWithValue("@P1", ent.Gonderen);
-                komut12.Parameters.AddWithValue("@P2", ent.Gonderen);
-                komut12.Parameters.AddWithValue("@P3", ent.Tutar);
 
                 return komut12.ExecuteNonQuery();
             }
